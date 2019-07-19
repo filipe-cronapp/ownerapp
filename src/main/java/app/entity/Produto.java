@@ -56,6 +56,13 @@ public class Produto implements Serializable {
   private float valor;
 
   /**
+  * @generated
+  */
+  @Column(name = "quantidade", nullable = false, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.Integer quantidade;
+
+  /**
    * Construtor
    * @generated
    */
@@ -140,6 +147,26 @@ public class Produto implements Serializable {
    */
   public Produto setValor(float valor){
     this.valor = valor;
+    return this;
+  }
+
+  /**
+   * Obtém quantidade
+   * return quantidade
+   * @generated
+   */
+  
+  public java.lang.Integer getQuantidade(){
+    return this.quantidade;
+  }
+
+  /**
+   * Define quantidade
+   * @param quantidade quantidade
+   * @generated
+   */
+  public Produto setQuantidade(java.lang.Integer quantidade){
+    this.quantidade = quantidade;
     return this;
   }
 

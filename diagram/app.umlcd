@@ -801,7 +801,8 @@
         "id:java.lang.String",
         "Sabor:java.lang.String",
         "categoria:Categoria",
-        "valor:float"
+        "valor:float",
+        "quantidade:java.lang.Integer"
       ],
       "methods": [],
       "position": {
@@ -809,8 +810,8 @@
         "y": 510
       },
       "size": {
-        "width": 174.09375,
-        "height": 129.54235076904297
+        "width": 190.125,
+        "height": 140.4170379638672
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -915,6 +916,29 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "quantidade",
+          "type": "java.lang.Integer",
+          "dbName": "quantidade",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Quantidade",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -929,12 +953,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 110,
+          "height": 130,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,160)"
+          "transform": "translate(0,180)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -944,12 +968,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\nSabor\ncategoria\nvalor\n"
+          "text": "id\nSabor\ncategoria\nvalor\nquantidade\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 80.265625,
+          "ref-x": 89.453125,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\nCategoria\nfloat\n"
+          "text": "java.lang.String\njava.lang.String\nCategoria\nfloat\njava.lang.Integer\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
