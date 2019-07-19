@@ -10,16 +10,15 @@ import cronapi.rest.security.CronappSecurity;
 
 
 /**
- * Classe que representa a tabela ROLE
+ * Classe que representa a tabela PRODUTO
  * @generated
  */
 @Entity
-@IdClass(RolePK.class)
-@Table(name = "\"ROLE\"")
+@Table(name = "\"PRODUTO\"")
 @XmlRootElement
-@CronappSecurity(post = "Administrators", get = "Administrators", delete = "Administrators", put = "Administrators")
-@JsonFilter("app.entity.Role")
-public class Role implements Serializable {
+@CronappSecurity
+@JsonFilter("app.entity.Produto")
+public class Produto implements Serializable {
 
   /**
    * UID da classe, necessário na serialização
@@ -35,17 +34,25 @@ public class Role implements Serializable {
   private java.lang.String id = UUID.randomUUID().toString().toUpperCase();
 
   /**
-   * @generated
-   */
-  @Id
-  @JoinColumn(name="fk_user", nullable = false, referencedColumnName = "id", insertable=true, updatable=true)
-  private User user;
+  * @generated
+  */
+  @Column(name = "Sabor", nullable = false, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.String sabor;
+
+  /**
+  * @generated
+  */
+  @ManyToOne
+  @JoinColumn(name="fk_categoria", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  
+  private Categoria categoria;
 
   /**
    * Construtor
    * @generated
    */
-  public Role(){
+  public Produto(){
   }
 
 
@@ -64,28 +71,48 @@ public class Role implements Serializable {
    * @param id id
    * @generated
    */
-  public Role setId(java.lang.String id){
+  public Produto setId(java.lang.String id){
     this.id = id;
     return this;
   }
 
   /**
-   * Obtém user
-   * return user
+   * Obtém sabor
+   * return sabor
    * @generated
    */
   
-  public User getUser(){
-    return this.user;
+  public java.lang.String getSabor(){
+    return this.sabor;
   }
 
   /**
-   * Define user
-   * @param user user
+   * Define sabor
+   * @param sabor sabor
    * @generated
    */
-  public Role setUser(User user){
-    this.user = user;
+  public Produto setSabor(java.lang.String sabor){
+    this.sabor = sabor;
+    return this;
+  }
+
+  /**
+   * Obtém categoria
+   * return categoria
+   * @generated
+   */
+  
+  public Categoria getCategoria(){
+    return this.categoria;
+  }
+
+  /**
+   * Define categoria
+   * @param categoria categoria
+   * @generated
+   */
+  public Produto setCategoria(Categoria categoria){
+    this.categoria = categoria;
     return this;
   }
 
@@ -96,9 +123,8 @@ public class Role implements Serializable {
   public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null || getClass() != obj.getClass()) return false;
-    Role object = (Role)obj;
+    Produto object = (Produto)obj;
     if (id != null ? !id.equals(object.id) : object.id != null) return false;
-    if (user != null ? !user.equals(object.user) : object.user != null) return false;
     return true;
   }
 
@@ -109,7 +135,6 @@ public class Role implements Serializable {
   public int hashCode() {
     int result = 1;
     result = 31 * result + ((id == null) ? 0 : id.hashCode());
-    result = 31 * result + ((user == null) ? 0 : user.hashCode());
     return result;
   }
 

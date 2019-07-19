@@ -10,16 +10,16 @@ import cronapi.rest.security.CronappSecurity;
 
 
 /**
- * Classe que representa a tabela ROLE
+ * Classe que representa a tabela CATEGORIA
  * @generated
  */
 @Entity
-@IdClass(RolePK.class)
-@Table(name = "\"ROLE\"")
+@Table(name = "\"CATEGORIA\"" ,uniqueConstraints=@UniqueConstraint(columnNames={
+"Nome" }))
 @XmlRootElement
-@CronappSecurity(post = "Administrators", get = "Administrators", delete = "Administrators", put = "Administrators")
-@JsonFilter("app.entity.Role")
-public class Role implements Serializable {
+@CronappSecurity
+@JsonFilter("app.entity.Categoria")
+public class Categoria implements Serializable {
 
   /**
    * UID da classe, necessário na serialização
@@ -35,17 +35,24 @@ public class Role implements Serializable {
   private java.lang.String id = UUID.randomUUID().toString().toUpperCase();
 
   /**
-   * @generated
-   */
-  @Id
-  @JoinColumn(name="fk_user", nullable = false, referencedColumnName = "id", insertable=true, updatable=true)
-  private User user;
+  * @generated
+  */
+  @Column(name = "Nome", nullable = false, unique = true, insertable=true, updatable=true)
+  
+  private java.lang.String nome;
+
+  /**
+  * @generated
+  */
+  @Column(name = "Valor", nullable = false, unique = false, insertable=true, updatable=true)
+  
+  private int valor;
 
   /**
    * Construtor
    * @generated
    */
-  public Role(){
+  public Categoria(){
   }
 
 
@@ -64,28 +71,48 @@ public class Role implements Serializable {
    * @param id id
    * @generated
    */
-  public Role setId(java.lang.String id){
+  public Categoria setId(java.lang.String id){
     this.id = id;
     return this;
   }
 
   /**
-   * Obtém user
-   * return user
+   * Obtém nome
+   * return nome
    * @generated
    */
   
-  public User getUser(){
-    return this.user;
+  public java.lang.String getNome(){
+    return this.nome;
   }
 
   /**
-   * Define user
-   * @param user user
+   * Define nome
+   * @param nome nome
    * @generated
    */
-  public Role setUser(User user){
-    this.user = user;
+  public Categoria setNome(java.lang.String nome){
+    this.nome = nome;
+    return this;
+  }
+
+  /**
+   * Obtém valor
+   * return valor
+   * @generated
+   */
+  
+  public int getValor(){
+    return this.valor;
+  }
+
+  /**
+   * Define valor
+   * @param valor valor
+   * @generated
+   */
+  public Categoria setValor(int valor){
+    this.valor = valor;
     return this;
   }
 
@@ -96,9 +123,8 @@ public class Role implements Serializable {
   public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null || getClass() != obj.getClass()) return false;
-    Role object = (Role)obj;
+    Categoria object = (Categoria)obj;
     if (id != null ? !id.equals(object.id) : object.id != null) return false;
-    if (user != null ? !user.equals(object.user) : object.user != null) return false;
     return true;
   }
 
@@ -109,7 +135,6 @@ public class Role implements Serializable {
   public int hashCode() {
     int result = 1;
     result = 31 * result + ((id == null) ? 0 : id.hashCode());
-    result = 31 * result + ((user == null) ? 0 : user.hashCode());
     return result;
   }
 

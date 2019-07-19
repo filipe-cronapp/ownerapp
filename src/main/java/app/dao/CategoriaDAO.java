@@ -17,44 +17,40 @@ import org.springframework.transaction.annotation.*;
  * 
  * @generated
  */
-@Repository("RoleDAO")
+@Repository("CategoriaDAO")
 @Transactional(transactionManager="app-TransactionManager")
-public interface RoleDAO extends JpaRepository<Role, RolePK> {
+public interface CategoriaDAO extends JpaRepository<Categoria, java.lang.String> {
 
   /**
-   * Obtém a instância de Role utilizando os identificadores
+   * Obtém a instância de Categoria utilizando os identificadores
    * 
    * @param id
-   *          Identificador 
-   * @param user_id
    *          Identificador 
    * @return Instância relacionada com o filtro indicado
    * @generated
    */    
-  @Query("SELECT entity FROM Role entity WHERE entity.id = :id AND entity.user.id = :user_id")
-  public Role findOne(@Param(value="id") java.lang.String id, @Param(value="user_id") java.lang.String user_id);
+  @Query("SELECT entity FROM Categoria entity WHERE entity.id = :id")
+  public Categoria findOne(@Param(value="id") java.lang.String id);
 
   /**
-   * Remove a instância de Role utilizando os identificadores
+   * Remove a instância de Categoria utilizando os identificadores
    * 
    * @param id
-   *          Identificador 
-   * @param user_id
    *          Identificador 
    * @return Quantidade de modificações efetuadas
    * @generated
    */    
   @Modifying
-  @Query("DELETE FROM Role entity WHERE entity.id = :id AND entity.user.id = :user_id")
-  public void delete(@Param(value="id") java.lang.String id, @Param(value="user_id") java.lang.String user_id);
+  @Query("DELETE FROM Categoria entity WHERE entity.id = :id")
+  public void delete(@Param(value="id") java.lang.String id);
 
 
 
   /**
-   * Foreign Key user
+   * OneToMany Relation
    * @generated
    */
-  @Query("SELECT entity FROM Role entity WHERE entity.user.id = :id")
-  public Page<Role> findRolesByUser(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM Produto entity WHERE entity.categoria.id = :id")
+  public Page<Produto> findProduto(@Param(value="id") java.lang.String id, Pageable pageable);
 
 }

@@ -14,7 +14,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 	"cronapp.framework.authentication.token",
 	"cronapp.framework.authentication.security",
 	"cronapp.framework.rest",
-    "cronapp.framework.scheduler",
+	"cronapp.framework.scheduler",
 	"auth.permission",
 	"api.rest.events",
 	"api.rest.webservices",
