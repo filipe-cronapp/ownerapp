@@ -42,13 +42,6 @@ public class Categoria implements Serializable {
   private java.lang.String nome;
 
   /**
-  * @generated
-  */
-  @Column(name = "Valor", nullable = false, unique = false, insertable=true, updatable=true)
-  
-  private int valor;
-
-  /**
    * Construtor
    * @generated
    */
@@ -93,26 +86,6 @@ public class Categoria implements Serializable {
    */
   public Categoria setNome(java.lang.String nome){
     this.nome = nome;
-    return this;
-  }
-
-  /**
-   * Obtém valor
-   * return valor
-   * @generated
-   */
-  
-  public int getValor(){
-    return this.valor;
-  }
-
-  /**
-   * Define valor
-   * @param valor valor
-   * @generated
-   */
-  public Categoria setValor(int valor){
-    this.valor = valor;
     return this;
   }
 

@@ -49,6 +49,13 @@ public class Produto implements Serializable {
   private Categoria categoria;
 
   /**
+  * @generated
+  */
+  @Column(name = "valor", nullable = false, unique = false, insertable=true, updatable=true)
+  
+  private float valor;
+
+  /**
    * Construtor
    * @generated
    */
@@ -113,6 +120,26 @@ public class Produto implements Serializable {
    */
   public Produto setCategoria(Categoria categoria){
     this.categoria = categoria;
+    return this;
+  }
+
+  /**
+   * Obtém valor
+   * return valor
+   * @generated
+   */
+  
+  public float getValor(){
+    return this.valor;
+  }
+
+  /**
+   * Define valor
+   * @param valor valor
+   * @generated
+   */
+  public Produto setValor(float valor){
+    this.valor = valor;
     return this;
   }
 

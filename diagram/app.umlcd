@@ -682,8 +682,7 @@
       "name": "Categoria",
       "attributes": [
         "id:java.lang.String",
-        "Nome:java.lang.String",
-        "Valor:int"
+        "Nome:java.lang.String"
       ],
       "methods": [],
       "position": {
@@ -691,8 +690,8 @@
         "y": 516
       },
       "size": {
-        "width": 158.171875,
-        "height": 118.69715118408203
+        "width": 157.171875,
+        "height": 107.89323043823242
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -751,29 +750,6 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
-        },
-        {
-          "name": "Valor",
-          "type": "int",
-          "dbName": "Valor",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Valor",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -788,12 +764,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 90,
+          "height": 70,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,140)"
+          "transform": "translate(0,120)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -803,12 +779,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\nNome\nValor\n"
+          "text": "id\nNome\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 64.34375,
+          "ref-x": 63.34375,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\nint\n"
+          "text": "java.lang.String\njava.lang.String\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -823,16 +799,17 @@
       "attributes": [
         "id:java.lang.String",
         "Sabor:java.lang.String",
-        "categoria:Categoria"
+        "categoria:Categoria",
+        "valor:float"
       ],
       "methods": [],
       "position": {
         "x": 204,
-        "y": 512
+        "y": 510
       },
       "size": {
-        "width": 173.09375,
-        "height": 118.69715118408203
+        "width": 174.09375,
+        "height": 129.54235076904297
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -896,15 +873,42 @@
           "name": "categoria",
           "type": "Categoria",
           "dbName": "fk_categoria",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
-          "isIgnore": false,
-          "isTransien": false,
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "valor",
+          "type": "float",
+          "dbName": "valor",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Preço",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
           "isInsertable": true,
           "isUpdatable": true,
           "isEncryption": false,
@@ -924,12 +928,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 90,
+          "height": 110,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,140)"
+          "transform": "translate(0,160)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -939,12 +943,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\nSabor\ncategoria\n"
+          "text": "id\nSabor\ncategoria\nvalor\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 79.265625,
+          "ref-x": 80.265625,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\nCategoria\n"
+          "text": "java.lang.String\njava.lang.String\nCategoria\nfloat\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
