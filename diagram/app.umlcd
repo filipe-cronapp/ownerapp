@@ -20,13 +20,14 @@
       "restPath": "/api/rest",
       "visionLikePackage": false,
       "chkApi": false,
-      "attrs": {},
       "restSecurity": {
         "get": "authenticated",
         "post": "authenticated",
         "put": "authenticated",
         "delete": "authenticated"
-      }
+      },
+      "generationType": "drop-and-create-tables",
+      "attrs": {}
     },
     {
       "type": "uml.Class",
