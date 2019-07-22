@@ -24,13 +24,6 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
-            <resource>
-                <targetPath>META-INF</targetPath>
-                <directory>config</directory>
-                <includes>
-                    <include>app.config</include>
-                </includes>
-            </resource>
         </resources>
         <plugins>
             <plugin>
