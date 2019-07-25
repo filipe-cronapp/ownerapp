@@ -1045,7 +1045,7 @@ angular.module('datasourcejs', [])
 
           var file = of.value;
           var xhr = new XMLHttpRequest;
-          xhr.open('PUT', url + '/' +  of.field + '/$value');
+          xhr.open('PUT', (window.hostApp || "") + url + '/' +  of.field + '/$value');
           xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
           xhr.setRequestHeader('X-File-Name', file.name);
           xhr.setRequestHeader('Content-Type', (file.type||'application/octet-stream') + ';charset=UTF-8' );

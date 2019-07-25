@@ -2387,7 +2387,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div class=\"k-content\" data-component=\"crn-radioOption\"><input class=\"k-radio\" crn-value=\"\" value=\"value${RANDOM}\" type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios${RANDOM}\">    <label class=\"k-radio-label\" for=\"optionsRadios${RANDOM}\">New option</label>  </div>",
+            "sourceHTML": "<div class=\"k-content\" data-component=\"crn-radioOption\"><input class=\"k-radio\" crn-value=\"\" value=\"value${RANDOM}\" type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios${RANDOM}\" ng-checked=\"\">    <label class=\"k-radio-label\" for=\"optionsRadios${RANDOM}\">New option</label>  </div>",
             "targetSelector": ":self"
           }
         ]
@@ -2396,20 +2396,32 @@
     {
       "name": "crn-radioOption",
       "pallete": false,
+      "text_pt_BR": "Item de opção",
+      "text_en_US": "Radio Item",
       "childrenProperties": [
         {
           "name": "value",
           "selector": "input[value]",
           "displayName_pt_BR": "Valor do campo",
           "displayName_en_US": "Field value",
-          "type": "text"
+          "type": "text",
+          "order": 1
         },
         {
           "name": "content",
           "selector": "label",
           "displayName_pt_BR": "Conteúdo",
           "displayName_en_US": "Content",
-          "type": "content"
+          "type": "content",
+          "order": 2
+        },
+        {
+          "name": "ng-checked",
+          "selector": "input[ng-checked]",
+          "displayName_pt_BR": "Checked",
+          "displayName_en_US": "Checked",
+          "type": "content",
+          "order": 3
         },
         {
           "name": "ng-click",
@@ -4076,6 +4088,7 @@
       "text_en_US": "Combobox",
       "class": "adjust-icon mdi mdi-equal-box",
       "order": 9,
+      "setRandomId":false,
       "designTimeDynamic": true,
       "designTimeHTMLURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/cron-combobox.designtime.html",
       "designTimeSelector": "cron-select",
@@ -4194,6 +4207,12 @@
           "name": "ng-required",
           "selector": "cron-select",
           "type": "logic"
+        },
+        {
+          "name": "id",
+          "selector": "cron-select",
+          "type": "text",
+          "onSave":"javascript:(value)=> {this.currentObject.parent().find('label').attr('for', arguments[0]); return arguments[0];}"
         }
       ]
     },
@@ -5236,6 +5255,34 @@
       "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/social-button-bar.template.html"
     },
     {
+      "name": "crn-list",
+      "text_pt_BR": "Lista Simples",
+      "text_en_US": "Lista Simples",
+      "class": "adjust-icon mdi mdi-login",
+      "wrapper":false,
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/list.template.html",
+      "properties":{
+        "crn-datasource": {
+          "order": 1,
+          "removable": false,
+          "global":true,
+          "type":"pageDatasource"
+        }
+      },
+      "childrenProperties":[
+        {
+          "editExpression": false,
+          "name": "ng-model",
+          "selector": "div",
+          "displayName_pt_BR": "Opção texto",
+          "displayName_en_US": "Option text",
+          "type": "datasourceFieldList",
+          "onSave": "javascript:function() { var result = ''; var splited = arguments[0].split('+'); for (var i = 0; i<splited.length; i++) { if (splited[i].trim().startsWith(\"'\") || splited[i].trim().startsWith('\"')) result += splited[i].trim() + ' + '; else result += 'rowData.' + splited[i].trim() + ' + ';  } result = result.substr(0, result.length - 2); return '{{'+result.trim()+'}}'; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace(/rowData./g,'').replace('{{','').replace('}}','').replace(/\\$/g,''); }"
+        }
+      ]
+    },
+    {
       "name": "crn-rating",
       "text_pt_BR": "Avaliação",
       "text_en_US": "Evaluation",
@@ -5351,6 +5398,38 @@
           "name": "ng-mousemove",
           "selector": "cronapp-rating",
           "type": "event"
+        }
+      ]
+    },
+    {
+      "name": "crn-cron-chat",
+      "text_pt_BR": "Chat",
+      "text_en_US": "Chat",
+      "pallete": false,
+      "order": 2,
+      "class": "adjust-icon mdi mdi-nutrition",
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/webapp/plugins/cronapp-framework-js/components/templates/cron-chat.designtime.html",
+      "designTimeSelector": "cron-chat",
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/components/templates/cron-chat.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "options",
+          "displayName_pt_BR": "Configurações",
+          "displayName_en_US": "Configuration",
+          "removable": false,
+          "global": "true",
+          "selector": "cron-chat",
+          "type": "text",
+          "order": 1
         }
       ]
     }

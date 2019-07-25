@@ -462,6 +462,9 @@
   "hasNextPageName":"Existem mais registros?",
   "hasNextPageDescription":"Função que retorna se existem mais itens a serem carregados pela fonte de dados",
   "compile": "Compilar?",
+  "updateDate": "Alterar data",
+  "functionToUpdateDate": "Função para alterar data",
+  "millisecond": "Millisegundo",
   "socialLogin": "Login por Redes Sociais",
   "socialLoginDescription": "Função que realiza o login por Redes Sociais(Facebook/Github|Google|Linkedin)",
   "clearCacheBeforeOpen": "Limpar Dados de Login ao Sair"

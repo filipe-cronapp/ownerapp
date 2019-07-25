@@ -65,23 +65,9 @@ public class User implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "picture", nullable = true, unique = false, insertable=true, updatable=true)
-  
-  private java.lang.String picture;
-
-  /**
-  * @generated
-  */
   @Column(name = "password", nullable = false, unique = false, insertable=true, updatable=true)
   
   private java.lang.String password;
-
-  /**
-  * @generated
-  */
-  @Column(name = "theme", nullable = true, unique = false, insertable=true, updatable=true)
-  
-  private java.lang.String theme;
 
   /**
    * Construtor
@@ -172,26 +158,6 @@ public class User implements Serializable {
   }
 
   /**
-   * Obtém picture
-   * return picture
-   * @generated
-   */
-  
-  public java.lang.String getPicture(){
-    return this.picture;
-  }
-
-  /**
-   * Define picture
-   * @param picture picture
-   * @generated
-   */
-  public User setPicture(java.lang.String picture){
-    this.picture = picture;
-    return this;
-  }
-
-  /**
    * Obtém password
    * return password
    * @generated
@@ -209,26 +175,6 @@ public class User implements Serializable {
   public User setPassword(java.lang.String password){
     password = password.startsWith(ENCRYPT) ? password : new BCryptPasswordEncoder().encode(password);
     this.password = password;
-    return this;
-  }
-
-  /**
-   * Obtém theme
-   * return theme
-   * @generated
-   */
-  
-  public java.lang.String getTheme(){
-    return this.theme;
-  }
-
-  /**
-   * Define theme
-   * @param theme theme
-   * @generated
-   */
-  public User setTheme(java.lang.String theme){
-    this.theme = theme;
     return this;
   }
 

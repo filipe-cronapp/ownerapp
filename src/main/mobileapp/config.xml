@@ -20,5 +20,5 @@
     </platform>
     <icon src="res/icon.png"/>
     <splash src="res/screen.png"/>
-    <plugin name="cordova-plugin-cronapp" spec="2.1.7"/>
+    <plugin name="cordova-plugin-cronapp" spec="2.2.2"/>
 </widget>

@@ -23,8 +23,8 @@
     "src"
   ],
   "dependencies": {
-    "cronapp-framework-mobile-js": "2.1.29",
-    "cronapp-common-js": "2.1.10",
-    "cronapi-js": "2.1.25"
+    "cronapp-framework-mobile-js": "2.2.2",
+    "cronapp-common-js": "2.2.2",
+    "cronapi-js": "2.2.6"
   }
 }

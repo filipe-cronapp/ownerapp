@@ -94,7 +94,7 @@
   "Format.Hour" : "h:mm:ss a",
   "Format.Money" : "#,#00.00",
   "Format.Decimal" : "#,#00.00",
-  "Format.Integer" : "###,###.",
+  "Format.Integer" : "#,##0.####",
   "DatePicker.today": "Today",
   "DatePicker.clear": "Clean",
   "DatePicker.close": "Close",

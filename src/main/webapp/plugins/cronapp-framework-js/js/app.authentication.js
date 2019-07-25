@@ -125,7 +125,12 @@ var app = (function() {
               .state('home', {
                 url: "/home",
                 controller: 'HomeController',
-                templateUrl: 'views/logged/home.view.html'
+                templateUrl: 'views/logged/home.view.html',
+                resolve: {
+                  data: function ($translate) {
+                    $translate.refresh();
+                  }
+                }
               })
 
               .state('home.pages', {
@@ -313,7 +318,7 @@ app.bindScope = function($scope, obj) {
   var newObj = {};
 
   for (var x in obj) {
-    if (typeof obj[x] == 'string')
+    if (typeof obj[x] == 'string' || typeof obj[x] == 'boolean')
       newObj[x] = obj[x];
     else if (typeof obj[x] == 'function')
       newObj[x] = obj[x].bind($scope);

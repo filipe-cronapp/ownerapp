@@ -1,6 +1,6 @@
 {
     "name": "cronapp-framework-js",
-    "version": "2.1.17",
+    "version": "2.2.11",
     "description": "Javascript library for CronApp's projects",
     "main": "cronapp.framework.js",
     "scripts": {
@@ -37,6 +37,7 @@
     },
     "dependencies": {
         "gulp-babel": "^8.0.0",
-        "gulp-cli": "^2.0.1"
+        "gulp-cli": "^2.0.1",
+        "natives": "^1.1.6"
     }
 }

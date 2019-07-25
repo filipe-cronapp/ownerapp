@@ -1,6 +1,6 @@
 {
   "name": "cronapp-common-js",
-  "version": "2.1.10",
+  "version": "2.2.2",
   "description": "Cronapp Commons Functions",
   "main": "parser.js",
   "scripts": {

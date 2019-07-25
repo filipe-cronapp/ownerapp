@@ -12,27 +12,62 @@
       "class": "adjust-icon mdi mdi-table-large",
       "template": "<datasource name=\"\" entity=\"\" keys=\"\" rows-per-page=\"100\" on-before-create=\"\" on-after-create=\"\" on-before-update=\"\" on-after-update=\"\" on-before-delete=\"\" on-after-delete=\"\" on-after-fill=\"\"><i class=\"cpn cpn-datasource\" ></i></datasource>",
       "properties": {
+        "name": {
+          "removable": false,
+          "global": true,
+          "order": 7,
+          "afterChange": "javascript:function() { var result = arguments[0]; return result.replace(/ /g,''); }"
+        },
         "entity": {
+          "order": 1,
+          "displayName_pt_BR": "Configurações",
+          "displayName_en_US": "Configuration",
           "removable": false,
           "global": true
         },
         "parameters": {
           "removable": false,
-          "global": true
+          "global": true,
+          "order": 3
+        },
+        "parameters-null-strategy": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "default",
+              "value_en_US": "Default",
+              "value_pt_BR": "Padrão"
+            },
+            {
+              "key": "clean",
+              "value_en_US": "Clean Data",
+              "value_pt_BR": "Limpar Dados"
+            },
+            {
+              "key": "ignore",
+              "value_en_US": "Remove Clause",
+              "value_pt_BR": "Remover Cláusula"
+            }
+          ],
+          "order": 3
         },
         "checkrequired": {
           "removable": false,
           "type": "logic",
-          "global": true
+          "global": true,
+          "order": 6
         },
         "lazy": {
           "removable": false,
-          "type": "logic"
+          "type": "logic",
+          "order": 5
         },
         "keys": {
           "removable": false,
           "type": "datasourceKeys",
-          "global": true
+          "global": true,
+          "order": 2
         },
         "on-before-create": {
           "removable": true,
@@ -78,6 +113,15 @@
           "removable": false,
           "global": true,
           "type": "pageDatasourceObject"
+        },
+        "class": {
+          "order": 9999
+        },
+        "order-by": {
+          "order": 4
+        },
+        "condition": {
+          "order": 2
         }
       }
     },
@@ -89,6 +133,12 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/anchor.template.html",
       "properties": {
+        "id": {
+          "order": 3
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-click": {
           "type": "event"
         },
@@ -132,7 +182,8 @@
               "key": "_top",
               "value": "Top"
             }
-          ]
+          ],
+          "order": 2
         },
         "href": {
           "removable": false,
@@ -140,7 +191,8 @@
           "resourceType": "text/html",
           "extraOptions": {
             "underViewsFolder": true
-          }
+          },
+          "order": 1
         },
         "xattr-fullsize": {
           "displayName": "Width"
@@ -311,6 +363,12 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
       "forcedGroup":true,
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-position": {
           "displayName": "Position"
         },
@@ -419,14 +477,16 @@
           "selector":"img",
           "removable": false,
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 3
         },
         {
           "name":"content",
           "displayName_pt_BR": "Título",
           "displayName_en_US": "Title",
           "selector":"h2",
-          "type":"content"
+          "type":"content",
+          "order": 1
         },
         {
           "name":"xattr-theme",
@@ -440,7 +500,8 @@
           "displayName_pt_BR": "Subtítulo",
           "displayName_en_US": "Subtitle",
           "selector":"h3",
-          "type":"content"
+          "type":"content",
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -513,13 +574,20 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-position": {
           "displayName": "Position"
         },
         "href": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "text/html",
+          "order": 4
         },
         "ng-click": {
           "removable": false,
@@ -678,7 +746,8 @@
         {
           "name":"content",
           "selector":"h2",
-          "type":"content"
+          "type":"content",
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -692,7 +761,8 @@
           "selector":"i",
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
-          "type":"icon"
+          "type":"icon",
+          "order": 1
         },
         {
           "name":"xattr-icon-size",
@@ -742,13 +812,20 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-position": {
           "displayName": "Position"
         },
         "href": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "text/html",
+          "order": 4
         },
         "ng-click": {
           "removable": false,
@@ -874,12 +951,14 @@
           "selector":"img",
           "removable": false,
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 1
         },
         {
           "name":"content",
           "selector":"h2",
-          "type":"content"
+          "type":"content",
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -910,6 +989,14 @@
       "text_en_US": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "ng-model",
@@ -919,7 +1006,8 @@
         {
           "name": "content",
           "selector": "span",
-          "type": "content"
+          "type": "content",
+          "order": 1
         },
         {
           "name": "xattr-theme",
@@ -1023,17 +1111,20 @@
       "class": "adjust-icon mdi mdi-view-sequential",
       "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        "id": {
+          "order": 3
+        },
+        "ng-repeat": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
         },
         "href": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "text/html",
+          "order": 4
         },
         "ng-click": {
           "removable": false,
@@ -1062,9 +1153,19 @@
       },
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "selector": "ion-item",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type":"pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
+        },
+        {
           "name":"content",
           "selector":"ion-item",
-          "type":"content"
+          "type":"content",
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -1174,12 +1275,14 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
       "forcedGroup":true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        "ng-repeat": {
+          "order": 2
+        },
+        "id": {
+          "order": 3
+        },
+        "class": {
+          "order": 9999
         }
       },
       "attributesForPreview": [
@@ -1277,11 +1380,21 @@
       ],
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type":"pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
+        },
+        {
           "name":"src",
           "selector":"img",
           "removable": false,
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 5
         },
         {
           "name":"xattr-position",
@@ -1295,7 +1408,8 @@
           "displayName_pt_BR": "Título",
           "displayName_en_US": "Title",
           "selector":"h2",
-          "type":"content"
+          "type":"content",
+          "order": 3
         },
         {
           "name":"xattr-theme",
@@ -1309,7 +1423,8 @@
           "displayName_pt_BR": "Subtítulo",
           "displayName_en_US": "Subtitle",
           "selector":"h3",
-          "type":"content"
+          "type":"content",
+          "order": 4
         },
         {
           "name":"xattr-theme",
@@ -1381,14 +1496,16 @@
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.icon.template.html",
-      "forcedGroup":true,
+      "forcedGroup": true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        "ng-repeat": {
+          "order": 2
+        },
+        "id": {
+          "order": 3
+        },
+        "class": {
+          "order": 9999
         }
       },
       "attributesForPreview": [
@@ -1486,9 +1603,19 @@
       ],
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "selector":"div",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
+        },
+        {
           "name":"content",
           "selector":"h2",
-          "type":"content"
+          "type":"content",
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -1509,7 +1636,8 @@
           "selector":"i",
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
-          "type":"icon"
+          "type":"icon",
+          "order": 1
         },
         {
           "name":"xattr-theme",
@@ -1578,12 +1706,14 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        "id": {
+          "order": 3
+        },
+        "ng-repeat": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
         },
         "ng-click": {
           "removable": false,
@@ -1709,7 +1839,8 @@
           "selector":"img",
           "removable": false,
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 1
         },
         {
           "name":"xattr-position",
@@ -1719,7 +1850,8 @@
         {
           "name":"content",
           "selector":"h2",
-          "type":"content"
+          "type":"content",
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -1790,6 +1922,12 @@
         }
       ],
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "onclick": {
           "type": "event"
         }
@@ -1819,6 +1957,12 @@
       "class": "adjust-icon mdi mdi-view-sequential",
       "template": "<ion-item  class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
       "properties": {
+        "id": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-theme": {
           "displayName": "Theme"
         },
@@ -1935,6 +2079,12 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-click": {
           "removable": false,
           "type": "event"
@@ -1962,16 +2112,16 @@
       },
       "childrenProperties": [
         {
+          "name": "content",
+          "selector": "div",
+          "type": "content"
+        },
+        {
           "name": "ng-model",
           "selector": "select",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
-        {
-          "name": "content",
-          "selector": "div",
-          "type": "content"
         }
       ],
       "handleRules": {
@@ -2022,6 +2172,12 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamic-combobox.template.html",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-click": {
           "removable": false,
           "type": "event"
@@ -2049,17 +2205,19 @@
       },
       "childrenProperties": [
         {
-          "name": "content",
-          "selector": "span",
-          "type":"content"
-        },
-        {
           "name": "crn-datasource",
           "selector": "select",
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
+        },
+        {
+          "name": "content",
+          "selector": "span",
+          "type":"content",
+          "order": 2
         },
         {
           "name": "ng-model",
@@ -2068,21 +2226,24 @@
           "displayName_en_US": "Field",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 3
         },
         {
           "name": "xkey-field",
           "selector": "select",
           "displayName_pt_BR": "Campo Chave",
           "displayName_en_US": "Key Field",
-          "type": "datasourceFieldList"
+          "type": "datasourceFieldList",
+          "order": 4
         },
         {
           "name": "xdisplay-field",
           "selector": "select",
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
-          "type": "datasourceFieldList"
+          "type": "datasourceFieldList",
+          "order": 5
         }
       ],
       "styles": [
@@ -2111,30 +2272,36 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
         "properties": {
-        "ng-click": {
-          "removable": false,
-          "type": "event"
-        },
-        "on-hold": {
-           "removable": false,
+          "id": {
+            "order": 1
+          },
+          "class": {
+            "order": 9999
+          },
+          "ng-click": {
+            "removable": false,
             "type": "event"
-        },
-        "on-double-tap": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-tap": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-swipe": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-drag": {
-           "removable": false,
-            "type": "event"
-        }
+          },
+          "on-hold": {
+             "removable": false,
+              "type": "event"
+          },
+          "on-double-tap": {
+             "removable": false,
+              "type": "event"
+          },
+          "on-tap": {
+             "removable": false,
+              "type": "event"
+          },
+          "on-swipe": {
+             "removable": false,
+              "type": "event"
+          },
+          "on-drag": {
+             "removable": false,
+              "type": "event"
+          }
       },
       "childrenProperties": [
         {
@@ -2143,7 +2310,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
         },
         {
           "name": "ng-model",
@@ -2197,9 +2365,37 @@
       "wrapper":false,
       "template": "<textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
       "properties": {
+        "class": {
+          "order": 9999
+        },
+        "cronapp-security": {
+          "order": 9998
+        },
+        "id": {
+          "order": 9996
+        },
+        "ng-show": {
+          "order": 9997
+        },
+        "style": {
+          "order": 9997
+        },
         "ng-model": {
-          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
+          "order": 1
+        },
+        "ng-initial-value": {
+          "order": 2
+        },
+        "placeholder": {
+          "order": 3
+        },
+        "rows": {
+          "order": 4
+        },
+        "maxlength": {
+          "order": 5
         },
         "ng-keydown": {
           "type": "event"
@@ -2250,6 +2446,12 @@
       "class": "adjust-icon mdi mdi-magnify",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "crn-datasource": {
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
@@ -2377,6 +2579,14 @@
       "text_en_US": "Complex Filter",
       "class": "adjust-icon mdi mdi-filter",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/complexsearch.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "styles": [
         {
           "selector": "div#{id} .button",
@@ -2413,17 +2623,28 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/filterbutton.template.html",
       "properties": {
+        "id": {
+          "order": 7
+        },
+        "type": {
+          "order": 6
+        },
+        "class": {
+          "order": 9999
+        },
         "crn-datasource": {
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "removable": false,
-          "type": "pageDatasource"
+          "type": "pageDatasource",
+          "order": 1
         },
         "cronapp-filter-caseinsensitive": {
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "childrenProperty": true
+          "childrenProperty": true,
+          "order": 2
         },
         "ng-click": {
           "removable": true,
@@ -2450,16 +2671,20 @@
           "type": "event"
         },
         "xattr-fullsize": {
-          "displayName": "Width"
+          "displayName": "Width",
+          "order": 5
         },
         "xattr-theme": {
-          "displayName": "Theme"
+          "displayName": "Theme",
+          "order": 4
         },
         "xattr-type": {
-          "displayName": "Style Type"
+          "displayName": "Style Type",
+          "order": 6
         },
         "xattr-size": {
-          "displayName": "Size"
+          "displayName": "Size",
+          "order": 3
         }
       },
       "attributesForPreview": [
@@ -2700,6 +2925,14 @@
       "class": "adjust-icon mdi mdi-toggle-switch",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/range.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "class",
@@ -2791,25 +3024,36 @@
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/textinput.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "placeholder",
           "selector": "input[placeholder]",
           "displayName_pt_BR": "Sugestão",
           "displayName_en_US": "Placeholder",
-          "type":"text"
+          "type":"text",
+          "order": 3
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
           "displayName_pt_BR": "Campo",
           "displayName_en_US": "Field",
-          "type":"text"
+          "type":"text",
+          "order": 1
         },
         {
           "name": "type",
           "selector": "input[type]",
-          "type":"inputType"
+          "type":"inputType",
+          "order": 2
         },
         {
           "name": "ng-keydown",
@@ -2872,28 +3116,40 @@
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/floattextinput.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "content",
           "selector": "span",
           "type": "content",
           "displayName_pt_BR": "Conteúdo",
-          "displayName_en_US": "Label"
+          "displayName_en_US": "Label",
+          "order": 1
         },
         {
           "name": "placeholder",
           "selector": "input[placeholder]",
-          "type":"text"
+          "type":"text",
+          "order": 4
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "type":"text"
+          "type":"text",
+          "order": 2
         },
         {
           "name": "type",
           "selector": "input[type]",
-          "type":"inputType"
+          "type":"inputType",
+          "order": 3
         },
         {
           "name": "ng-keydown",
@@ -2961,28 +3217,40 @@
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/inlinetextinput.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "content",
           "selector": "span",
           "type": "content",
           "displayName_pt_BR": "Rótulo",
-          "displayName_en_US": "Label"
+          "displayName_en_US": "Label",
+          "order": 1
         },
         {
           "name": "placeholder",
           "selector": "input[placeholder]",
-          "type":"text"
+          "type":"text",
+          "order": 4
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "type":"text"
+          "type":"text",
+          "order": 2
         },
         {
           "name": "type",
           "selector": "input[type]",
-          "type":"inputType"
+          "type":"inputType",
+          "order": 3
         },
 		{
           "name": "ng-keydown",
@@ -3055,28 +3323,40 @@
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/icontextinput.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "class",
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
           "selector": "i",
-          "type": "icon"
+          "type": "icon",
+          "order": 1
         },
         {
           "name": "placeholder",
           "selector": "input[placeholder]",
-          "type": "text"
+          "type": "text",
+          "order": 4
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "type": "text"
+          "type": "text",
+          "order": 2
         },
         {
           "name": "type",
           "selector": "input[type]",
-          "type":"inputType"
+          "type":"inputType",
+          "order": 3
         },
         {
           "name": "ng-keydown",
@@ -3145,9 +3425,16 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/radiogroup.template.html",
       "properties": {
+        "id": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
         }
       },
       "handleRules": {
@@ -3237,16 +3524,24 @@
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
       "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
-      "childrenProperties":[
-        {
-          "name": "ng-model",
-          "selector": "input",
-          "type":"text"
+      "properties": {
+        "class": {
+          "order": 9999
         },
+        "id": {
+          "order": 1
+        }
+      },
+      "childrenProperties":[
         {
           "name": "content",
           "selector": "span",
           "type":"content"
+        },
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type":"text"
         },
         {
           "name": "ng-click",
@@ -3298,7 +3593,15 @@
       "text_en_US": "Spacer",
       "class": " adjust-icon mdi mdi-file-presentation-box",
       "wrapper": false,
-      "template": "<div style= \"height: 100px;\">&nbsp;</div>"
+      "template": "<div style= \"height: 100px;\">&nbsp;</div>",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      }
     },
     {
       "name": "crn-video",
@@ -3307,6 +3610,14 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
       "forceGroup" : true,
       "wrapper": false,
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "groupedChildren": [
         {
           "text_pt_BR": "Imagem",
@@ -3320,7 +3631,15 @@
       "text_pt_BR": "Mapa",
       "text_en_US": "Map",
       "class": " adjust-icon mdi mdi-google-maps",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/maps.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/maps.template.html",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      }
     },
     {
       "name": "crn-slider",
@@ -3332,7 +3651,14 @@
       "wrapper": false,
       "properties": {
         "xattr-collapse": {
-          "displayName": "Collapse"
+          "displayName": "Collapse",
+          "order": 1
+        },
+        "id": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
         }
       },
       "attributesForPreview": [
@@ -3507,6 +3833,14 @@
       "class": "adjust-icon mdi mdi-crop-square",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/card.template.html",
+      "properties": {
+        "id": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties":[
         {
           "name":"content",
@@ -3558,7 +3892,15 @@
       "text_en_US": "Container",
       "class": "adjust-icon mdi mdi-select",
       "wrapper": false,
-      "template": "<div data-replace=\"true\">&nbsp;</div>"
+      "template": "<div data-replace=\"true\">&nbsp;</div>",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      }
     },
     {
       "name": "crn-heading",
@@ -3568,6 +3910,12 @@
       "wrapper": false,
       "template": "<h1>Title</h1>",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-position": {
           "displayName": "Position"
         },
@@ -3630,6 +3978,12 @@
       "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"\" xattr-size=\"\"/>",
       "wrapper": false,
       "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        },
         "ng-click": {
           "removable": false,
           "type": "event"
@@ -3701,6 +4055,12 @@
       "wrapper": false,
       "template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly Paragraph</p>",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-position": {
           "displayName": "Position"
         },
@@ -3769,6 +4129,12 @@
       "wrapper": false,
       "template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "xattr-position": {
           "displayName": "Position"
         },
@@ -3909,6 +4275,12 @@
         }
       ],
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "onclick": {
           "type": "event"
         }
@@ -3958,6 +4330,15 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
       "properties": {
+        "id": {
+          "order": 7
+        },
+        "type": {
+          "order": 6
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-click": {
           "removable": true,
           "type": "event"
@@ -3983,16 +4364,20 @@
           "type": "event"
         },
         "xattr-fullsize": {
-          "displayName": "Width"
+          "displayName": "Width",
+          "order": 4
         },
         "xattr-theme": {
-          "displayName": "Theme"
+          "displayName": "Theme",
+          "order": 3
         },
         "xattr-type": {
-          "displayName": "Style Type"
+          "displayName": "Style Type",
+          "order": 5
         },
         "xattr-size": {
-          "displayName": "Size"
+          "displayName": "Size",
+          "order": 2
         }
       },
       "attributesForPreview": [
@@ -4173,7 +4558,8 @@
           "selector": "i",
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
-          "type": "icon"
+          "type": "icon",
+          "order": 1
         },
         {
           "name": "xattr-icon-theme",
@@ -4213,6 +4599,14 @@
       "class": "adjust-icon mdi mdi-view-module",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button-bar.template.html",
       "forcedGroup": true,
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      },
       "handleRules": {
         "canIncrement": true,
         "rules": [
@@ -4392,6 +4786,9 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
       "properties":{
+        "class":{
+          "order": 9999
+        },
         "align-title":{
           "displayName_pt_BR": "Alinhamento do Título",
           "displayName_en_US": "Title Align"
@@ -4543,6 +4940,12 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-footer-bar.template.html",
       "properties":{
+        "id": {
+          "order": 9998
+        },
+        "class": {
+          "order": 9999
+        },
         "align-title":{
           "displayName_pt_BR": "Alinhamento do Título",
           "displayName_en_US": "Title Align"
@@ -4705,6 +5108,9 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab.template.html",
       "forcedGroup": true,
       "properties": {
+        "class": {
+          "order": 9999
+        },
         "on-double-tap": {
           "type": "event"
         },
@@ -4815,21 +5221,25 @@
         "icon-on":{
           "displayName_pt_BR": "Ícone ativo",
           "displayName_en_US": "Active Icon",
-          "type":"icon"
+          "type":"icon",
+          "order": 3
         },
         "icon-off":{
           "displayName_pt_BR": "Ícone Inativo",
           "displayName_en_US": "Inactive Icon",
-          "type":"icon"
+          "type":"icon",
+          "order": 4
         },
         "href": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "text/html",
+          "order": 2
         },
         "ng-click":{
           "removable": false,
-          "type": "event"
+          "type": "event",
+          "order": 1
         }
       }
     },
@@ -4842,6 +5252,12 @@
       "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/textinputbutton.template.html",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "on-hold": {
            "removable": false,
             "type": "event"
@@ -4859,17 +5275,20 @@
         {
           "name": "placeholder",
           "selector": "input[placeholder]",
-          "type":"text"
+          "type":"text",
+          "order": 3
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "type":"text"
+          "type":"text",
+          "order": 1
         },
         {
           "name": "type",
           "selector": "input[type]",
-          "type":"inputType"
+          "type":"inputType",
+          "order": 2
         },
         {
           "name": "ng-click",
@@ -5243,6 +5662,12 @@
       "class": "adjust-icon mdi mdi-cloud-upload",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicfile.template.html",
       "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
@@ -5310,13 +5735,21 @@
       "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/qr-code.png\"/>",
       "designTimeSelector": "div",
       "properties": {
+        "id": {
+          "order": 3
+        },
+        "class": {
+          "order": 9999
+        },
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "order": 1
         },
         "qr": {
           "removable": false,
-          "displayName": "QR Code"
+          "displayName": "QR Code",
+          "order": 2
         },
         "on-hold": {
            "removable": false,
@@ -5349,6 +5782,14 @@
       "template": "<div class=\"col-xs-12\"> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
       "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
       "designTimeSelector": "canvas",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties":[
         {
           "name":"id",
@@ -5375,7 +5816,14 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
       "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Title</h2><p>Subtitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
-      "properties": {},
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "options",
@@ -5460,7 +5908,14 @@
       "template": "<cron-infinite-scroll crn-datasource=\"\"></cron-infinite-scroll>",
       "designTimeHTML": "<img style=\"height: 7%;width:10%;min-height:7%; min-width:7%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
       "designTimeSelector": "cron-infinite-scroll",
-      "properties": {},
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "crn-datasource",
