@@ -10,7 +10,7 @@
       "stopOnEntry": false,
       "mainClass": "org.apache.catalina.startup.Bootstrap",
       "args": "start",
-      "projectName": "io.cronapp.apps.ownerapp"
+      "projectName": "io.cronapp.apps.testebloco"
     }
   ]
 }
