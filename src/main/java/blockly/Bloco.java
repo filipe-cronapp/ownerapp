@@ -27,8 +27,9 @@ public static Var Executar() throws Exception {
    public Var call() throws Exception {
     objetoJson = cronapi.util.Operations.getURLFromOthers(Var.valueOf("GET"), Var.valueOf("application/json"), Var.valueOf("https://my-api-strapi.herokuapp.com/produtos"), Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL);
     listas = cronapi.json.Operations.toList(objetoJson);
-    for (Iterator it_i = objetoJson.iterator(); it_i.hasNext();) {
+    for (Iterator it_i = listas.iterator(); it_i.hasNext();) {
         i = Var.valueOf(it_i.next());
+        cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.Nome"), cronapi.object.Operations.getObjectField(i, Var.valueOf("nome")));
         System.out.println(cronapi.object.Operations.getObjectField(i, Var.valueOf("nome")).getObjectAsString());
     } // end for
     return Var.VAR_NULL;
