@@ -99,5 +99,11 @@
   "Permission.view.Salvar": "Salvar",
   "Permission.view.Voltar": "Voltar",
   "template.crud.clickToAddImage": "Clique para adicionar imagem",
-  "template.crud.clickToAddFile": "Clique para adicionar arquivo"
+  "template.crud.clickToAddFile": "Clique para adicionar arquivo",
+  "Usuário": "Usuário",
+  "Senha": "Senha",
+  "Entrar": "Entrar",
+  "username": "Usuário",
+  "password": "Senha",
+  "login": "ENTRAR"
 }

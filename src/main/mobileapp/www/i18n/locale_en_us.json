@@ -99,5 +99,12 @@
   "Permission.view.Salvar": "Save",
   "Permission.view.Voltar": "Cancel",
   "template.crud.clickToAddImage": "Click to add image",
-  "template.crud.clickToAddFile": "Click to add file"
+  "template.crud.clickToAddFile": "Click to add file",
+  "Login": "",
+  "Usuário": "User",
+  "Senha": "Password",
+  "Entrar": "Enter",
+  "username": "Username",
+  "password": "Password",
+  "login": "LOGIN"
 }
