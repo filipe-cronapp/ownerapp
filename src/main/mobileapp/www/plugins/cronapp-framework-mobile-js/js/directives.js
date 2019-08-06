@@ -64,7 +64,11 @@ window.addEventListener('message', function(event) {
     return result;
   }
 
-  app.directive('asDate', maskDirectiveAsDate)
+  app.directive('asDate', maskDirectiveAsDate);
+
+  app.directive('input', transformText);
+
+  app.directive('textarea', transformText)
 
   .directive('ngDestroy', function() {
     return {
@@ -1242,7 +1246,6 @@ function maskDirective($compile, $translate, attrName) {
       if(attrName == 'as-date' && attrs.mask !== undefined)
         return;
 
-
       var $element = $(element);
 
       var type = $element.attr("type");
@@ -1279,6 +1282,13 @@ function maskDirective($compile, $translate, attrName) {
       }
 
       var mask = attrMask.replace(';1', '').replace(';0', '').replace(';local', '').trim();
+
+      var keyboard = attrs.keyboard;
+      var keyboardDecimalChar = $translate.instant('keyboardDecimalChar') && $translate.instant('keyboardDecimalChar').length == 1 ? $translate.instant('keyboardDecimalChar') : ',';
+
+      if (keyboard) {
+        parseKeyboardType(keyboard, keyboardDecimalChar, $element)
+      }
 
       if (mask == undefined || mask.length == 0) {
         return;
@@ -1339,6 +1349,14 @@ function maskDirective($compile, $translate, attrName) {
 
         var currency = mask.trim().replace(/\./g, '').replace(/\,/g, '').replace(/#/g, '').replace(/0/g, '').replace(/9/g, '');
 
+        if (!keyboard) {
+          if(type == 'integer' || type == 'money-decimal') {
+            keyboard = "integer"
+          } else {
+            keyboard = "number";
+          }
+        }
+
         var prefix = '';
         var suffix = '';
         var thousands = '';
@@ -1376,7 +1394,6 @@ function maskDirective($compile, $translate, attrName) {
           var strD = pureMask.substring(pureMask.indexOf(dMask) + 1);
           precision = strD.length;
         }
-
 
         var inputmaskType = 'numeric';
 
@@ -1429,8 +1446,13 @@ function maskDirective($compile, $translate, attrName) {
           });
         }
       }
-
       else if (type == 'text' || type == 'tel') {
+
+        if (!keyboard) {
+          if(type == 'tel') {
+            keyboard = "tel"
+          }
+        }
 
         var options = {};
         if (attrs.maskPlaceholder) {
@@ -1463,7 +1485,31 @@ function maskDirective($compile, $translate, attrName) {
           });
         }
       }
+      else if(type == 'email' || type == 'password' || type == 'search'){
+        if (!keyboard) {
+          keyboard = type;
+        }
+      }
+
+      if (keyboard) {
+        parseKeyboardType(keyboard, keyboardDecimalChar, $element)
+      }
     }
+  }
+}
+
+function parseKeyboardType(keyboard, keyboardDecimalChar, $element) {
+  if(keyboard == 'integer' || keyboard == 'number' || keyboard == 'tel') {
+    $element.attr('pattern', "\\d*");
+    $element.attr('inputmode', "decimal");
+  }
+  if(keyboard == 'tel' || keyboard == 'email' || keyboard == 'search' || keyboard == 'password'){
+    $element.attr('type', keyboard);
+  }
+  if(cordova.platformId === "ios" && keyboard == 'number') {
+    $element.attr('decimal', "true");
+    $element.attr('allow-multiple-decimals', "true");
+    $element.attr('decimal-char', keyboardDecimalChar);
   }
 }
 
@@ -1523,4 +1569,34 @@ function parseMaskType(type, $translate) {
   }
 
   return type;
+}
+
+function transformText() {
+  return {
+    restrict: 'E',
+    require: '?ngModel',
+    link: function(scope, elem, attrs, ngModelCtrl) {
+
+      var textTransform = function(element, value) {
+        if (element && value) {
+          if(element.css('text-transform') === 'uppercase'){
+            return value.toUpperCase();
+          } else if(element.css('text-transform') === 'lowercase'){
+            return value.toLowerCase();
+          }
+          return value
+        }
+      }
+
+      if (ngModelCtrl) {
+        ngModelCtrl.$formatters.push(function (result) {
+          return textTransform(elem,result)
+        });
+
+        ngModelCtrl.$parsers.push(function (result) {
+          return textTransform(elem,result)
+        });
+      }
+    }
+  }
 }

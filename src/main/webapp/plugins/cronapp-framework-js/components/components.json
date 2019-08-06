@@ -513,6 +513,8 @@
     },
     {
       "name": "crn-datasource",
+      "onDrop": "openEditor:entity",
+      "onDoubleClick": "openEditor:entity",
       "wrapper": false,
       "autoWrapper": false,
       "order": 1,
@@ -532,7 +534,8 @@
           "displayName_pt_BR": "Configurações",
           "displayName_en_US": "Configuration",
           "removable": false,
-          "global": true
+          "global": true,
+          "mandatory": true
         },
         "parameters": {
           "removable": false,
@@ -576,7 +579,8 @@
           "removable": false,
           "type": "datasourceKeys",
           "global": true,
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         "on-before-create": {
           "removable": true,
@@ -672,7 +676,8 @@
           "selector": "input",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "type",
@@ -804,7 +809,8 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -889,7 +895,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "class": {
           "order": 9999
@@ -909,7 +916,8 @@
           "name": "ng-model",
           "selector": "div[dynamic-file]",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -1047,7 +1055,8 @@
           "name": "ng-model",
           "selector": "input",
           "type": "text",
-          "order": 6
+          "order": 6,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -1354,7 +1363,8 @@
         "src": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "mandatory": true
         },
         "ng-init": {
           "removable": true,
@@ -1613,7 +1623,8 @@
           "selector": "input",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "type",
@@ -1742,7 +1753,8 @@
           "selector": "input",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "type",
@@ -1850,7 +1862,8 @@
       "properties": {
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         "class": {
           "order": 9999
@@ -1868,7 +1881,8 @@
         {
           "name": "ng-model",
           "selector": "input",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "ng-init",
@@ -2023,7 +2037,8 @@
       "properties": {
         "ng-model": {
           "displayName": "Field",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "ng-init": {
           "removable": true,
@@ -2226,7 +2241,8 @@
           "displayName_en_US": "Field",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         }
       },
       "handleRules": {
@@ -2248,7 +2264,8 @@
         {
           "name": "ng-model",
           "selector": "ui-select",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "ng-required",
@@ -2295,7 +2312,8 @@
           "displayName_en_US": "Field",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "editExpression": false,
@@ -2350,7 +2368,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "class": {
           "order": 9999
@@ -2503,7 +2522,8 @@
           "selector": "input",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "ng-false-value",
@@ -2519,6 +2539,8 @@
     },
     {
       "name": "crn-navbar",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Barra de navegação",
       "text_en_US": "Navbar",
       "class": "adjust-icon mdi mdi-tab",
@@ -2593,7 +2615,8 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-init",
@@ -2891,7 +2914,8 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field"
+          "displayName_en_US": "Field",
+          "mandatory": true
         },
         {
           "name": "repeat",
@@ -2903,7 +2927,8 @@
       "properties": {
         "ng-model": {
           "displayName": "Field",
-          "placehold": "ng-model"
+          "placehold": "ng-model",
+          "mandatory": true
         }
       }
     },
@@ -3058,7 +3083,8 @@
         {
           "name": "ng-model",
           "selector": "textarea",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "rows",
@@ -3217,7 +3243,8 @@
           "selector": "input",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3352,7 +3379,8 @@
           "selector": "input",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3457,7 +3485,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "qr": {
           "removable": false,
@@ -3636,6 +3665,8 @@
     },
     {
       "name": "crn-cron-rich-editor",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Editor de Texto Rico",
       "text_en_US": "Rich Editor",
       "class": "adjust-icon mdi mdi-text-shadow",
@@ -3654,14 +3685,16 @@
           "removable": false,
           "global": "true",
           "selector": "cron-rich-editor",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "ng-model",
           "selector": "cron-rich-editor",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "ng-cron-init",
@@ -3835,6 +3868,8 @@
     },
     {
       "name": "crn-cron-grid",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Grade",
       "text_en_US": "Grid",
       "order": 2,
@@ -3860,7 +3895,9 @@
           "global": "true",
           "selector": "cron-grid",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
+
         },
         {
           "name": "ng-model",
@@ -3868,7 +3905,8 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "ng-edit",
@@ -4083,7 +4121,56 @@
       ]
     },
     {
+      "name": "crn-cron-scheduler",
+      "pallete": false,
+      "text_pt_BR": "Agendador",
+      "text_en_US": "Scheduler",
+      "order": 2,
+      "class": "adjust-icon mdi mdi-calendar-range",
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/cron-scheduler.designtime.html",
+      "designTimeSelector": "cron-scheduler",
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/cron-scheduler.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "options",
+          "displayName_pt_BR": "Configurações",
+          "displayName_en_US": "Configuration",
+          "removable": false,
+          "global": "true",
+          "selector": "cron-scheduler",
+          "type": "text",
+          "order": 1
+        },
+        {
+          "name": "ng-model",
+          "selector": "cron-scheduler",
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "type": "text",
+          "order": 2
+        }
+      ],
+      "styles": [
+        {
+          "selector": "div#{id} .k-scheduler .k-scheduler-toolbar",
+          "text_pt_BR": "Barra de Ferramentas",
+          "text_en_US": "Toolbar"
+        }
+      ]
+    },
+    {
       "name": "crn-enterprise-combobox",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Caixa de seleção fixa",
       "text_en_US": "Combobox",
       "class": "adjust-icon mdi mdi-equal-box",
@@ -4187,7 +4274,8 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
@@ -4195,7 +4283,8 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "type": "text",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4218,6 +4307,8 @@
     },
     {
       "name": "crn-enterprise-dynamic-combobox",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Caixa de seleção dinâmica",
       "text_en_US": "Dynamic Combobox",
       "class": "adjust-icon mdi mdi-nutrition",
@@ -4283,13 +4374,15 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
           "selector": "cron-dynamic-select",
           "type": "text",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4343,6 +4436,8 @@
     },
     {
       "name": "crn-enterprise-combobox-multiple",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Caixa de seleção múltipla",
       "text_en_US": "Combobox Multi Select",
       "class": "adjust-icon mdi mdi-nutrition",
@@ -4442,13 +4537,15 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
           "selector": "cron-multi-select",
           "type": "text",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4517,7 +4614,8 @@
           "selector": "cron-date",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4533,6 +4631,8 @@
     },
     {
       "name": "crn-enterprise-autocomplete",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Auto Completar",
       "text_en_US": "Auto Complete",
       "class": "adjust-icon mdi mdi-receipt",
@@ -4555,7 +4655,8 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
@@ -4563,7 +4664,8 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "type": "text",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4649,6 +4751,8 @@
     },
     {
       "name": "crn-enterprise-dynamic-autocomplete",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Auto Completar Dinâmico",
       "text_en_US": "Dynamic Auto Complete",
       "class": "adjust-icon mdi mdi-receipt",
@@ -4671,7 +4775,8 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
@@ -4679,7 +4784,8 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "type": "text",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4765,6 +4871,8 @@
     },
     {
       "name": "crn-slider",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Slider",
       "text_en_US": "Slider",
       "class": "adjust-icon mdi mdi-server-network",
@@ -4813,14 +4921,16 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
           "selector": "cron-slider",
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "content",
@@ -4887,7 +4997,8 @@
           "type": "text",
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -5026,6 +5137,8 @@
     },
     {
       "name": "crn-cron-report-viewer",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Visualizador de relatório",
       "text_en_US": "Report viewer",
       "order": 2,
@@ -5051,7 +5164,8 @@
           "global": "true",
           "selector": "cron-report-viewer",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
@@ -5059,12 +5173,15 @@
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         }
       ]
     },
     {
       "name": "crn-dynamic-menu",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "text_pt_BR": "Menu Dinâmico",
       "text_en_US": "Dynamic Menu",
       "class": "adjust-icon mdi mdi-menu",
@@ -5089,7 +5206,8 @@
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         }
       ]
     },
@@ -5278,7 +5396,8 @@
           "displayName_en_US": "Option text",
           "type": "datasourceFieldList",
           "onSave": "javascript:function() { var result = ''; var splited = arguments[0].split('+'); for (var i = 0; i<splited.length; i++) { if (splited[i].trim().startsWith(\"'\") || splited[i].trim().startsWith('\"')) result += splited[i].trim() + ' + '; else result += 'rowData.' + splited[i].trim() + ' + ';  } result = result.substr(0, result.length - 2); return '{{'+result.trim()+'}}'; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace(/rowData./g,'').replace('{{','').replace('}}','').replace(/\\$/g,''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace(/rowData./g,'').replace('{{','').replace('}}','').replace(/\\$/g,''); }",
+          "mandatory": true
         }
       ]
     },
@@ -5345,7 +5464,8 @@
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "class",

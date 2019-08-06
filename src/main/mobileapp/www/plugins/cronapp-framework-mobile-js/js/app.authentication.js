@@ -87,7 +87,10 @@ var app = (function() {
             }
         ])
         .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-            $ionicConfigProvider.navBar.alignTitle('center')
+            $ionicConfigProvider.navBar.alignTitle('center');
+            if(ionic.Platform.isIOS()) {
+              $ionicConfigProvider.scrolling.jsScrolling(false);
+            }
         })
         .config(function($stateProvider, $urlRouterProvider, NotificationProvider) {
             NotificationProvider.setOptions({
@@ -381,8 +384,10 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoad
         console.info(e);
     }
     try {
-        if (blockly)
-            $scope['blockly'] = app.bindScope($scope, blockly);
+      if (blockly) {
+        blockly.cronapi = cronapi;
+        $scope['blockly'] = app.bindScope($scope, blockly);
+      }
     } catch (e) {
         console.info('Not loaded blockly functions');
         console.info(e);

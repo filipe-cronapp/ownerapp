@@ -402,19 +402,19 @@ Background Calendário
     background-color: #383838;
 }
 
-.k-calendar .k-header {
+.k-calendar:not(.k-scheduler-calendar) .k-header {
     background-color: #383838;
 }
 
-.k-calendar .k-content {
+.k-calendar:not(.k-scheduler-calendar) .k-content {
     background-color: #383838;
 }
 
-.k-calendar .k-footer {
+.k-calendar:not(.k-scheduler-calendar) .k-footer {
     background-color: #383838;
 }
 
-.k-calendar-container .k-calendar {
+.k-calendar-container .k-calendar:not(.k-scheduler-calendar) {
     border-width: 0;
     background: #383838;
 }
@@ -423,7 +423,7 @@ Background Calendário
 Background Calendário F I N A L
 */
 
-.k-calendar:not(.k-calendar-infinite) .k-content .k-link {
+.k-calendar:not(.k-calendar-infinite):not(.k-scheduler-calendar) .k-content .k-link {
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -431,29 +431,29 @@ Background Calendário F I N A L
     text-align: center;
 }
 
-.k-calendar .k-state-focused .k-link {
+.k-calendar:not(.k-scheduler-calendar) .k-state-focused .k-link {
     color: #ffffff;
     background-color: rgb(29, 119, 186);
     border-color: rgb(10, 58, 94);
 }
 
-.k-calendar .k-state-hover {
+.k-calendar:not(.k-scheduler-calendar) .k-state-hover {
     background-color:#ffffff;
     color: #383838;
 }
 
-.k-calendar:not(.k-calendar-infinite) .k-state-hover .k-link {
+.k-calendar:not(.k-calendar-infinite):not(.k-scheduler-calendar) .k-state-hover .k-link {
     background-color:#ffffff;
     color:#383838;
 }
 
-.k-calendar .k-other-month .k-link {
+.k-calendar:not(.k-scheduler-calendar) .k-other-month .k-link {
     background-color: transparent;
     color:rgba(241, 241, 241, 0.2);
     border-radius:0%;
 }
 
-.k-content tr th {
+.k-content tr th :not(.k-scheduler-calendar){
     background-color: #35a9fb;
     color: #383838;
     font-weight: bold!important;
@@ -461,16 +461,16 @@ Background Calendário F I N A L
     padding: 3px 0px;
 }
 
-.k-content thead {
+.k-content thead :not(.k-scheduler-calendar){
     margin-bottom:15px;
 }
 
-.k-calendar:not(.k-calendar-infinite) .k-content .k-state-selected .k-link {
+.k-calendar:not(.k-calendar-infinite):not(.k-scheduler-calendar) .k-content .k-state-selected .k-link {
     background-color: #1d77ba;
     border-color: rgba(0,0,0,.1);
 }
 
-.k-calendar .k-nav-prev {
+.k-calendar:not(.k-scheduler-calendar) .k-nav-prev {
     padding: 0;
     width: 3em;
     height: 3em;
@@ -480,13 +480,13 @@ Background Calendário F I N A L
     margin-top: -9px;
 }
 
-.k-calendar .k-nav-prev:hover {
+.k-calendar:not(.k-scheduler-calendar) .k-nav-prev:hover {
     color: #fff;
     background-color: #1d77ba;
     border-color: rgba(0,0,0,.1);
 }
 
-.k-calendar .k-nav-next {
+.k-calendar:not(.k-scheduler-calendar) .k-nav-next {
     padding: 0;
     width: 3em;
     height: 3em;
@@ -496,13 +496,13 @@ Background Calendário F I N A L
     margin-top: -9px;
 }
 
-.k-calendar .k-nav-next:hover {
+.k-calendar:not(.k-scheduler-calendar) .k-nav-next:hover {
     color: #fff;
     background-color: #1d77ba;
     border-color: rgba(0,0,0,.1);
 }
 
-.k-calendar .k-nav-fast:hover {
+.k-calendar:not(.k-scheduler-calendar) .k-nav-fast:hover {
     color: #fff;
     background-color: rgb(29, 119, 186);
     border-color: rgba(0,0,0,.15);
@@ -510,28 +510,28 @@ Background Calendário F I N A L
     margin-top:-10px;
 }
 
-.k-calendar .k-nav-fast {
+.k-calendar:not(.k-scheduler-calendar) .k-nav-fast {
     border-color: rgba(0,0,0,.15);
     margin-bottom:15px;
     margin-top:-10px;
 }
 
-.k-calendar .k-footer .k-nav-today {
+.k-calendar:not(.k-scheduler-calendar) .k-footer .k-nav-today {
     color: #1d77ba;
     font-size: 10px;
 }
 
-.k-calendar .k-footer .k-nav-today:hover {
+.k-calendar:not(.k-scheduler-calendar) .k-footer .k-nav-today:hover {
     color: #42b9e6;
 }
 
-.k-calendar:not(.k-calendar-infinite) .k-meta-view td {
+.k-calendar:not(.k-calendar-infinite):not(.k-scheduler-calendar) .k-meta-view td {
     text-align: center;
     margin: 0 auto;
     border-radius: 1000px;
 }
 
-.k-calendar:not(.k-calendar-infinite) .k-content .k-state-selected.k-state-hover .k-link {
+.k-calendar:not(.k-calendar-infinite):not(.k-scheduler-calendar) .k-content .k-state-selected.k-state-hover .k-link {
     background-color:#1d77ba;
 }
 
@@ -858,3 +858,48 @@ a.k-custom-link:hover {
     transition:200ms;
 }
 
+/* ---- CRON-SCHEDULER ----*/
+
+cron-scheduler .k-link:link {color: #000000;}
+
+cron-scheduler a.k-link {
+    color: #000;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* ---- CRON-SCHEDULER CALENDAR ----*/
+
+.k-scheduler-calendar .k-link:link {
+    color: #000;
+}
+
+.k-calendar .k-footer .k-nav-today{
+    color: #000;
+}
+
+.k-scheduler-calendar .k-footer .k-nav-today:hover{
+    color: #000;
+}
+
+.k-scheduler-calendar a.k-link {
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color:#000;
+}
+
+.k-scheduler-toolbar, .k-scheduler-toolbar, .k-scheduler-toolbar a.k-link{
+    background-color: #3b448e;
+    color:#fff;
+}
+
+.k-scheduler-calendar .k-calendar-view {
+    width: initial;
+    height: initial;
+}
+
+.k-scheduler-calendar .k-content th, .k-calendar-view .k-content th{
+    text-align: center;
+}

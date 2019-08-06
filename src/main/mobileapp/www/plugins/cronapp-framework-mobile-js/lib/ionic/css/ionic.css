@@ -3926,6 +3926,17 @@ a.subdued:last-child {
   color: #444; }
 .bar.bar-light.bar-footer {
   background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
+
+.bar.bar-owner {
+  border-color: #ddd;
+  background-color: white;
+  background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
+  color: #444; }
+.bar.bar-owner .title {
+  color: #444; }
+.bar.bar-owner.bar-footer {
+  background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
+
 .bar.bar-stable {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
@@ -3953,11 +3964,9 @@ a.subdued:last-child {
   color: #fff; }
 .bar.bar-calm.bar-footer {
   background-image: linear-gradient(180deg, #0a9dc7, #0a9dc7 50%, transparent 50%); }
-
-  /* THEME APP OWNER OVERIDE */
 .bar.bar-assertive {
-  border-color: #126159;
-  background-color: #26a69a;
+  border-color: #e42112;
+  background-color: #ef473a;
   background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%);
   color: #fff; }
 .bar.bar-assertive .title {
@@ -3965,7 +3974,7 @@ a.subdued:last-child {
 .bar.bar-assertive.bar-footer {
   background-image: linear-gradient(180deg, #e42112, #e42112 50%, transparent 50%); }
 .bar.bar-balanced {
-  border-color: #45969b;
+  border-color: #28a54c;
   background-color: #33cd5f;
   background-image: linear-gradient(0deg, #28a54c, #28a54c 50%, transparent 50%);
   color: #fff; }

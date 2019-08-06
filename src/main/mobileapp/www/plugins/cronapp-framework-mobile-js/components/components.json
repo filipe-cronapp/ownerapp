@@ -2451,28 +2451,58 @@
         },
         "class": {
           "order": 9999
+        }
+      },
+      "styles": [
+        {
+          "selector": "div#{id} label",
+          "text_pt_BR": "Geral",
+          "text_en_US": "General"
         },
-        "crn-datasource": {
+        {
+          "selector": "div#{id} input",
+          "text_pt_BR": "Entrada de Texto",
+          "text_en_US": "Text Input"
+        },
+        {
+          "selector": "div#{id} i",
+          "text_pt_BR": "Ícone",
+          "text_en_US": "Icon"
+        }
+      ],
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Campo",
+          "text_en_US": "Field",
+          "selector": "input"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "crn-datasource",
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "removable": false,
           "type": "pageDatasource",
           "selector": "input",
-          "childrenProperty": true
+          "order": 1
         },
-        "cronapp-filter-caseinsensitive":  {
+        {
+          "name": "cronapp-filter-caseinsensitive",
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "childrenProperty": true
+          "order": 2
         },
-        "cronapp-filter-autopost": {
+        {
+          "name": "cronapp-filter-autopost",
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "childrenProperty": true
+          "order": 3
         },
-        "cronapp-filter-operator": {
+        {
+          "name": "cronapp-filter-operator",
           "removable": false,
           "type": "list",
           "options": [
@@ -2498,34 +2528,33 @@
             }
           ],
           "selector": "input",
-          "childrenProperty": true
-        }
-      },
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Campo",
-          "text_en_US": "Field",
-          "selector": "input"
-        }
-      ],
-      "styles": [
-        {
-          "selector": "div#{id} label",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
+          "order": 4
         },
         {
-          "selector": "div#{id} input",
-          "text_pt_BR": "Entrada de Texto",
-          "text_en_US": "Text Input"
+          "name": "type",
+          "selector": "input",
+          "type": "type"
         },
         {
-          "selector": "div#{id} i",
-          "text_pt_BR": "Ícone",
-          "text_en_US": "Icon"
-        }
-      ],
-      "childrenProperties": [
+          "name": "keyboard",
+          "selector": "input",
+          "type": "text",
+          "displayName_pt_BR": "Tipo de Teclado",
+          "displayName_en_US": "Keyboard Type",
+          "order": 6
+        },
+        {
+          "name": "mask",
+          "selector": "input",
+          "type": "mask",
+          "order": 4
+        },
+        {
+          "name": "mask-placeholder",
+          "selector": "input",
+          "type": "text",
+          "order": 5
+        },
         {
           "name": "ng-keydown",
           "selector": "input",
@@ -2570,6 +2599,43 @@
           "name": "on-drag",
           "selector": "input",
           "type": "event"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "keyboard",
+          "type": "options",
+          "target": "keyboard",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "integer",
+              "value": "Numeric"
+            },
+            {
+              "key": "number",
+              "value": "Decimal"
+            },
+            {
+              "key": "tel",
+              "value": "Telephone"
+            },
+            {
+              "key": "email",
+              "value": "Email"
+            },
+            {
+              "key": "password",
+              "value": "Password"
+            },
+            {
+              "key": "search",
+              "value": "Search"
+            }
+          ]
         }
       ]
     },
@@ -3061,6 +3127,26 @@
           "type": "event"
         },
         {
+          "name": "keyboard",
+          "selector": "input",
+          "type": "text",
+          "displayName_pt_BR": "Tipo de Teclado",
+          "displayName_en_US": "Keyboard Type",
+          "order": 6
+        },
+        {
+          "name": "mask",
+          "selector": "input",
+          "type": "mask",
+          "order": 4
+        },
+        {
+          "name": "mask-placeholder",
+          "selector": "input",
+          "type": "text",
+          "order": 5
+        },
+        {
           "name": "ng-keyup",
           "selector": "input",
           "type": "event"
@@ -3106,6 +3192,43 @@
           "selector": "label#{id} input",
           "text_pt_BR": "Entrada",
           "text_en_US": "Input"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "keyboard",
+          "type": "options",
+          "target": "keyboard",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "integer",
+              "value": "Numeric"
+            },
+            {
+              "key": "number",
+              "value": "Decimal"
+            },
+            {
+              "key": "tel",
+              "value": "Telephone"
+            },
+            {
+              "key": "email",
+              "value": "Email"
+            },
+            {
+              "key": "password",
+              "value": "Password"
+            },
+            {
+              "key": "search",
+              "value": "Search"
+            }
+          ]
         }
       ]
     },
@@ -3152,6 +3275,26 @@
           "order": 3
         },
         {
+          "name": "keyboard",
+          "selector": "input",
+          "type": "text",
+          "displayName_pt_BR": "Tipo de Teclado",
+          "displayName_en_US": "Keyboard Type",
+          "order": 6
+        },
+        {
+          "name": "mask",
+          "selector": "input",
+          "type": "mask",
+          "order": 4
+        },
+        {
+          "name": "mask-placeholder",
+          "selector": "input",
+          "type": "text",
+          "order": 5
+        },
+        {
           "name": "ng-keydown",
           "selector": "input",
           "type": "event"
@@ -3207,6 +3350,43 @@
           "selector": "label#{id} span",
           "text_pt_BR": "Label",
           "text_en_US": "Label"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "keyboard",
+          "type": "options",
+          "target": "keyboard",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "integer",
+              "value": "Numeric"
+            },
+            {
+              "key": "number",
+              "value": "Decimal"
+            },
+            {
+              "key": "tel",
+              "value": "Telephone"
+            },
+            {
+              "key": "email",
+              "value": "Email"
+            },
+            {
+              "key": "password",
+              "value": "Password"
+            },
+            {
+              "key": "search",
+              "value": "Search"
+            }
+          ]
         }
       ]
     },
@@ -3252,7 +3432,27 @@
           "type":"inputType",
           "order": 3
         },
-		{
+        {
+          "name": "keyboard",
+          "selector": "input",
+          "type": "text",
+          "displayName_pt_BR": "Tipo de Teclado",
+          "displayName_en_US": "Keyboard Type",
+          "order": 6
+        },
+        {
+          "name": "mask",
+          "selector": "input",
+          "type": "mask",
+          "order": 4
+        },
+        {
+          "name": "mask-placeholder",
+          "selector": "input",
+          "type": "text",
+          "order": 5
+        },
+        {
           "name": "ng-keydown",
           "selector": "input",
           "type": "event"
@@ -3314,6 +3514,43 @@
           "text_pt_BR": "Label",
           "text_en_US": "Label"
         }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "keyboard",
+          "type": "options",
+          "target": "keyboard",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "integer",
+              "value": "Numeric"
+            },
+            {
+              "key": "number",
+              "value": "Decimal"
+            },
+            {
+              "key": "tel",
+              "value": "Telephone"
+            },
+            {
+              "key": "email",
+              "value": "Email"
+            },
+            {
+              "key": "password",
+              "value": "Password"
+            },
+            {
+              "key": "search",
+              "value": "Search"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3357,6 +3594,26 @@
           "selector": "input[type]",
           "type":"inputType",
           "order": 3
+        },
+        {
+          "name": "keyboard",
+          "selector": "input",
+          "type": "text",
+          "displayName_pt_BR": "Tipo de Teclado",
+          "displayName_en_US": "Keyboard Type",
+          "order": 6
+        },
+        {
+          "name": "mask",
+          "selector": "input",
+          "type": "mask",
+          "order": 4
+        },
+        {
+          "name": "mask-placeholder",
+          "selector": "input",
+          "type": "text",
+          "order": 5
         },
         {
           "name": "ng-keydown",
@@ -3414,6 +3671,43 @@
           "selector": "label#{id} i",
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "keyboard",
+          "type": "options",
+          "target": "keyboard",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "integer",
+              "value": "Numeric"
+            },
+            {
+              "key": "number",
+              "value": "Decimal"
+            },
+            {
+              "key": "tel",
+              "value": "Telephone"
+            },
+            {
+              "key": "email",
+              "value": "Email"
+            },
+            {
+              "key": "password",
+              "value": "Password"
+            },
+            {
+              "key": "search",
+              "value": "Search"
+            }
+          ]
         }
       ]
     },
@@ -5259,16 +5553,16 @@
           "order": 9999
         },
         "on-hold": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-swipe": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-drag": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         }
       },
       "childrenProperties": [
@@ -5289,6 +5583,26 @@
           "selector": "input[type]",
           "type":"inputType",
           "order": 2
+        },
+        {
+          "name": "keyboard",
+          "selector": "input",
+          "type": "text",
+          "displayName_pt_BR": "Tipo de Teclado",
+          "displayName_en_US": "Keyboard Type",
+          "order": 6
+        },
+        {
+          "name": "mask",
+          "selector": "input",
+          "type": "mask",
+          "order": 4
+        },
+        {
+          "name": "mask-placeholder",
+          "selector": "input",
+          "type": "text",
+          "order": 5
         },
         {
           "name": "ng-click",
@@ -5366,6 +5680,43 @@
           "selector": "div#{id} .button span",
           "text_pt_BR": "Descrição do Botão",
           "text_en_US": "Button Description"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "keyboard",
+          "type": "options",
+          "target": "keyboard",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "integer",
+              "value": "Numeric"
+            },
+            {
+              "key": "number",
+              "value": "Decimal"
+            },
+            {
+              "key": "tel",
+              "value": "Telephone"
+            },
+            {
+              "key": "email",
+              "value": "Email"
+            },
+            {
+              "key": "password",
+              "value": "Password"
+            },
+            {
+              "key": "search",
+              "value": "Search"
+            }
+          ]
         }
       ]
     },

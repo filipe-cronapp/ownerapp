@@ -75,6 +75,38 @@
 
   app.directive('textarea', transformText);
 
+  var generateBlocklyCall = function(blocklyInfo) {
+    var call;
+    if (blocklyInfo.type == "client")  {
+      call = "cronapi.client('" + blocklyInfo.blocklyClass + "." +  blocklyInfo.blocklyMethod + "')";
+      var params = "";
+      blocklyInfo.blocklyParams.forEach(function(p) {
+        if (params.length  > 0) {
+          params += ", ";
+        }
+        params += (p.value ? p.value : "null");
+      });
+      call += ".run("+params+")";
+    }
+    else if (blocklyInfo.type == "server") {
+      var blocklyName = blocklyInfo.blocklyClass + '.' + blocklyInfo.blocklyMethod;
+      call = "cronapi.server('"+blocklyName+"')";
+
+      var params = "";
+      blocklyInfo.blocklyParams.forEach(function(p) {
+        if (params.length  > 0) {
+          params += ", ";
+        }
+        params += (p.value ? p.value : "null");
+      });
+
+      call += ".run("+params+")";
+
+    }
+    return call;
+
+  }
+
   app.directive('asDate', maskDirectiveAsDate)
 
   .directive('ngDestroy', function() {
@@ -1170,6 +1202,268 @@
       }
     };
   })
+
+    .directive('cronScheduler', ['$compile', '$translate', function ($compile, $translate) {
+      return {
+        estrict: 'E',
+        replace: true,
+        initCulture: function () {
+          var culture = $translate.use();
+          culture = culture.replace(/_/gm, '-');
+          var parts = culture.split('-');
+          parts[parts.length - 1] = parts[parts.length - 1].toUpperCase();
+          culture = parts.join('-');
+          kendo.culture(culture);
+        },
+        getSchedulerModel: function (datasourceFields) {
+          let model = {
+            id: "id", // The "id" of the event is the "taskId" field
+            fields: {}
+          };
+          for (let key in datasourceFields) {
+            model.fields[key] = {from: datasourceFields[key].name};
+          }
+          return model
+        },
+        getSchedulerProperties: function (options, datasource) {
+          let schedulerStartDate = (options.initialDateStrategy === 'Expression' ? scope.$eval(generateBlocklyCall(options.initialDateBlocklyInfo)) : options.initialDate);
+          let lastSearchedPeriod = {start: null, end: null};
+          let needsToFetchData = function (searchablePeriod) {
+            return !angular.equals(lastSearchedPeriod, searchablePeriod);
+          };
+          let visibleViews = [];
+          if(options.showDayTab){
+            visibleViews.push('day');
+          }if(options.showAgendaTab){
+            visibleViews.push('agenda');
+          }if(options.showMonthTab){
+            visibleViews.push('month');
+          }if(options.showTimelineTab){
+            visibleViews.push('timeline');
+          }if(options.showWeekTab){
+            visibleViews.push('week');
+          }if(options.showWorkWeekTab){
+            visibleViews.push('workWeek');
+          }
+          // ["day",
+          //   {type: "workWeek", selected: true},
+          //   "week",
+          //   "month",
+          //   "agenda",
+          //   {type: "timeline", eventHeight: 50}]
+          return {
+            showWorkHours: options.showWorkHours,
+            editable: options.editable,
+            date: schedulerStartDate,
+            allDaySlot: options.allDaySlot,
+            timezone: "Etc/UTC", // Setting the timezone is recommended when binding to a remote service.
+            currentTimeMarker: (options.currentTimeMarker ? {
+              updateInterval: 10000,
+              useLocalTimezone: false
+            } : options.currentTimeMarker),
+            views: visibleViews,
+            navigate: function (e) {
+              //Navigated from
+              let view = e.sender.view();
+
+              // The view has:
+              // A startDate method which returns the start date of the view.
+              // An endDate method which returns the end date of the view.
+
+              //kendo.format("view:: start: {0:d}; end: {1:d};", view.startDate(), view.endDate())
+            },
+            dataBound: function (e) {
+              //Navigated to
+              let view = e.sender.view();
+
+              // The view has:
+              // A startDate method which returns the start date of the view.
+              // An endDate method which returns the end date of the view.
+
+              //kendo.format("view:: start: {0:d}; end: {1:d};", view.startDate(), view.endDate())
+            },
+            dataSource: {
+              batch: false, // Enable batch updates
+              transport: {
+                read: function (read) {
+                  read.data = read.data || {};
+                  // verify if lastSearchedPeriod is the same searched now. If so ignore search.
+                  if (needsToFetchData(read.data)) {
+                    lastSearchedPeriod = read.data;
+
+                    if (jQuery.isEmptyObject(read.data)) {
+                      read.data[options.schedulerDataModel.start.name] = schedulerStartDate;
+                    }
+                    let paramsOData = kendo.data.transports.odata.parameterMap(read.data, 'read');
+                    let orderBy = '';
+                    let fetchData = {};
+                    fetchData.params = paramsOData;
+                    datasource.fetch(fetchData, {
+                      success: function (data) {
+                        read.success(angular.copy(data));
+                      },
+                      canceled: function (data) {
+                        // notify the data source that the request failed
+                        read.error(angular.copy(data));
+                      }
+                    }, false);
+                  } else {
+                    read.error();
+                  }
+                }.bind(this),
+                update: function (update) {
+                  datasource.update(
+                    this.parseToDatasourceSchema(datasource, update.data),
+                    function (data) {
+                      update.success(angular.copy(data));
+                    },
+                    function (data) {
+                      update.error(angular.copy(data));
+                    }
+                  );
+                }.bind(this),
+                create: function (create) {
+                  datasource.insert(
+                    this.parseToDatasourceSchema(datasource, create.data),
+                    function (data) {
+                      create.success(angular.copy(data));
+                    },
+                    function (data) {
+                      create.error(angular.copy(data));
+                    }
+                  );
+                }.bind(this),
+                destroy: function (destroy) {
+                  datasource.removeSilent(
+                    this.parseToDatasourceSchema(datasource, destroy.data),
+                    function (data) {
+                      destroy.success(angular.copy(data));
+                    },
+                    function (data) {
+                      destroy.error(angular.copy(data));
+                    }
+                  );
+                }.bind(this)
+              },
+              schema: {
+                model: this.getSchedulerModel(options.schedulerDataModel)
+              }
+            }
+          };
+        },
+        showError: function (scope, title, message) {
+          let info = {
+            message: message,
+            title: title,
+            delay: null
+          };
+          scope.Notification.error(info);
+        },
+        parseToDatasourceSchema: function (datasource, object) {
+          let parsedObj = {};
+          for (let key in datasource.schema) {
+            let name = datasource.schema[key].name;
+            parsedObj[name] = (object[name] ? object[name] : null);
+          }
+          return parsedObj;
+        },
+        link: function (scope, element, attrs, ngModelCtrl) {
+          let schedulerElement = $('<div></div>');
+          let options = JSON.parse(attrs.options || "{}");
+          let datasource;
+          if (options.dataSourceScreen && options.dataSourceScreen.entityDataSource) {
+            datasource = eval(options.dataSourceScreen.entityDataSource.name);
+          }
+          if (!datasource) {
+            // There is no Datasource
+            this.showError(scope, 'Datasource não encontrado',
+              'Nenhum <i>Datasource</i> foi vinculado ao componente de <i>Scheduler</i>.<br>Verifique se as configurações do componente foram preenchidas corretamente.' +
+              '<br>Para mais detalhes acesse a nossa <a href="https://docs.cronapp.io/" target="_blank"><b><u>documentação</u></b></a>');
+            return;
+          }
+
+          let baseUrl = 'plugins/cronapp-lib-js/dist/js/kendo-ui/js/messages/kendo.messages.';
+          if ($translate.use() === 'pt_br') {
+            baseUrl += "pt-BR.min.js";
+          } else {
+            baseUrl += "en-US.min.js";
+          }
+
+          this.initCulture();
+
+          $.getScript(baseUrl, function () {
+
+            let kendoDatasource = app.kendoHelper.getDataSource(options.dataSourceScreen.entityDataSource, scope, true, options.dataSourceScreen.rowsPerPage);
+
+            let schedulerProperties = this.getSchedulerProperties(options, datasource);
+
+            schedulerElement.kendoScheduler(schedulerProperties);
+
+            // Get reference to the kendo.ui.Scheduler instance
+            let scheduler = schedulerElement.data("kendoScheduler");
+            let lastView;
+
+            scheduler.bind('navigate', function (e) {
+              scheduler._previousView = e.sender.view();
+            });
+            scheduler.bind('dataBound', function (e) {
+              scheduler._currentView = e.sender.view();
+              if (scheduler._previousView) {
+                let sameView = compare(scheduler._previousView._dates, scheduler._currentView._dates);
+                if (!sameView) {
+                  let params = {};
+                  params[options.schedulerDataModel.start.name] = scheduler._currentView._startDate;
+                  params[options.schedulerDataModel.end.name] = scheduler._currentView._endDate;
+                  scheduler.dataSource.read(params);
+                  scheduler._previousView = scheduler._currentView;
+                }
+              }
+
+            });
+
+            function compare(arr1, arr2) {
+              if (!arr1 || !arr2) return
+              let result;
+              arr1.forEach((e1, i) => arr2.forEach(e2 => {
+                if (e1.getTime() !== e2.getTime()) {
+                  result = false
+                } else {
+                  result = true
+                }
+              }));
+              return result
+            }
+          }.bind(this));
+
+
+          // {
+          //   date: options.date || new Date(), // The current date of the scheduler
+          //       allDaySlot: options.allDaySlot || true,
+          //     dataSource: [ // The kendo.data.SchedulerDataSource configuration
+          //   // First scheduler event
+          //   {
+          //     id: 1, // Unique identifier. Needed for editing.
+          //     start: new Date("2013/6/6 08:00 AM"), // Start of the event
+          //     end: new Date("2013/6/6 09:00 AM"), // End of the event
+          //     title: "Breakfast" // Title of the event
+          //   },
+          //   // Second scheduler event
+          //   {
+          //     id: 2,
+          //     start: new Date("2013/6/6 10:15 AM"),
+          //     end: new Date("2013/6/6 12:30 PM"),
+          //     title: "Job Interview"
+          //   }
+          // ]
+          // }
+
+          element.html(schedulerElement);
+          $compile(schedulerElement)(element.scope());
+        }
+      }
+    }])
+
+
   .directive('cronGrid', ['$compile', '$translate', function($compile, $translate) {
     return {
       restrict: 'E',
@@ -1182,37 +1476,6 @@
         parts[parts.length - 1] = parts[parts.length - 1].toUpperCase();
         culture = parts.join('-');
         kendo.culture(culture);
-      },
-      generateBlocklyCall: function(blocklyInfo) {
-        var call;
-        if (blocklyInfo.type == "client")  {
-          call = "cronapi.client('" + blocklyInfo.blocklyClass + "." +  blocklyInfo.blocklyMethod + "')";
-          var params = "";
-          blocklyInfo.blocklyParams.forEach(function(p) {
-            if (params.length  > 0) {
-              params += ", ";
-            }
-            params += (p.value ? p.value : "null");
-          });
-          call += ".run("+params+")";
-        }
-        else if (blocklyInfo.type == "server") {
-          var blocklyName = blocklyInfo.blocklyClass + '.' + blocklyInfo.blocklyMethod;
-          call = "cronapi.server('"+blocklyName+"')";
-
-          var params = "";
-          blocklyInfo.blocklyParams.forEach(function(p) {
-            if (params.length  > 0) {
-              params += ", ";
-            }
-            params += (p.value ? p.value : "null");
-          });
-
-          call += ".run("+params+")";
-
-        }
-        return call;
-
       },
       generateToolbarButtonCall: function(toolbarButton, scope, options) {
         var buttonCall;
@@ -1300,7 +1563,7 @@
         else if (toolbarButton.methodCall)
           call = toolbarButton.methodCall;
         else
-          call = this.generateBlocklyCall(toolbarButton.blocklyInfo);
+          call = generateBlocklyCall(toolbarButton.blocklyInfo);
 
         var title = toolbarButton.title == undefined ? '': toolbarButton.title;
         buttonCall = generateObjTemplate(call, title, toolbarButton.iconClass);
@@ -1380,6 +1643,14 @@
         .replace(/&lt;/g, '<')
         .replace(/&amp;/g, '&');
       },
+      getColumnByField: function(options, fieldName) {
+        var selected = null;
+        options.columns.forEach(function(column)  {
+          if (column.field == fieldName)
+            selected = column;
+        });
+        return selected;
+      },
       getColumns: function(options, datasource, scope, tooltips) {
         var directiveContext = this;
 
@@ -1432,15 +1703,6 @@
           return undefined;
         }
 
-        function getColumnByField(fieldName) {
-          var selected = null;
-          options.columns.forEach(function(column)  {
-            if (column.field == fieldName)
-              selected = column;
-          });
-          return selected;
-        }
-
         function isRequired(fieldName) {
           var required = false;
           var selected = null;
@@ -1458,7 +1720,7 @@
 
         function editor(container, opt) {
 
-          var column = getColumnByField(opt.field);
+          var column = this.getColumnByField(options, opt.field);
           if (column.visibleCrud != undefined && !column.visibleCrud) {
             container.parent().find('.k-edit-label [for='+ column.field +']').parent().remove();
             container.remove();
@@ -1783,7 +2045,7 @@
                     if (column.dataType == "Customized" || column.dataType == "CustomizedLink")
                       call = column.execute;
                     else
-                      call = directiveContext.generateBlocklyCall(column.blocklyInfo);
+                      call = generateBlocklyCall(column.blocklyInfo);
 
                     var cronappDatasource = this.dataSource.transport.options.cronappDatasource;
                     var currentGrid = options.grid;
@@ -2179,6 +2441,15 @@
             if (attrs && attrs.ngDataBound) {
               scope.$eval(attrs.ngDataBound);
             }
+
+            for(let i=0;i<this.columns.length;i++){
+              let col = helperDirective.getColumnByField(options, this.columns[i].field);
+              if (col.visible)
+                this.showColumn(i);
+            }
+            $("div.k-group-indicator").each((i,v) => {
+              this.hideColumn($(v).data("field"));
+            });
 
             compileListing(e);
           }
@@ -2599,6 +2870,9 @@
               modelSetter(_scope, nextValue);
               forceChangeModel(nextValue);
             }
+          }
+          else {
+            setTimeout(()=>defineInitialValue(),300);
           }
         }
 
@@ -3334,7 +3608,7 @@
     }
   })
 
-  .directive('cronDynamicMenu', ['$compile', function($compile){
+  .directive('cronDynamicMenu', ['$compile', '$translate', function($compile, $translate){
     'use strict';
 
     return {
@@ -3348,7 +3622,9 @@
             var action = (item.action && item.action != null) ? ' ng-click="' + item.action + '" ' : '';
             var hide = (item.hide && item.hide != null) ? ' ng-hide="' + item.hide + '" ' : '';
             var iconClass = (item.iconClass && item.iconClass != null) ? '<i class="'+ item.iconClass +'"></i>' : '';
-            var title = '<span>' + item.title + '</span>';
+            var title = '<span></span>';
+            if (item.title)
+              title = '<span>' + $translate.instant(item.title) + '</span>';
 
             template = template + '<li'+ hide +'><a href=""' + security + action + '>' + iconClass + title + '</a></li>';
           });
@@ -3371,7 +3647,9 @@
             var caret = (menu.menuItems && Array.isArray(menu.menuItems) && (menu.menuItems.length > 0)) ? '<span class="caret"></span>' : '';
             var hide = (menu.hide && menu.hide != null) ? ' ng-hide="' + menu.hide + '" ' : '';
             var iconClass = (menu.iconClass && menu.iconClass != null) ? '<i class="'+ menu.iconClass +'"></i>' : '';
-            var title = '<span>' + menu.title + '</span>';
+            var title = '<span></span>'
+            if (menu.title)
+              title = '<span>' + $translate.instant(menu.title) + '</span>';
 
             template = template  + '\
               <li class="dropdown component-holder crn-menu-item" data-component="crn-menu-item"' + security + hide + '>\
@@ -3385,23 +3663,26 @@
         return template;
       },
       link: function(scope, element, attrs) {
-        var TEMPLATE_MAIN = '<ul class="nav navbar-nav" style="float:none"></ul>';
-        var options = {};
-        try {
-          options = JSON.parse(attrs.options);
-        } catch(e) {
-          console.log('CronDynamicMenu: Invalid configuration!')
-        }
+        $translate.onReady(() => {
+          var TEMPLATE_MAIN = '<ul class="nav navbar-nav" style="float:none"></ul>';
+          var options = {};
+          try {
+            options = JSON.parse(attrs.options);
+          } catch(e) {
+            console.log('CronDynamicMenu: Invalid configuration!')
+          }
 
-        var main = $(TEMPLATE_MAIN);
-        var menus = this.populateMenu(options);
-        main.append(menus);
+          var main = $(TEMPLATE_MAIN);
+          var menus = this.populateMenu(options);
+          main.append(menus);
 
-        var newElement = angular.element(main);
-        element.html('');
-        element.append(main);
-        element.attr('id' , null);
-        $compile(newElement)(scope);
+          var newElement = angular.element(main);
+          element.html('');
+          element.append(main);
+          element.attr('id' , null);
+          $compile(newElement)(scope);
+
+        });
       }
     }
   }])

@@ -22,8 +22,8 @@
     "src"
   ],
   "dependencies": {
-    "cronapp-framework-js": "2.2.11",
-    "cronapp-common-js": "2.2.2",
+    "cronapp-framework-js": "2.2.12",
+    "cronapp-common-js": "2.2.3",
     "cronapi-js": "2.2.6",
     "cronapp-lib-js": "2.2.0"
   }

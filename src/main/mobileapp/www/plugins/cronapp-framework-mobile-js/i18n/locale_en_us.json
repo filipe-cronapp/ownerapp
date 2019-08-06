@@ -99,5 +99,13 @@
   "Roles.view.Salvar": "Save",
   "Roles.view.Voltar": "Cancel",
   "Permission.view.Salvar": "Save",
-  "Permission.view.Voltar": "Cancel"
+  "Permission.view.Voltar": "Cancel",
+  "primary": "",
+  "error": "Error",
+  "success": "",
+  "info": "",
+  "warning": "",
+  "keyboardDecimalChar": ".",
+  "FieldIsInvalid": "Field '{0}' is invalid!",
+  "FieldIsRequired": "Field '{0}' is required!"
 }

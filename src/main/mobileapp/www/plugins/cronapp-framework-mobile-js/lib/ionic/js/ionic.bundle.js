@@ -3122,7 +3122,9 @@ function tapHandleFocus(ele) {
   if (ele.tagName == 'SELECT') {
     // trick to force Android options to show up
     triggerMouseEvent('mousedown', ele, 0, 0);
-    ele.focus && ele.focus();
+    if (!ionic.Platform.isIOS()) {
+      ele.focus && ele.focus();
+    }
     triggerFocusIn = true;
 
   } else if (tapActiveElement() === ele) {
@@ -3131,7 +3133,9 @@ function tapHandleFocus(ele) {
 
   } else if ((/^(input|textarea|ion-label)$/i).test(ele.tagName) || ele.isContentEditable) {
     triggerFocusIn = true;
-    ele.focus && ele.focus();
+    if (!ionic.Platform.isIOS()) {
+      ele.focus && ele.focus();
+    }
     ele.value = ele.value;
     if (tapEnabledTouchEvents) {
       tapTouchFocusedInput = ele;

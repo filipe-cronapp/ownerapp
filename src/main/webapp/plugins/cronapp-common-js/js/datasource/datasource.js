@@ -244,12 +244,119 @@ angular.module('datasourcejs', [])
         }
       }
 
+      this.getIndexedDB = function(properties) {
+        if (!window.indexedDB) {
+          window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+          window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+          window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+        }
+
+        return  {
+          properties: properties,
+          successCallback: null,
+          errorCallback: null,
+          type: null,
+          args: null,
+          success: function(successCallback) {
+            this.successCallback = successCallback;
+            return this;
+          },
+
+          error: function(errorCallback) {
+            this.errorCallback = errorCallback;
+            return this;
+          },
+
+          post: function() {
+            this.type = 'put';
+            this.args = arguments;
+            return this;
+          },
+
+          put: function() {
+            this.type = 'put';
+            this.args = arguments;
+            return this;
+          },
+
+          delete: function() {
+            this.type = 'delete';
+            this.args = arguments;
+            return this;
+          },
+
+          get: function() {
+            this.type = 'getAll';
+            this.args = arguments;
+            return this;
+          },
+
+          call: function() {
+            request = window.indexedDB.open(this.properties.dbname, this.properties.dbversion||1);
+
+            request.onerror = function (event) {
+              if (this.errorCallback) {
+                this.errorCallback(event);
+              }
+            }.bind(this);
+
+            request.onsuccess = function (event) {
+              this.proceed(event.target.result);
+            }.bind(this);
+
+            request.onupgradeneeded = function (event) {
+              var db = event.target.result;
+
+              var objectStore = db.createObjectStore(this.properties.objectStore, {keyPath: this.properties.key});
+
+              objectStore.transaction.oncomplete = function(event) {
+                var objectStore = db.transaction(this.properties.objectStore, "readwrite").objectStore(this.properties.objectStore);
+                objectStore.add({id: 123, name: 'Jose'});
+              }.bind(this);
+
+            }.bind(this);
+
+          },
+
+          proceed: function(db) {
+            if (this.type) {
+              var transaction = db.transaction(this.properties.objectStore, "readwrite")
+              var store = transaction.objectStore(this.properties.objectStore);
+              var request = store[this.type].apply(store, this.args);
+              request.onsuccess = function(event) {
+                if (this.successCallback) {
+                  if (this.type === 'put') {
+                    this.successCallback(this.args[0]);
+                  } else {
+                    this.successCallback(event.target.result);
+                  }
+                }
+              }.bind(this);
+            } else {
+              if (this.successCallback) {
+                this.successCallback();
+              }
+            }
+
+          }
+        };
+
+      }
+
+      this.uuidv4 = function() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+
       this.getService = function(verb) {
         var event = eval("this.on"+verb);
 
-        if (event) {
+        if (event || this.isLocalData()) {
           return function(properties) {
             var promise = {
+              verb: verb,
               properties: properties,
               successCallback: null,
               errorCallback: null,
@@ -266,7 +373,7 @@ angular.module('datasourcejs', [])
 
             $timeout(function() {
               var contextVars = {
-                'currentData': this.properties.rawData||this.properties.data,
+                'currentData': this.properties.rawData||this.properties.data||_self.active,
                 'filter': this.properties.filter||"",
                 'datasource': _self,
                 'selectedIndex': _self.cursor,
@@ -278,7 +385,65 @@ angular.module('datasourcejs', [])
                 'callback': this.successCallback
               };
 
-              var result = _self.$scope.$eval(event, contextVars);
+              var result;
+
+              if (event) {
+                result = _self.$scope.$eval(event, contextVars);
+              } else {
+                var args = [];
+
+                var db = new PouchDB(_self.localDBName);
+
+                if (this.verb == 'GET' && !this.properties.filter) {
+                  db.allDocs({
+                    include_docs: true,
+                    attachments: true
+                  }).catch(this.errorCallback).then(function(result) {
+                    var data = [];
+                    for (var i=0;i<result.rows.length;i++) {
+                      data.push(result.rows[i].doc);
+                    }
+                    result.rows = data;
+                    if (this.successCallback) {
+                      this.successCallback(result);
+                    }
+                  }.bind(this));
+                }
+
+                else if (this.verb == 'GET') {
+                  var filter = peg$parse(this.properties.filter);
+                  db.find({selector: filter}).catch(this.errorCallback).then(function(result) {
+                    result.rows = result.docs;
+                    result.total_rows = result.rows.length;
+                    if (this.successCallback) {
+                      this.successCallback(result);
+                    }
+                  }.bind(this));
+                }
+
+                else if (this.verb == 'DELETE') {
+                  db.remove(contextVars.currentData).catch(this.errorCallback).then(this.successCallback);
+                }
+
+                else if (this.verb == 'POST') {
+                  db.post(contextVars.currentData).catch(this.errorCallback).then(function(result) {
+                    contextVars.currentData._id = result.id;
+                    contextVars.currentData._rev = result.rev;
+                    if (this.successCallback) {
+                      this.successCallback(contextVars.currentData);
+                    }
+                  }.bind(this));
+                }
+
+                else if (this.verb == 'PUT') {
+                  db.put(contextVars.currentData).catch(this.errorCallback).then(function(result) {
+                    contextVars.currentData._rev = result.rev;
+                    if (this.successCallback) {
+                      this.successCallback(contextVars.currentData);
+                    }
+                  }.bind(this));
+                }
+              }
 
               if (result) {
                 this.successCallback(result);
@@ -967,22 +1132,59 @@ angular.module('datasourcejs', [])
       }
     };
 
+    this.validateFields = function(expression, message) {
+      var selection = $(expression);
+      if (selection.length > 0) {
+        var forId = $('label[for="'+selection.get(0).id+'"]');
+        var label = selection.get(0).id
+        if (forId.length > 0) {
+          label = forId.text();
+        }
+
+        Notification.error(message.replace("{0}", label));
+        $(selection.get(0)).addClass("ng-touched").removeClass("ng-untouched");
+        if (selection.get(0).focus) {
+          selection.get(0).focus();
+        }
+        return false;
+      }
+      return true;
+    }
+
+    /**
+     * Always valid if input has pattern
+     */
+
+    this.hasPattern = function(){
+      return $('input[ng-model*="' + this.name + '."]').attr("pattern");
+    };
+
     /**
      * Valid if required field is valid
      */
     this.missingRequiredField = function() {
+      if(this.hasPattern()){
+        return false;
+      }
       if (this.checkRequired) {
-        return $('[required][ng-model*="' + this.name + '."]').hasClass('ng-invalid-required') || $('[ng-model*="' + this.name + '."]').hasClass('ng-invalid') ||
-            $('[required][ng-model*="' + this.name + '."]').hasClass('ng-empty')  || $('[valid][ng-model*="' + this.name + '."]').hasClass('ng-empty');
+        var valid = this.validateFields('[required][ng-model*="' + this.name + '."].ng-invalid-required', this.translate.instant("FieldIsRequired"));
+        valid = valid && this.validateFields('[required][ng-model*="' + this.name + '."].ng-empty', this.translate.instant("FieldIsRequired"));
+        valid = valid && this.validateFields('[valid][ng-model*="' + this.name + '."].ng-empty', this.translate.instant("FieldIsRequired"));
+        valid = valid && this.validateFields('[ng-model*="' + this.name + '."].ng-invalid', this.translate.instant("FieldIsInvalid"));
+
+        return !valid;
       } else {
         return false;
       }
-    }
+    };
 
     /**
      * Valid is other validations like email, date and so on
      */
     this.hasInvalidField = function() {
+      if(this.hasPattern()){
+        return false;
+      }
       if (this.checkRequired) {
         return $('input[ng-model*="' + this.name + '."]:invalid').size() > 0;
       } else {
@@ -1612,10 +1814,13 @@ angular.module('datasourcejs', [])
 
 
     this.retrieveDefaultValues = function(obj, callback) {
-      if (this.isEventData()) {
+      if (this.isEventData() || this.isLocalData()) {
         this.$scope.safeApply(function() {
 
           this.active = {};
+          if (this.isLocalData()) {
+            this.active[this.keys[0]] =  this.uuidv4();
+          }
           this.updateWithParams();
           if (callback) {
             callback();
@@ -2276,6 +2481,10 @@ angular.module('datasourcejs', [])
       return this.onGET !== undefined && this.onGET !== null && this.onGET !== '';
     }
 
+    this.isLocalData = function() {
+      return this.entity.indexOf('local://') == 0;
+    }
+
     this.normalizeValue = function(value, unquote) {
       if (unquote == null || unquote == undefined) {
         unquote = false;
@@ -2721,7 +2930,11 @@ angular.module('datasourcejs', [])
                 }
 
                 if (arg.type == '%') {
-                  result += "substringof("+value.toLowerCase()+", tolower("+arg.left+"))";
+                  if (this.isLocalData()) {
+                    result += "contains("+arg.left+", "+value.toLowerCase()+")";
+                  } else {
+                    result += "substringof("+value.toLowerCase()+", tolower("+arg.left+"))";
+                  }
                 } else {
                   result += arg.left + getQueryOperator(arg.type) + value;
                 }
@@ -2770,6 +2983,12 @@ angular.module('datasourcejs', [])
               else if (this.isOData()) {
                 total = parseInt(data.d.__count);
                 data = data.d.results;
+                this.normalizeData(data)
+              }
+
+              else if (this.isLocalData()) {
+                total = data.total_rows;
+                data = data.rows;
                 this.normalizeData(data)
               }
 
@@ -3435,7 +3654,7 @@ angular.module('datasourcejs', [])
       /**
        * Initialize a new dataset
        */
-      this.initDataset = function(props, scope, $compile, $parse, $interpolate, instanceId) {
+      this.initDataset = function(props, scope, $compile, $parse, $interpolate, instanceId, translate) {
 
         var endpoint = (props.endpoint) ? props.endpoint : "";
         var dts = new DataSet(props.name, scope);
@@ -3456,12 +3675,21 @@ angular.module('datasourcejs', [])
           if(dts.entity.charAt(0) === "/"){
             dts.entity = dts.entity.substr(1);
           }
+        } else {
+          if (dts.isLocalData()) {
+            var path = dts.entity.substring(dts.entity.indexOf("//")+2, dts.entity.length).split("/");
+            dts.localDBType = dts.entity.substring(0, dts.entity.indexOf("://"));
+            dts.localDBName = path[0];
+            dts.localDBStorage = path[1];
+            dts.localDBVersion = path[2]||1;
+          }
         }
 
         if (app && app.config && app.config.datasourceApiVersion) {
           defaultApiVersion = app.config.datasourceApiVersion;
         }
 
+        dts.translate = translate;
         dts.apiVersion = props.apiVersion ? parseInt(props.apiVersion) : defaultApiVersion;
         dts.keys = (props.keys && props.keys.length > 0) ? props.keys.split(",") : [];
         dts.rowsPerPage = props.rowsPerPage ? props.rowsPerPage : 100; // Default 100 rows per page
@@ -3483,10 +3711,10 @@ angular.module('datasourcejs', [])
         dts.onBeforeDelete = props.onBeforeDelete;
         dts.onAfterDelete = props.onAfterDelete;
         dts.onGET = props.onGet,
-        dts.onPOST = props.onPost,
-        dts.onPUT = props.onPut,
-        dts.onDELETE = props.onDelete,
-        dts.dependentBy = props.dependentBy;
+            dts.onPOST = props.onPost,
+            dts.onPUT = props.onPut,
+            dts.onDELETE = props.onDelete,
+            dts.dependentBy = props.dependentBy;
         dts.parameters = props.parameters;
         dts.parametersNullStrategy = props.parametersNullStrategy;
         dts.parametersExpression = props.parametersExpression;
@@ -3693,7 +3921,7 @@ angular.module('datasourcejs', [])
         }
 
         var instanceId =  parseInt(Math.random() * 9999);
-        var datasource = DatasetManager.initDataset(props, scope, $compile, $parse, $interpolate, instanceId);
+        var datasource = DatasetManager.initDataset(props, scope, $compile, $parse, $interpolate, instanceId, $translate);
         var timeoutPromise;
 
         attrs.$observe('filter', function(value) {

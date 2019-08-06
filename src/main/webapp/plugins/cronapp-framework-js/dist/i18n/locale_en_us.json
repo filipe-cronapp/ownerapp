@@ -118,5 +118,7 @@
   "CancelChanges": "Cancel changes",
   "Edit": "Edit",
   "Remove": "Remove",
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+  "FieldIsInvalid": "Field '{0}' is invalid!",
+  "FieldIsRequired": "Field '{0}' is required!"
 }

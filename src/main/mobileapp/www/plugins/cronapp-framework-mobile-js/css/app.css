@@ -104,11 +104,7 @@ body {
 .list .item.item-accordion.ng-hide-remove {
     display: block !important;
 }
-.button.button-block,
-.button.button-full {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
+
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -906,6 +902,10 @@ body {
     background-color: #0087d4;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
+
+.safe-top {
+    padding-top: env(safe-area-inset-top);
+}
 #menu-blue .item {
     border-color: transparent;
     background-color: transparent;
@@ -1150,10 +1150,10 @@ body {
 }
 
 .menu-view .button.button-positive, .login-bg .button.button-positive {
-    border-color: #008ad0;
-    background-color: #008ad0;
-    color: #ffffff;
-    border-radius: 2px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #008ad0;
+    border-radius: 7px;
     transition: 400ms;
 }
 
@@ -1161,7 +1161,7 @@ body {
     border-color: #0f1e55!important;
     background-color: #122153;
     color: #ffffff;
-    border-radius: 2px;
+    border-radius: 7px;
     transition: 400ms;
 }
 
@@ -1200,19 +1200,19 @@ body {
 }
 
 .center-block {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .right-block {
-  display: block;
-  margin-left: auto;
+    display: block;
+    margin-left: auto;
 }
 
 .left-block {
-  display: block;
-  magin-right: auto;
+    display: block;
+    magin-right: auto;
 }
 
 .item-list-detail {
