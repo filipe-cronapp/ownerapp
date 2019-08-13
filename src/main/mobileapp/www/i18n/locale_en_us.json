@@ -106,5 +106,8 @@
   "Entrar": "Enter",
   "username": "Username",
   "password": "Password",
-  "login": "LOGIN"
+  "login": "LOGIN",
+  "Button": "",
+  "Delete": "Del",
+  "apiget": "apiget"
 }

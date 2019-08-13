@@ -130,9 +130,11 @@ if (window.fixedTimeZone) {
               serverMap[key] = error;
             }
           });
+          if (error)
+            this.cronapi.$scope.Notification.error(error);
         }.bind(this);
 
-        var args = [blocklyName, error, success];
+        var args = [blocklyName, success, error];
 
         for (var i = 0;i <arguments.length;i++) {
           args.push(arguments[i]);
@@ -1062,7 +1064,12 @@ if (window.fixedTimeZone) {
    * @multilayer true
    */
   this.cronapi.screen.filter = function(/** @type {ObjectType.OBJECT} @blockType datasource_from_screen*/ datasource,/** @type {ObjectType.STRING}*/ path) {
-    getDatasource(datasource).filter("/"+path);
+    if(getDatasource(datasource).isOData()){
+      getDatasource(datasource).search(path);
+    }
+    else{
+      getDatasource(datasource).filter('/' + path);
+    }
   };
 
   /**
@@ -2869,7 +2876,7 @@ if (window.fixedTimeZone) {
       var datasource = eval(groupDatasource[1]);
       if (datasource.isOData()) {
 
-        var regexForField = /.active.([a-zA-Z0-9]*)/g;
+        var regexForField = /.active.([a-zA-Z0-9_-]*)/g;
         var groupField = regexForField.exec(field);
         var fieldName = groupField[1];
 

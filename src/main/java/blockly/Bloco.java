@@ -30,7 +30,6 @@ public static Var Executar() throws Exception {
     for (Iterator it_i = listas.iterator(); it_i.hasNext();) {
         i = Var.valueOf(it_i.next());
         cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.Nome"), cronapi.object.Operations.getObjectField(i, Var.valueOf("nome")));
-        System.out.println(cronapi.object.Operations.getObjectField(i, Var.valueOf("nome")).getObjectAsString());
     } // end for
     return Var.VAR_NULL;
    }

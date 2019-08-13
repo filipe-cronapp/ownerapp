@@ -1,6 +1,6 @@
 {
   "name": "cronapi-js",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "Public library for CronApp's users",
   "main": "cronapi.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "gulp-util": "^3.0.8"
   },
   "dependencies": {
-    "gulp-cli": "^2.2.0"
+    "gulp-cli": "^2.2.0",
+    "natives": "^1.1.6"
   }
 }

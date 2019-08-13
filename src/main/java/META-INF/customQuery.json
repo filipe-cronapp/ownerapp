@@ -190,5 +190,54 @@
     "calcFieldsProperties": {},
     "errorHandles": {},
     "serviceUrl": "api/cronapi/odata/v2/query797046/"
+  },
+  "query5275": {
+    "customId": "Produtos",
+    "queryName": "Produtos",
+    "sourceType": "blockly",
+    "blockly": {
+      "type": "server",
+      "blocklyMethod": "apiget",
+      "blocklyClass": "blockly.Apiget",
+      "blocklyLanguage": "java",
+      "blocklyParams": [],
+      "blocklyJson": {
+        "namespace": "blockly.Apiget",
+        "sourcePath": "src/main/java/blockly/apiget.blockly",
+        "language": "java",
+        "methods": [
+          {
+            "name": "apiget",
+            "hasReturn": "true",
+            "params": []
+          }
+        ]
+      },
+      "blocklyGETMethod": "apiget",
+      "blocklyPOSTMethod": "apiget",
+      "blocklyPUTMethod": "apiget",
+      "blocklyDELETEMethod": "apiget",
+      "blocklyFILTERMethod": "apiget",
+      "blocklyCOUNTMethod": "apiget"
+    },
+    "query": "",
+    "queryParamsValues": [],
+    "verbs": {
+      "GET": true,
+      "POST": true,
+      "PUT": true,
+      "DELETE": true,
+      "FILTER": true,
+      "COUNT": true
+    },
+    "events": {},
+    "defaultValues": {},
+    "defaultValuesProperties": {},
+    "security": {},
+    "calcFields": {},
+    "calcFieldsSecurity": {},
+    "calcFieldsProperties": {},
+    "errorHandles": {},
+    "serviceUrl": "api/cronapi/query/query5275/"
   }
 }

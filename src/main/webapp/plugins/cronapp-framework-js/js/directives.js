@@ -1669,7 +1669,7 @@
                 </span>';
           }
           else if (column.inputType == 'checkbox' || column.type == 'boolean') {
-            template = "<input type='checkbox' class='k-checkbox' #=" + column.field + " ? \"checked='checked'\": '' # />" +
+            template = "<input crn-set-indeterminate=#=" + column.field + "# type='checkbox' class='k-checkbox' #=" + column.field + " ? \"checked='checked'\": '' # />" +
                 "<label class='k-checkbox-label k-no-text'></label>"
           }
           else if (column.displayField && column.displayField.length > 0) {
@@ -3714,14 +3714,26 @@
     }
   })
 
+  .directive('crnSetIndeterminate', function($parse) {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        let value = eval(attrs.crnSetIndeterminate);
+        if(value === null){
+          $(element).prop("indeterminate", true);
+        }
+      }
+    }
+  })
+
   .directive('crnAllowNullValues', [function () {
     return {
       restrict: 'A',
       require: '?ngModel',
       link: function (scope, el, attrs, ctrl) {
+        ctrl.$formatters = [];
+        ctrl.$parsers = [];
         if (attrs.crnAllowNullValues == 'true') {
-          ctrl.$formatters = [];
-          ctrl.$parsers = [];
           ctrl.$render = function () {
             var viewValue = ctrl.$viewValue;
             el.data('checked', viewValue);
@@ -3746,6 +3758,37 @@
                 break;
               case true:
                 checked = null;
+                break;
+              default:
+                checked = false;
+            }
+            ctrl.$setViewValue(checked);
+            scope.$apply(ctrl.$render);
+          });
+        } else if (attrs.crnAllowNullValues == 'false'){
+          ctrl.$render = function () {
+            var viewValue = ctrl.$viewValue;
+            if(viewValue === undefined || viewValue === null){
+              ctrl.$setViewValue(false);
+              viewValue = false;
+            }
+            el.data('checked', viewValue);
+            switch (viewValue) {
+              case true:
+                el.prop('indeterminate', false);
+                el.prop('checked', true);
+                break;
+              default:
+                el.prop('indeterminate', false);
+                el.prop('checked', false);
+                break;
+            }
+          };
+          el.bind('click', function () {
+            var checked;
+            switch (el.data('checked')) {
+              case false:
+                checked = true;
                 break;
               default:
                 checked = false;
@@ -5001,8 +5044,9 @@ app.kendoHelper = {
 };
 
 window.showTreatedValue = function(value) {
-  if (value)
+  if (value || value === false){
     return value;
+  }
   return '';
 };
 
