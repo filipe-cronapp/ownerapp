@@ -1,6 +1,6 @@
 <div id="starter" ng-init="cronapi.client('js.blockly.ObterPessoas.obter').run()" ng-destroy="" data-component="crn-start" screen-params=""> 
   <ion-view class="pane"> 
-    <ion-header-bar align-title="center" class="bar-header bar bar.bar-owner bar-owner .button" xattr-theme="" data-component="crn-ion-header-bar"> 
+    <ion-header-bar align-title="center" class="bar-header bar bar.bar-owner bar-owner .button bar-energized" xattr-theme="bar-energized" data-component="crn-ion-header-bar"> 
       <div class="buttons buttons-left header-item"> 
         <button class="button button-clear" menu-toggle="left" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button> 
       </div> 
@@ -10,18 +10,14 @@
       </div> 
     </ion-header-bar> 
     <ion-content class="scroll-content has-header" data-component="crn-ion-content"> 
-       
-      <ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010" ng-repeat="pessoa in listapessoas" ng-model="listapessoas">
-         {{pessoa.nome}} {{pessoa.tipo}} 
+      <img src="img/iconfinder_Coconut_52365.png" class="component-holder center-block" style="" xattr-position="center-block" data-component="crn-image" id="crn-image-303569"><ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010" ng-repeat="produto in listadeprodutos" ng-model="listadeprodutos">
+       - {{produto.nome}} de {{produto.sabor}}    |    R$:{{produto.preco}} <!-- Qt:{{produto.quantidade}} -->
       </ion-item> 
        
        
        
-      <button class="button button-block .button bar-owner .button" type="submit" xattr-fullsize="button-block" xattr-theme="" ng-click="cronapi.server('blockly.Bloco.Executar').run()" data-component="crn-button" id="crn-button-474332"><i class="ion ion-home"></i> <span>Button </span></button> 
-      <label class="item item-input component-holder" data-component="crn-input" id="crn-input-137892"><input id="crn-input1311" type="text" placeholder="testeEntra" ng-model="vars.testeEntra" mask=""></label> 
-      <button class="button button-block component-holder button-assertive" type="submit" xattr-fullsize="button-block" xattr-theme="button-assertive" ng-click="cronapi.server('blockly.Postest.postesteeer').run()" data-component="crn-button" id="crn-button-422862"><i class="ion ion-home"></i> <span>TesteEntra</span></button> 
-      <button class="button button-block component-holder button-energized" type="submit" xattr-fullsize="button-block" xattr-theme="button-energized" ng-click="cronapi.server('blockly.Postest.del').run()" data-component="crn-button" id="crn-button-884874"><i class="ion ion-home"></i> <span>{{'Delete' | translate}}</span></button> 
-      <button class="button button-block button-positive component-holder" type="submit" xattr-fullsize="button-block" xattr-theme="button-positive" ng-click="cronapi.server('blockly.Apiget.Executar').run(null)" data-component="crn-button" id="crn-button-603087"><i class="ion ion-home"></i> <span>{{'apiget' | translate}}</span></button> 
+       
+       
     </ion-content> 
   </ion-view> 
 </div>

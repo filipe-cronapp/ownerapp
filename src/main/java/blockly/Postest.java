@@ -24,7 +24,12 @@ public static Var postesteeer() throws Exception {
 
    public Var call() throws Exception {
     url = Var.valueOf(Var.valueOf("https://my-api-strapi.herokuapp.com/produtos/").toString());
-    produto = cronapi.util.Operations.getURLFromOthers(Var.valueOf("POST"), Var.valueOf("application/x-www-form-urlencoded"), url, Var.VAR_NULL, Var.VAR_NULL, cronapi.map.Operations.createObjectMapWith(Var.valueOf("nome",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.testeEntra"))) , Var.valueOf("tipo",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.testeEntra"))) , Var.valueOf("quantidade",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.testeEntra"))) , Var.valueOf("preco",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.testeEntra")))));
+    produto = cronapi.util.Operations.getURLFromOthers(Var.valueOf("POST"), Var.valueOf("application/x-www-form-urlencoded"), url, Var.VAR_NULL, Var.VAR_NULL, cronapi.map.Operations.createObjectMapWith(Var.valueOf("nome",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.nome_prdo"))) , Var.valueOf("sabor",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.sabor_prod"))) , Var.valueOf("preco",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.preco_prod"))) , Var.valueOf("quantidade",cronapi.screen.Operations.getValueOfField(Var.valueOf("vars.quant_prod")))));
+    cronapi.util.Operations.sleep(Var.valueOf(2));
+    cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.nome_prdo"), Var.VAR_NULL);
+    cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.sabor_prod"), Var.VAR_NULL);
+    cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.preco_prod"), Var.VAR_NULL);
+    cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.quant_prod"), Var.VAR_NULL);
     return Var.VAR_NULL;
    }
  }.call();

@@ -27,7 +27,8 @@
         "delete": "authenticated"
       },
       "generationType": "drop-and-create-tables",
-      "attrs": {}
+      "attrs": {},
+      "queries": []
     },
     {
       "type": "uml.Class",
@@ -384,7 +385,8 @@
         ".": {
           "display": "normal"
         }
-      }
+      },
+      "queries": []
     },
     {
       "type": "uml.Class",
@@ -413,15 +415,7 @@
       "multitenantContextJsonIgnore": "false",
       "multitenantContextIgnoreEntities": "",
       "role": "Auto",
-      "queries": [
-        {
-          "isRest": "true",
-          "name": "list",
-          "query": "select c from $entity c",
-          "void": false,
-          "type": "select"
-        }
-      ],
+      "queries": [],
       "isRest": "true",
       "multitenantContext": "",
       "restPath": "",
@@ -974,7 +968,8 @@
           "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
           "fill": "#cecece"
         }
-      }
+      },
+      "queries": []
     }
   ],
   "selectedGroup": "1d7f906f-a526-482d-aaf4-08d227ae8c18",

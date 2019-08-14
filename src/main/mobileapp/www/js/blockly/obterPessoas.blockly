@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/home.view.html" resourceType="JS" ruleDescription="obterPessoas" ruleName="obterPessoas" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="-286" scrolly="-45.99999999999977" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="-142.60000000000014" scrolly="40.299999999999955" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="293" y="53">
     <field name="NAME">obter</field>
     <comment h="80" pinned="false" w="160">obterPessoas</comment>
@@ -15,7 +15,7 @@
             </mutation>
             <value name="ARG0">
               <block colour="#934848" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="=w:!lZMWB$o8b_(}=3p(" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
-                <field name="SELECT">listapessoas</field>
+                <field name="SELECT">listadeprodutos</field>
               </block>
             </value>
             <value name="ARG1">

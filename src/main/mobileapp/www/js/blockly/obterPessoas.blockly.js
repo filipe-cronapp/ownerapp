@@ -10,6 +10,6 @@ window.blockly.js.blockly.ObterPessoas.obter = function() {
  var item;
   this.cronapi.util.callServerBlocklyAsynchronous('blockly.Apiget:apiget', function(sender_item) {
       item = sender_item;
-    this.cronapi.screen.changeValueOfField("listapessoas", item);
+    this.cronapi.screen.changeValueOfField("listadeprodutos", item);
   }.bind(this));
 }
