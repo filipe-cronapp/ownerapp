@@ -34,8 +34,6 @@ public static Var apiget() throws Exception {
         nome = cronapi.object.Operations.getObjectField(i, Var.valueOf("nome"));
         tipo = cronapi.object.Operations.getObjectField(i, Var.valueOf("tipo"));
         cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.Nome"), nome);
-        System.out.println(nome.getObjectAsString());
-        System.out.println(tipo.getObjectAsString());
     } // end for
     return lista;
    }

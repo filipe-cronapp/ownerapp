@@ -1,48 +1,48 @@
-<ion-view cache-view="false" hide-back-button="true" class="pane"> 
-  <ion-header-bar class="bar bar-header bar-positive" xattr-theme="bar-positive" data-component="crn-ion-header-bar"> 
-    <div side="left" class="buttons buttons-left header-item"> 
-      <button class="button button-clear" ng-if="!Produto.inserting &amp;&amp; !Produto.editing" menu-toggle="left" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button> 
-      <button class="button button-clear" ng-if="Produto.inserting || Produto.editing" ng-click="Produto.cancel()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-arrow-back"></i> </button> 
-    </div> 
-    <h1 class="title">Produto</h1> 
-    <div side="right" class="buttons buttons-right header-item"> 
-      <button class="button button-clear" ng-if="!Produto.inserting &amp;&amp; !Produto.editing" ng-click="Produto.startInserting()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-plus-empty"></i> </button> 
-      <button class="button button-clear" ng-if="Produto.inserting || Produto.editing" ng-click="Produto.post()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-checkmark"></i> </button> 
-    </div> 
-  </ion-header-bar> 
-  <ion-content class="scroll-content has-header" data-component="crn-ion-content"> 
-    <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854"> 
-       
-    </div><ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-13941" ng-repeat="pessoa in listapessoas" ng-model="listapessoas21681">
-         {{pessoa.nome}} {{pessoa.tipo}} 
-      </ion-item> 
-    <div crn-datasource="Produto" class="" ng-hide="Produto.editing || Produto.inserting"> 
-      <div class="component-holder ng-binding ng-scope" data-component="crn-ion-list" id="crn-ion-list-main"> 
-        <cron-list id="ion-list-main" options="{&quot;dataSourceScreen&quot;:{&quot;name&quot;:&quot;Produto&quot;,&quot;entity&quot;:&quot;app.Produto&quot;,&quot;entityDataSource&quot;:{&quot;id&quot;:&quot;app.Produto&quot;,&quot;customId&quot;:&quot;Produto&quot;,&quot;name&quot;:&quot;Produto&quot;,&quot;customQueryName&quot;:&quot;app.Produto&quot;,&quot;paramValues&quot;:[],&quot;entityFullName&quot;:&quot;app.entity.Produto&quot;,&quot;schemaFields&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;sabor&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;valor&quot;,&quot;type&quot;:&quot;Single&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;quantidade&quot;,&quot;type&quot;:&quot;Int32&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;type&quot;:&quot;entity&quot;},&quot;schema&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;sabor&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;valor&quot;,&quot;type&quot;:&quot;Single&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;quantidade&quot;,&quot;type&quot;:&quot;Int32&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;id&quot;:&quot;app.Produto&quot;},&quot;allowPaging&quot;:true,&quot;allowSorting&quot;:true,&quot;allowGrouping&quot;:false,&quot;allowSelectionTotalPageToShow&quot;:true,&quot;allowRefreshGrid&quot;:true,&quot;allowSelectionRow&quot;:true,&quot;hideModalButtons&quot;:true,&quot;editable&quot;:&quot;datasource&quot;,&quot;columns&quot;:[{&quot;dataType&quot;:&quot;Database&quot;,&quot;field&quot;:&quot;sabor&quot;,&quot;headerText&quot;:&quot;Sabor&quot;,&quot;type&quot;:&quot;string&quot;,&quot;sortable&quot;:true,&quot;filterable&quot;:true,&quot;format&quot;:&quot;&quot;,&quot;visible&quot;:true,&quot;visibleCrud&quot;:true,&quot;linkParentType&quot;:&quot;screen&quot;,&quot;linkParentLoadIfEmpty&quot;:false,&quot;required&quot;:false,&quot;inputType&quot;:&quot;default&quot;,&quot;comboboxOptions&quot;:{&quot;dataSourceScreen&quot;:{&quot;schema&quot;:[]},&quot;relationDataSource&quot;:{&quot;schema&quot;:[]},&quot;staticDataSource&quot;:[],&quot;filterKeyValues&quot;:{&quot;&quot;:&quot;&quot;,&quot;contains&quot;:&quot;Contendo&quot;,&quot;startswith&quot;:&quot;Iniciando com&quot;,&quot;endswith&quot;:&quot;Final com&quot;},&quot;customTemplate&quot;:false},&quot;aggregates&quot;:[]},{&quot;dataType&quot;:&quot;Command&quot;,&quot;sortable&quot;:false,&quot;filterable&quot;:false,&quot;visible&quot;:true,&quot;visibleCrud&quot;:true,&quot;linkParentType&quot;:&quot;screen&quot;,&quot;linkParentLoadIfEmpty&quot;:false,&quot;command&quot;:&quot;edit|destroy&quot;,&quot;required&quot;:false,&quot;inputType&quot;:&quot;default&quot;,&quot;comboboxOptions&quot;:{&quot;dataSourceScreen&quot;:{&quot;schema&quot;:[]},&quot;relationDataSource&quot;:{&quot;schema&quot;:[]},&quot;staticDataSource&quot;:[],&quot;filterKeyValues&quot;:{&quot;&quot;:&quot;&quot;,&quot;contains&quot;:&quot;Contendo&quot;,&quot;startswith&quot;:&quot;Iniciando com&quot;,&quot;endswith&quot;:&quot;Final com&quot;},&quot;customTemplate&quot;:false},&quot;aggregates&quot;:[]}],&quot;toolBarButtons&quot;:[{&quot;type&quot;:&quot;Native&quot;,&quot;title&quot;:&quot;create&quot;}],&quot;details&quot;:[],&quot;groupings&quot;:[]}" class="" style=""> 
-        </cron-list> 
+<div id="starter" ng-init="cronapi.client('js.blockly.ObterPessoas.obter').run()" ng-destroy="" data-component="crn-start" screen-params="">
+  <ion-view cache-view="false" hide-back-button="true" class="pane"> 
+    <ion-header-bar class="bar bar-header bar-positive" xattr-theme="bar-positive" data-component="crn-ion-header-bar"> 
+      <div side="left" class="buttons buttons-left header-item"> 
+        <button class="button button-clear" ng-if="!Produto.inserting &amp;&amp; !Produto.editing" menu-toggle="left" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button> 
+        <button class="button button-clear" ng-if="Produto.inserting || Produto.editing" ng-click="Produto.cancel()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-arrow-back"></i> </button> 
       </div> 
-    </div> 
-    <div ng-show="Produto.editing || Produto.inserting"> 
-      <form crn-datasource="Produto"> 
-        <fieldset ng-disabled="!Produto.editing &amp;&amp; !Produto.inserting"> 
-          <!-- sabor begin --> 
-          <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-751766"><span class="input-label">Nome</span> <input type="text" ng-model="vars.nome_prdo" placeholder="Nome do produto" mask="" keyboard=""></label>
-          <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-13451"><span class="input-label">Sabor</span> <input type="text" ng-model="vars.sabor_prod" placeholder="Sabor do produto" mask="" keyboard=""></label>
-          <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-69941"><span class="input-label">Preço</span> <input type="money-decimal" ng-model="vars.preco_prod" placeholder="R$ 2,00" mask="0,00;0" keyboard="integer"></label>
-          <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-67261"><span class="input-label">Quantidade</span> <input type="integer" ng-model="vars.quant_prod" placeholder="Quantidade de produtos" mask="" keyboard="integer"></label>
-          <div class="component-holder ng-binding ng-scope" data-component="crn-button-bar" id="crn-button-bar-999497">
-            <div class="button-bar">
-              <button class="component-holder button button-block button-balanced" data-component="crn-button" type="submit" ng-click="cronapi.server('blockly.Postest.postesteeer').run()" xattr-size="" xattr-type="" xattr-theme="button-balanced" xattr-fullsize="button-block"><i class="icon icon-left fa fa-save"></i><span>  Salvar</span></button> 
-              <button class="component-holder button button-dark button-block" data-component="crn-button" type="submit" ng-click="Produto.cancel()" xattr-size="" xattr-type="" xattr-theme="button-dark" xattr-fullsize="button-block"><i class="icon icon-left ion ion-ios-arrow-back"></i><span>  Cancelar</span></button>
-            </div>
-          </div> 
-          <!-- categoria begin --> 
-          <!-- valor begin --> 
-          <!-- quantidade begin --> 
-          <!-- NtoN  --> 
-          <!-- NtoN  end--> 
-        </fieldset> 
-      </form> 
-    </div> 
-  </ion-content> 
-</ion-view>
+      <h1 class="title">Produto</h1> 
+      <div side="right" class="buttons buttons-right header-item"> 
+        <button class="button button-clear" ng-if="!Produto.inserting &amp;&amp; !Produto.editing" ng-click="Produto.startInserting()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-plus-empty"></i> </button> 
+        <button class="button button-clear" ng-if="Produto.inserting || Produto.editing" ng-click="Produto.post()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-checkmark"></i> </button> 
+      </div> 
+    </ion-header-bar> 
+    <ion-content class="scroll-content has-header" data-component="crn-ion-content"> 
+      <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854"> 
+      </div><datasource name="Produto" entity="app.Produto" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill="" data-component="crn-datasource" class="component-holder" schema="[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;sabor&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;valor&quot;,&quot;type&quot;:&quot;Single&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;quantidade&quot;,&quot;type&quot;:&quot;Int32&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}]" condition=""></datasource><ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-13941" ng-repeat="produto in listadeprodutos" ng-model="listapessoas21681">{{produto.quantidade}} : {{produto.nome}} - de - {{produto.sabor}}</ion-item> 
+       
+      <div crn-datasource="Produto" class="" ng-hide="Produto.editing || Produto.inserting"> 
+        <div class="component-holder ng-binding ng-scope" data-component="crn-ion-list" id="crn-ion-list-main"> 
+          <cron-list id="ion-list-main" options="{&quot;dataSourceScreen&quot;:{&quot;name&quot;:&quot;Produto&quot;,&quot;entity&quot;:&quot;app.Produto&quot;,&quot;entityDataSource&quot;:{&quot;id&quot;:&quot;app.Produto&quot;,&quot;customId&quot;:&quot;Produto&quot;,&quot;name&quot;:&quot;Produto&quot;,&quot;customQueryName&quot;:&quot;app.Produto&quot;,&quot;paramValues&quot;:[],&quot;entityFullName&quot;:&quot;app.entity.Produto&quot;,&quot;schemaFields&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;sabor&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;valor&quot;,&quot;type&quot;:&quot;Single&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;quantidade&quot;,&quot;type&quot;:&quot;Int32&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;type&quot;:&quot;entity&quot;},&quot;schema&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;sabor&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;valor&quot;,&quot;type&quot;:&quot;Single&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;quantidade&quot;,&quot;type&quot;:&quot;Int32&quot;,&quot;nullable&quot;:false,&quot;key&quot;:false},{&quot;name&quot;:&quot;categoria_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;id&quot;:&quot;app.Produto&quot;},&quot;allowPaging&quot;:true,&quot;allowSorting&quot;:true,&quot;allowGrouping&quot;:false,&quot;allowSelectionTotalPageToShow&quot;:true,&quot;allowRefreshGrid&quot;:true,&quot;allowSelectionRow&quot;:true,&quot;hideModalButtons&quot;:true,&quot;editable&quot;:&quot;datasource&quot;,&quot;columns&quot;:[{&quot;dataType&quot;:&quot;Database&quot;,&quot;field&quot;:&quot;sabor&quot;,&quot;headerText&quot;:&quot;Sabor&quot;,&quot;type&quot;:&quot;string&quot;,&quot;sortable&quot;:true,&quot;filterable&quot;:true,&quot;format&quot;:&quot;&quot;,&quot;visible&quot;:true,&quot;visibleCrud&quot;:true,&quot;linkParentType&quot;:&quot;screen&quot;,&quot;linkParentLoadIfEmpty&quot;:false,&quot;required&quot;:false,&quot;inputType&quot;:&quot;default&quot;,&quot;comboboxOptions&quot;:{&quot;dataSourceScreen&quot;:{&quot;schema&quot;:[]},&quot;relationDataSource&quot;:{&quot;schema&quot;:[]},&quot;staticDataSource&quot;:[],&quot;filterKeyValues&quot;:{&quot;&quot;:&quot;&quot;,&quot;contains&quot;:&quot;Contendo&quot;,&quot;startswith&quot;:&quot;Iniciando com&quot;,&quot;endswith&quot;:&quot;Final com&quot;},&quot;customTemplate&quot;:false},&quot;aggregates&quot;:[]},{&quot;dataType&quot;:&quot;Command&quot;,&quot;sortable&quot;:false,&quot;filterable&quot;:false,&quot;visible&quot;:true,&quot;visibleCrud&quot;:true,&quot;linkParentType&quot;:&quot;screen&quot;,&quot;linkParentLoadIfEmpty&quot;:false,&quot;command&quot;:&quot;edit|destroy&quot;,&quot;required&quot;:false,&quot;inputType&quot;:&quot;default&quot;,&quot;comboboxOptions&quot;:{&quot;dataSourceScreen&quot;:{&quot;schema&quot;:[]},&quot;relationDataSource&quot;:{&quot;schema&quot;:[]},&quot;staticDataSource&quot;:[],&quot;filterKeyValues&quot;:{&quot;&quot;:&quot;&quot;,&quot;contains&quot;:&quot;Contendo&quot;,&quot;startswith&quot;:&quot;Iniciando com&quot;,&quot;endswith&quot;:&quot;Final com&quot;},&quot;customTemplate&quot;:false},&quot;aggregates&quot;:[]}],&quot;toolBarButtons&quot;:[{&quot;type&quot;:&quot;Native&quot;,&quot;title&quot;:&quot;create&quot;}],&quot;details&quot;:[],&quot;groupings&quot;:[]}" class="" style=""> 
+          </cron-list> 
+        </div> 
+      </div> 
+      <div ng-show="Produto.editing || Produto.inserting"> 
+        <form crn-datasource="Produto"> 
+          <fieldset ng-disabled="!Produto.editing &amp;&amp; !Produto.inserting"> 
+            <!-- sabor begin --> 
+            <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-751766"><span class="input-label">Nome</span> <input type="text" ng-model="vars.nome_prdo" placeholder="Nome do produto" mask="" keyboard=""></label> 
+            <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-13451"><span class="input-label">Sabor</span> <input type="text" ng-model="vars.sabor_prod" placeholder="Sabor do produto" mask="" keyboard=""></label> 
+            <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-69941"><span class="input-label">Preço</span> <input type="money-decimal" ng-model="vars.preco_prod" placeholder="R$ 2,00" mask="0,00;0" keyboard="integer"></label> 
+            <label class="item item-input component-holder" data-component="crn-input-inline" id="crn-input-inline-67261"><span class="input-label">Quantidade</span> <input type="integer" ng-model="vars.quant_prod" placeholder="Quantidade de produtos" mask="" keyboard="integer"></label> 
+            <div class="component-holder ng-binding ng-scope" data-component="crn-button-bar" id="crn-button-bar-999497"> 
+              <div class="button-bar"> 
+                <button class="component-holder button button-block button-balanced" data-component="crn-button" type="submit" ng-click="cronapi.server('blockly.Postest.postesteeer').run()" xattr-size="" xattr-type="" xattr-theme="button-balanced" xattr-fullsize="button-block"><i class="icon icon-left fa fa-save"></i><span> Salvar</span></button> 
+                <button class="component-holder button button-dark button-block" data-component="crn-button" type="submit" ng-click="Produto.cancel()" xattr-size="" xattr-type="" xattr-theme="button-dark" xattr-fullsize="button-block"><i class="icon icon-left ion ion-ios-arrow-back"></i><span> Cancelar</span></button> 
+              </div> 
+            </div> 
+            <!-- categoria begin --> 
+            <!-- valor begin --> 
+            <!-- quantidade begin --> 
+            <!-- NtoN  --> 
+            <!-- NtoN  end--> 
+          </fieldset> 
+        </form> 
+      </div> 
+    </ion-content> 
+  </ion-view>
+</div>

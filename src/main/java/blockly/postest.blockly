@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/produto.view.html" resourceType="JAVA" ruleDescription="postest" ruleName="postest" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="0.5184" scrollx="850.3439149580763" scrolly="644.4816000000001" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="0.8957951999999999" scrollx="1547.5567414373254" scrolly="1054.9215452373846" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-1567" y="-1162">
     <field name="NAME">postesteeer</field>
     <comment h="80" pinned="false" w="160">postest</comment>
@@ -176,7 +176,7 @@
                             </value>
                             <value name="ARG1">
                               <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="4,57;.J(/WjSP@?;1d,O" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
-                                <field name="TEXT"/>
+                                <field name="TEXT">0</field>
                               </shadow>
                             </value>
                             <next>

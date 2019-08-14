@@ -28,7 +28,7 @@ public static Var postesteeer() throws Exception {
     cronapi.util.Operations.sleep(Var.valueOf(2));
     cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.nome_prdo"), Var.VAR_NULL);
     cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.sabor_prod"), Var.VAR_NULL);
-    cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.preco_prod"), Var.VAR_NULL);
+    cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.preco_prod"), Var.valueOf("0"));
     cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"), Var.valueOf("vars.quant_prod"), Var.VAR_NULL);
     return Var.VAR_NULL;
    }
