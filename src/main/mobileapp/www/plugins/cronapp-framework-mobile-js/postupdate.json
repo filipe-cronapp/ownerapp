@@ -126,6 +126,11 @@
     },
     {
       "file": "index.html",
+      "script": "plugins/cronapp-framework-mobile-js/dist/js/upload.service.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
       "script": "plugins/font-awesome/css/font-awesome.min.css",
       "type": "style"
     }

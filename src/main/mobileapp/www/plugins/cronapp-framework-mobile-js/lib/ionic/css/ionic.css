@@ -3,7 +3,7 @@
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
  *
- * Ionic, v1.3.1
+ * Ionic, v1.3.3
  * A powerful HTML5 mobile app framework.
  * http://ionicframework.com/
  *
@@ -26,11 +26,7 @@
 @font-face {
   font-family: "Ionicons";
   src: url("../fonts/ionicons.eot?v=2.0.1");
-  src: url("../fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"),
-  url("../fonts/ionicons.ttf?v=2.0.1") format("truetype"),
-  url("../fonts/ionicons.woff?v=2.0.1") format("woff"),
-  url("../fonts/ionicons.woff") format("woff"),
-  url("../fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
+  src: url("../fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=2.0.1") format("truetype"), url("../fonts/ionicons.woff?v=2.0.1") format("woff"), url("../fonts/ionicons.woff") format("woff"), url("../fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -3926,17 +3922,6 @@ a.subdued:last-child {
   color: #444; }
 .bar.bar-light.bar-footer {
   background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
-
-.bar.bar-owner {
-  border-color: #ddd;
-  background-color: white;
-  background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
-  color: #444; }
-.bar.bar-owner .title {
-  color: #444; }
-.bar.bar-owner.bar-footer {
-  background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
-
 .bar.bar-stable {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
@@ -6153,11 +6138,6 @@ a.item-content {
  * Item Icons
  * --------------------------------------------------
  */
-
-.item-icon-left,
-.item-icon-left .item-content{
-  padding-left: 32px;
-  min-height: auto; }
 .item-icon-left .icon,
 .item-icon-right .icon {
   display: -webkit-box;
@@ -6174,8 +6154,7 @@ a.item-content {
   position: absolute;
   top: 0;
   height: 100%;
-  font-size: 32px;
-}
+  font-size: 32px; }
 .item-icon-left .icon:before,
 .item-icon-right .icon:before {
   display: block;
@@ -6188,25 +6167,24 @@ a.item-content {
   font-size: 28px; }
 
 .item-icon-left {
-  padding-left: 10px; }
+  padding-left: 54px; }
 .item-icon-left .icon {
   left: 11px; }
 
 .item-complex.item-icon-left {
   padding-left: 0; }
-.item-complex.item-icon-left > .item-content{
-  padding-left: 50px; }
+.item-complex.item-icon-left .item-content {
+  padding-left: 54px; }
 
-.item-icon-right .item-content{
-  padding-right: 32px;
-  min-height: auto; }
+.item-icon-right {
+  padding-right: 54px; }
 .item-icon-right .icon {
   right: 11px; }
 
 .item-complex.item-icon-right {
   padding-right: 0; }
-.item-complex.item-icon-right > .item-content {
-  padding-right: 10px; }
+.item-complex.item-icon-right .item-content {
+  padding-right: 54px; }
 
 .item-icon-left.item-icon-right .icon:first-child {
   right: auto; }
@@ -6322,8 +6300,8 @@ button.item.item-button-right {
 .item-avatar .item-content,
 .item-avatar-left,
 .item-avatar-left .item-content {
-  padding-left: 10px;
-  min-height: auto; }
+  padding-left: 72px;
+  min-height: 72px; }
 .item-avatar > img:first-child,
 .item-avatar .item-image,
 .item-avatar .item-content > img:first-child,
@@ -6332,45 +6310,42 @@ button.item.item-button-right {
 .item-avatar-left .item-image,
 .item-avatar-left .item-content > img:first-child,
 .item-avatar-left .item-content .item-image {
+  position: absolute;
   top: 16px;
   left: 16px;
   max-width: 40px;
   max-height: 40px;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  float:left;
-}
+  border-radius: 50%; }
 
 .item-avatar-right,
 .item-avatar-right .item-content {
-  padding-right: 10px;
-  min-height: auto; }
+  padding-right: 72px;
+  min-height: 72px; }
 .item-avatar-right > img:first-child,
 .item-avatar-right .item-image,
 .item-avatar-right .item-content > img:first-child,
 .item-avatar-right .item-content .item-image {
+  position: absolute;
   top: 16px;
   right: 16px;
   max-width: 40px;
   max-height: 40px;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  float:right;
-}
+  border-radius: 50%; }
 
 .item-thumbnail-left,
 .item-thumbnail-left .item-content {
   padding-top: 8px;
-  padding-left: 10px;
-  min-height: 103px; }
-
+  padding-left: 106px;
+  min-height: 100px; }
 .item-thumbnail-left > img:first-child,
 .item-thumbnail-left .item-image,
 .item-thumbnail-left .item-content > img:first-child,
 .item-thumbnail-left .item-content .item-image {
-  float: left;
+  position: absolute;
   top: 10px;
   left: 10px;
   max-width: 80px;
@@ -6387,19 +6362,19 @@ button.item.item-button-right {
 .item-thumbnail-right,
 .item-thumbnail-right .item-content {
   padding-top: 8px;
-  padding-right: 10px;
+  padding-right: 106px;
   min-height: 100px; }
 .item-thumbnail-right > img:first-child,
 .item-thumbnail-right .item-image,
 .item-thumbnail-right .item-content > img:first-child,
 .item-thumbnail-right .item-content .item-image {
+  position: absolute;
   top: 10px;
   right: 10px;
   max-width: 80px;
   max-height: 80px;
   width: 100%;
-  height: 100%;
-  float:right;}
+  height: 100%; }
 
 .item-avatar-right.item-complex,
 .item-thumbnail-right.item-complex {
@@ -7746,10 +7721,6 @@ textarea {
 
 textarea,
 input[type="text"],
-input[type="money"],
-input[type="money-decimal"],
-input[type="number"],
-input[type="time-local"],
 input[type="password"],
 input[type="datetime"],
 input[type="datetime-local"],
@@ -7757,7 +7728,7 @@ input[type="date"],
 input[type="month"],
 input[type="time"],
 input[type="week"],
-input[type="integer"],
+input[type="number"],
 input[type="email"],
 input[type="url"],
 input[type="search"],
@@ -7803,10 +7774,6 @@ textarea {
 
 textarea,
 input[type="text"],
-input[type="money"],
-input[type="money-decimal"],
-input[type="number"],
-input[type="time-local"],
 input[type="password"],
 input[type="datetime"],
 input[type="datetime-local"],
@@ -7814,7 +7781,7 @@ input[type="date"],
 input[type="month"],
 input[type="time"],
 input[type="week"],
-input[type="integer"],
+input[type="number"],
 input[type="email"],
 input[type="url"],
 input[type="search"],
@@ -8094,8 +8061,7 @@ input:checked + .checkbox-icon:after {
  * --------------------------------------------------
  */
 .item-toggle {
-  cursor:pointer;
-}
+  pointer-events: none; }
 
 .toggle {
   position: relative;
@@ -8941,7 +8907,7 @@ progress {
   border-color: transparent;
   background: none;
   box-shadow: none;
-  /*color: transparent;*/ }
+  color: transparent; }
 .button-clear.button-icon {
   border-color: transparent;
   background: none; }
@@ -9845,8 +9811,3 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
-
-input[type="text"], input[type="email"], input[type="password"] {
-  border-bottom: 1px solid #aaa;
-  border-radius: 0;
-}

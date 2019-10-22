@@ -120,5 +120,9 @@
   "Remove": "Excluir",
   "Cancel": "Cancelar",
   "FieldIsInvalid": "Campo '{0}' é inválido!",
-  "FieldIsRequired": "Campo '{0}' é requerido!"
+  "FieldIsRequired": "Campo '{0}' é requerido!",
+  "Scheduler": "Agendador",
+  "DatasourceNotFoundMessage": "Nenhum <i>Datasource</i> foi vinculado ao componente <i>'{0}'</i>.<br>Verifique se as configurações do componente foram preenchidas corretamente. <br>Para mais detalhes acesse a nossa <a href='https://docs.cronapp.io/' target='_blank'><b><u>documentação</u></b></a>",
+  "DatasourceNotFoundTitle": "Datasource não encontrado",
+  "Details": "Detalhes"
 }

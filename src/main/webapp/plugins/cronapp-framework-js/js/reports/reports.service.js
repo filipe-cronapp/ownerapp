@@ -120,6 +120,7 @@
       var heightRepo = (h - 200) + "px";
 
       var options = new Stimulsoft.Viewer.StiViewerOptions();
+      options.toolbar.showAboutButton = false;
       if (config) {
         options.toolbar.visible = config.showToolbar;
         options.appearance.scrollbarsMode = config.showScrollbar;

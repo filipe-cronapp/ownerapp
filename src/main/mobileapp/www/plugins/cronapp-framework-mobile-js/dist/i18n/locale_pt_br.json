@@ -107,5 +107,11 @@
   "warning": "",
   "keyboardDecimalChar": ",",
   "FieldIsInvalid": "Campo '{0}' é inválido!",
-  "FieldIsRequired": "Campo '{0}' é requerido!"
+  "FieldIsRequired": "Campo '{0}' é requerido!",
+  "Upload.title": "Envio de arquivos",
+  "Upload.sending": "Enviando...",
+  "Upload.oneFile": "Selecione ou arraste um arquivo",
+  "Upload.multipleFile": "Selecione ou arraste um ou mais arquivos",
+  "Upload.errorValidation": "Seleção inválida: Tamanho máximo %s e Tipos permitidos: %s",
+  "Cancel": "Cancelar"
 }

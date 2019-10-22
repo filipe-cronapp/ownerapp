@@ -1,0 +1,52 @@
+<ion-view cache-view="false" hide-back-button="true" class="pane">
+  <ion-header-bar class="bar bar-header bar-energized" xattr-theme="bar-energized" data-component="crn-ion-header-bar">
+      <div side="left" class="buttons buttons-left header-item">
+        <button class="button button-clear" ng-if="!User.inserting &amp;&amp; !User.editing" menu-toggle="left" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button>
+        <button class="button button-clear" ng-if="User.inserting || User.editing" ng-click="User.cancel()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-arrow-back"></i> </button>
+      </div>
+        <h1 class="title">User</h1>
+      <div side="right" class="buttons buttons-right header-item">
+        <button class="button button-clear" ng-if="!User.inserting &amp;&amp; !User.editing" ng-click="User.startInserting()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-plus-empty"></i> </button>
+        <button class="button button-clear" ng-if="User.inserting || User.editing" ng-click="User.post()" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-ios-checkmark"></i> </button>
+      </div>
+  </ion-header-bar>
+  <ion-content class="scroll-content has-header" data-component="crn-ion-content">
+    <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-906854">
+      
+    </div>
+	
+    <div crn-datasource="User" class="" ng-hide="User.editing || User.inserting">
+      
+    </div>
+    <div ng-show="User.editing || User.inserting">
+      <form crn-datasource="User">
+        <fieldset ng-disabled="!User.editing &amp;&amp; !User.inserting">
+            <!-- name begin -->
+            <label for="textinput-name-22015" class="item item-input item-stacked-label" data-component="crn-input-floating">
+              <span class="input-label">Nome</span>
+              <input type="text" placeholder="Nome" ng-model="User.active.name" id="textinput-name-22015" name="textinput-name" mask="" required="required">
+            </label>
+            <!-- email begin -->
+            <label for="textinput-email-22015" class="item item-input item-stacked-label" data-component="crn-input-floating">
+              <span class="input-label">Email</span>
+              <input type="text" placeholder="Email" ng-model="User.active.email" id="textinput-email-22015" name="textinput-email" mask="">
+            </label>
+            <!-- login begin -->
+            <label for="textinput-login-22015" class="item item-input item-stacked-label" data-component="crn-input-floating">
+              <span class="input-label">Login</span>
+              <input type="text" placeholder="Login" ng-model="User.active.login" id="textinput-login-22015" name="textinput-login" mask="" required="required">
+            </label>
+            <!-- password begin -->
+            <label for="textinput-password-22015" class="item item-input item-stacked-label" data-component="crn-input-floating">
+              <span class="input-label">Senha</span>
+              <input type="text" placeholder="Senha" ng-model="User.active.password" id="textinput-password-22015" name="textinput-password" mask="" required="required">
+            </label><button class="button button-block component-holder button-assertive" type="submit" xattr-fullsize="button-block" xattr-theme="button-assertive" ng-click="cronapi.client('js.blockly.AuthAPI.Executar').run()" data-component="crn-button" id="crn-button-476902"><i class="ion ion-home"></i> <span>Button </span></button>
+
+            <!-- NtoN  -->
+            <!-- NtoN  end-->
+
+        </fieldset>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

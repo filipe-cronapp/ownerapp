@@ -263,6 +263,7 @@ var app = (function() {
         }, 300);
           
       });
+      setInterval(() => $('ion-nav-view[name="menuContent"] .button.button-clear.hide').removeClass('hide'), 300);
       
     });
 

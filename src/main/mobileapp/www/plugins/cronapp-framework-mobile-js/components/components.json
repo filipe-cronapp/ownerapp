@@ -23,12 +23,20 @@
           "displayName_pt_BR": "Configurações",
           "displayName_en_US": "Configuration",
           "removable": false,
-          "global": true
+          "global": true,
+          "mandatory": true
         },
         "parameters": {
           "removable": false,
           "global": true,
           "order": 3
+        },
+        "auto-refresh": {
+          "displayName_pt_BR": "Atualizar Automaticamente (ms)",
+          "displayName_en_US": "Auto Refresh (ms)",
+          "removable": false,
+          "global": true,
+          "order": 8
         },
         "parameters-null-strategy": {
           "removable": false,
@@ -52,6 +60,33 @@
           ],
           "order": 3
         },
+        "load-data-strategy": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "default",
+              "value_en_US": "Default",
+              "value_pt_BR": "Padrão"
+            },
+            {
+              "key": "all",
+              "value_en_US": "All Parameters Filled",
+              "value_pt_BR": "Todos os Filtros Preenchidos"
+            },
+            {
+              "key": "one",
+              "value_en_US": "At Least One Parameter Filled",
+              "value_pt_BR": "No mínimo um Filtro Preenchido"
+            },
+            {
+              "key": "button",
+              "value_en_US": "On Button Pressed",
+              "value_pt_BR": "Ao Pressionar Botão"
+            }
+          ],
+          "order": 4
+        },
         "checkrequired": {
           "removable": false,
           "type": "logic",
@@ -67,7 +102,8 @@
           "removable": false,
           "type": "datasourceKeys",
           "global": true,
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         "on-before-create": {
           "removable": true,
@@ -162,29 +198,6 @@
            "removable": false,
             "type": "event"
         },
-        "target": {
-          "removable": false,
-          "type": "list",
-          "options": [
-            {
-              "key": "_blank",
-              "value": "Nova janela"
-            },
-            {
-              "key": "_self",
-              "value": "Mesma janela"
-            },
-            {
-              "key": "_parent",
-              "value": "Janela pai"
-            },
-            {
-              "key": "_top",
-              "value": "Top"
-            }
-          ],
-          "order": 2
-        },
         "href": {
           "removable": false,
           "type": "projectResource",
@@ -272,7 +285,7 @@
         }
       },
       "controls": {
-        "ungroup": true,
+        "ungroup": false,
         "resizable": false,
         "additive": false,
         "duplicable": false,
@@ -287,6 +300,14 @@
         "onright": false
       },
       "childrenProperties": [
+        {
+          "name": "options",
+          "selector": "cron-mobile-menu",
+          "displayName_pt_BR": "Configuração",
+          "displayName_en_US": "Configuration",
+          "type": "text",
+          "order": 1
+        },
         {
           "name": "content",
           "selector": "h1[class='title']",
@@ -356,10 +377,10 @@
     },
     {
       "name": "crn-list-item-avatar",
-      "text_pt_BR": "Item com avatar",
+      "text_pt_BR": "Item com Avatar",
       "text_en_US": "Avatar Item",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": true,
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
       "forcedGroup":true,
       "properties": {
@@ -369,8 +390,13 @@
         "class": {
           "order": 9999
         },
-        "xattr-position": {
-          "displayName": "Position"
+        "xattr-image-position": {
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Image Position"
+        },
+        "xattr-text-position": {
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position"
         },
         "href": {
           "removable": false,
@@ -380,7 +406,7 @@
       },
       "attributesForPreview": [
         {
-          "name": "xattr-position",
+          "name": "xattr-image-position",
           "type": "btngroup",
           "target": "class",
           "values": [
@@ -473,12 +499,17 @@
       ],
       "childrenProperties":[
         {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 4
+        },
+        {
           "name":"src",
           "selector":"img",
           "removable": false,
           "type": "projectResource",
           "resourceType": "image/jpeg,image/gif,image/png",
-          "order": 3
+          "order": 1
         },
         {
           "name":"content",
@@ -486,7 +517,7 @@
           "displayName_en_US": "Title",
           "selector":"h2",
           "type":"content",
-          "order": 1
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -501,20 +532,13 @@
           "displayName_en_US": "Subtitle",
           "selector":"h3",
           "type":"content",
-          "order": 2
+          "order": 3
         },
         {
           "name":"xattr-theme",
           "displayName_pt_BR": "Tema do Subtítulo",
           "displayName_en_US": "Subtitle theme",
           "selector":"h3",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div",
           "type":"text"
         },
         {
@@ -550,17 +574,12 @@
       ],
       "styles": [
         {
-          "selector": "div#{id} a",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
-          "selector": "div#{id} h2",
+          "selector": "a#{id} h2",
           "text_pt_BR": "Título",
           "text_en_US": "Title"
         },
         {
-          "selector": "div#{id} h3",
+          "selector": "a#{id} h3",
           "text_pt_BR": "Subtítulo",
           "text_en_US": "Subtitle"
         }
@@ -568,26 +587,40 @@
     },
     {
       "name": "crn-list-item-icon",
-      "text_pt_BR": "Item com ícone",
-      "text_en_US": "Item Icon",
+      "text_pt_BR": "Item com Ícone",
+      "text_en_US": "Icon Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "id": {
           "order": 1
         },
         "class": {
           "order": 9999
         },
-        "xattr-position": {
-          "displayName": "Position"
+        "xattr-icon-position": {
+          "displayName_pt_BR": "Posição do Ícone",
+          "displayName_en_US": "Icon Position",
+          "order": 5
+        },
+        "xattr-text-position": {
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "order": 4
         },
         "href": {
           "removable": false,
           "type": "projectResource",
           "resourceType": "text/html",
-          "order": 4
+          "order": 6
         },
         "ng-click": {
           "removable": false,
@@ -778,13 +811,6 @@
           "type":"text"
         },
         {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div",
-          "type":"text"
-        },
-        {
           "name": "ng-click",
           "selector": "a.item",
           "type": "event"
@@ -805,8 +831,8 @@
     },
     {
       "name": "crn-list-item-thumbnail",
-      "text_pt_BR": "Item com imagem",
-      "text_en_US": "Item Thumbnail",
+      "text_pt_BR": "Item com Thumbnail",
+      "text_en_US": "Thumbnail Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
@@ -818,8 +844,13 @@
         "class": {
           "order": 9999
         },
-        "xattr-position": {
-          "displayName": "Position"
+        "xattr-image-position":{
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Imagem Position"
+        },
+        "xattr-text-position":{
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position"
         },
         "href": {
           "removable": false,
@@ -832,29 +863,29 @@
           "type": "event"
         },
         "on-hold": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-double-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-swipe": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-drag": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         }
       },
       "attributesForPreview": [
         {
-          "name": "xattr-position",
+          "name": "xattr-image-position",
           "type": "btngroup",
           "target": "class",
           "values": [
@@ -956,30 +987,45 @@
         },
         {
           "name":"content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
           "selector":"h2",
           "type":"content",
           "order": 2
         },
         {
+          "name":"content",
+          "displayName_pt_BR": "Subtítulo",
+          "displayName_en_US": "Subtitle",
+          "selector":"h3",
+          "type":"content",
+          "order": 3
+        },
+        {
           "name":"xattr-theme",
-          "displayName_pt_BR": "Tema",
-          "displayName_en_US": "Text Theme",
+          "displayName_pt_BR": "Tema do Título",
+          "displayName_en_US": "Title theme",
           "selector":"h2",
           "type":"text"
         },
         {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div",
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema do Subtítulo",
+          "displayName_en_US": "Subtitle theme",
+          "selector":"h3",
           "type":"text"
         }
       ],
       "styles": [
         {
           "selector": "a#{id} h2",
-          "text_pt_BR": "Descrição",
-          "text_en_US": "Description"
+          "text_pt_BR": "Título",
+          "text_en_US": "Title"
+        },
+        {
+          "selector": "a#{id} h3",
+          "text_pt_BR": "Subtítulo",
+          "text_en_US": "Subtitle"
         }
       ]
     },
@@ -988,6 +1034,7 @@
       "text_pt_BR": "Alternância",
       "text_en_US": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
       "properties": {
         "id": {
@@ -1001,13 +1048,23 @@
         {
           "name": "ng-model",
           "selector": "input",
-          "type": "text"
+          "type": "text",
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "content",
           "selector": "span",
           "type": "content",
           "order": 1
+        },
+        {
+          "name": "ng-initial-value",
+          "selector": "input",
+          "displayName_pt_BR": "Valor Inicial",
+          "displayName_en_US": "Initial Value",
+          "type": "logic",
+          "order": 3
         },
         {
           "name": "xattr-theme",
@@ -1086,17 +1143,17 @@
       ],
       "styles": [
         {
-          "selector": "div#{id} label",
+          "selector": "label#{id} span",
           "text_pt_BR": "Descrição",
           "text_en_US": "Description"
         },
         {
-          "selector": "div#{id} .track",
+          "selector": "label#{id} .track",
           "text_pt_BR": "Fundo do Botão de AlternÂncia",
           "text_en_US": "Toggle Button Background"
         },
         {
-          "selector": "div#{id} .handle",
+          "selector": "label#{id} .handle",
           "text_pt_BR": "Botão de Alternância",
           "text_en_US": "Toggle Button"
         }
@@ -1106,16 +1163,14 @@
       "name": "crn-list-simple",
       "text_pt_BR": "Lista Simples",
       "text_en_US": "Simple List",
-      "wrapper": false,
+      "wrapper": true,
       "forcedGroup":true,
+      "pallete": false,
       "class": "adjust-icon mdi mdi-view-sequential",
-      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
+      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" >Item 1</ion-item></div>",
       "properties": {
         "id": {
           "order": 3
-        },
-        "ng-repeat": {
-          "order": 2
         },
         "class": {
           "order": 9999
@@ -1154,18 +1209,22 @@
       "childrenProperties":[
         {
           "name": "crn-datasource",
-          "selector": "ion-item",
+          "selector": "div",
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "type": "pageDatasource",
           "order": 1
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 2
         },
         {
           "name":"content",
           "selector":"ion-item",
           "type":"content",
-          "order": 2
+          "order": 3
         },
         {
           "name":"xattr-theme",
@@ -1268,22 +1327,28 @@
     },
     {
       "name": "crn-list-avatar",
-      "text_pt_BR": "Lista com avatar",
+      "text_pt_BR": "Lista com Avatar",
       "text_en_US": "Avatar List",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
       "forcedGroup":true,
       "properties": {
-        "ng-repeat": {
-          "order": 2
-        },
         "id": {
           "order": 3
         },
         "class": {
           "order": 9999
         }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<a class=\"item item-avatar-left text-left\" xattr-position=\"item-avatar-left\" xattr-text-position=\"text-left\" data-component=\"crn-list-item-avatar\" id=\"crn-list-item-avatar-${RANDOM}\"><img src=\"img/nophoto.png\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3</a>",
+            "targetSelector": "div"
+          }
+        ]
       },
       "attributesForPreview": [
         {
@@ -1384,9 +1449,14 @@
           "selector": "div",
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "type": "pageDatasource",
+          "order": 1,
+          "mandatory": true
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 2
         },
         {
           "name":"src",
@@ -1400,7 +1470,14 @@
           "name":"xattr-position",
           "displayName_pt_BR": "Posição da Imagem",
           "displayName_en_US": "Image Position",
-          "selector":"div:first",
+          "selector":"a",
+          "type":"text"
+        },
+        {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"a",
           "type":"text"
         },
         {
@@ -1431,13 +1508,6 @@
           "displayName_pt_BR": "Tema do Subtítulo",
           "displayName_en_US": "Subtitle theme",
           "selector":"h3",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div > div",
           "type":"text"
         },
         {
@@ -1491,22 +1561,28 @@
     },
     {
       "name": "crn-list-icon",
-      "text_pt_BR": "Lista com ícone",
+      "text_pt_BR": "Lista com Ícone",
       "text_en_US": "Icon List",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.icon.template.html",
       "forcedGroup": true,
       "properties": {
-        "ng-repeat": {
-          "order": 2
-        },
         "id": {
-          "order": 3
+          "order": 1
         },
         "class": {
           "order": 9999
         }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<a class=\"item item-icon-left\" xattr-position=\"item-icon-left\" data-component=\"crn-list-item-icon\" id=\"crn-list-item-icon${RANDOM}\" href=\"\"><i class=\"icon ion-home dark\" xattr-theme=\"dark\"></i><h2 class=\"dark\" xattr-theme=\"dark\">List Content</h2></a>",
+            "targetSelector": "div"
+          }
+        ]
       },
       "attributesForPreview": [
         {
@@ -1604,18 +1680,23 @@
       "childrenProperties":[
         {
           "name": "crn-datasource",
+          "selector": "div",
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type": "pageDatasource",
-          "selector":"div",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 4
         },
         {
           "name":"content",
           "selector":"h2",
           "type":"content",
-          "order": 2
+          "order": 3
         },
         {
           "name":"xattr-theme",
@@ -1625,10 +1706,17 @@
           "type":"text"
         },
         {
+          "name":"xattr-position",
+          "selector":"a",
+          "displayName_pt_BR": "Posição do Ícone",
+          "displayName_en_US": "Icon Position",
+          "type":"text"
+        },
+        {
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
-          "selector":"div > div",
+          "selector":"a",
           "type":"text"
         },
         {
@@ -1637,20 +1725,13 @@
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
           "type":"icon",
-          "order": 1
+          "order": 2
         },
         {
           "name":"xattr-theme",
           "selector":"i",
           "displayName_pt_BR": "Tema do ícone",
           "displayName_en_US": "Icon Theme",
-          "type":"text"
-        },
-        {
-          "name":"xattr-position",
-          "selector":"div:first",
-          "displayName_pt_BR": "Posição do Ícone",
-          "displayName_en_US": "Icon Position",
           "type":"text"
         },
         {
@@ -1686,6 +1767,11 @@
       ],
       "styles": [
         {
+          "selector": "div#{id} a",
+          "text_pt_BR": "Geral",
+          "text_en_US": "General"
+        },
+        {
           "selector": "div#{id} i",
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
@@ -1699,18 +1785,15 @@
     },
     {
       "name": "crn-list-thumbnail",
-      "text_pt_BR": "Listas com imagem",
+      "text_pt_BR": "Lista com Thumbnail",
       "text_en_US": "List Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
         "id": {
-          "order": 3
-        },
-        "ng-repeat": {
-          "order": 2
+          "order": 1
         },
         "class": {
           "order": 9999
@@ -1739,6 +1822,15 @@
            "removable": false,
             "type": "event"
         }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<a data-component=\"crn-list-item-thumbnail\" class=\"item item-thumbnail-left text-left\" xattr-position=\"item-thumbnail-left\" href=\"\" xattr-text-position=\"text-left\"><img src=\"https://picsum.photos/id/875/100/100\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3></a>",
+            "targetSelector": "div"
+          }
+        ]
       },
       "attributesForPreview": [
         {
@@ -1835,60 +1927,100 @@
       ],
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1,
+          "mandatory": true
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 5
+        },
+        {
           "name":"src",
           "selector":"img",
           "removable": false,
           "type": "projectResource",
           "resourceType": "image/jpeg,image/gif,image/png",
-          "order": 1
-        },
-        {
-          "name":"xattr-position",
-          "selector":"div",
-          "type": "text"
-        },
-        {
-          "name":"content",
-          "selector":"h2",
-          "type":"content",
           "order": 2
         },
         {
-          "name":"xattr-theme",
-          "displayName_pt_BR": "Tema",
-          "displayName_en_US": "Text Theme",
-          "selector":"h2",
+          "name":"xattr-position",
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Image Position",
+          "selector":"a",
           "type":"text"
         },
         {
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
-          "selector":"div",
+          "selector":"a",
           "type":"text"
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "selector":"h2",
+          "type":"content",
+          "order": 3
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Subtítulo",
+          "displayName_en_US": "Subtitle",
+          "selector":"h3",
+          "type":"content",
+          "order": 4
+        },
+        {
+          "name": "xattr-theme",
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Text Theme",
+          "selector": "h2",
+          "type": "text"
         }
       ],
       "styles": [
         {
+          "selector": "div#{id} a",
+          "text_pt_BR": "Geral",
+          "text_en_US": "General"
+        },
+        {
           "selector": "div#{id} h2",
-          "text_pt_BR": "Descrição",
+          "text_pt_BR": "Título",
+          "text_en_US": "Title"
+        },
+        {
+          "selector": "div#{id} h3",
+          "text_pt_BR": "Subtítulo",
           "text_en_US": "Description"
         }
       ]
     },
     {
       "name": "crn-list",
-      "text_pt_BR": "Lista",
-      "text_en_US": "List",
+      "text_pt_BR": "Lista Simples",
+      "text_en_US": "Simple List",
       "class": "adjust-icon mdi mdi-view-headline",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
+      "forcedGroup": true,
+      "wrapper": false,
       "childrenProperties": [
         {
           "name": "crn-datasource",
-          "selector": "div[crn-datasource]",
-          "displayName_pt_BR": "Fonte de Dados",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
-          "type": "pageDatasource"
+          "type": "pageDatasource",
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-click",
@@ -1936,8 +2068,8 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-item  class=\"item\">Item 1</ion-item>",
-            "targetSelector": ".list"
+            "sourceHTML": "<ion-item data-component=\"crn-list-item\" class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
+            "targetSelector": "div"
           }
         ]
       },
@@ -1964,10 +2096,12 @@
           "order": 9999
         },
         "xattr-theme": {
-          "displayName": "Theme"
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Theme"
         },
         "xattr-text-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": false,
@@ -2077,6 +2211,7 @@
       "text_en_US": "Combobox",
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
+      "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
       "properties": {
         "id": {
@@ -2121,15 +2256,17 @@
           "selector": "select",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         }
       ],
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<option value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
-            "targetSelector": "select"
+            "sourceHTML": "<option data-component=\"crn-item-select\" value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
+            "targetSelector": "select",
+            "activeClass": "active"
           }
         ]
       },
@@ -2144,6 +2281,54 @@
           "selector": "label#{id} select",
           "text_pt_BR": "Dropdown",
           "text_en_US": "Dropdown"
+        }
+      ]
+    },
+    {
+      "name": "crn-item-select",
+      "text_pt_BR": "Item de caixa de seleção",
+      "text_en_US": "Combobox Item",
+      "class": "adjust-icon mdi mdi-equal-box",
+      "wrapper": false,
+      "pallete": false,
+      "template": "<option value=\"1\" class=\"\">Value 1</option>",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "content",
+          "selector": "self",
+          "type": "content"
         }
       ]
     },
@@ -2211,7 +2396,8 @@
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -2222,12 +2408,13 @@
         {
           "name": "ng-model",
           "selector": "select",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "xkey-field",
@@ -2235,7 +2422,8 @@
           "displayName_pt_BR": "Campo Chave",
           "displayName_en_US": "Key Field",
           "type": "datasourceFieldList",
-          "order": 4
+          "order": 4,
+          "mandatory": true
         },
         {
           "name": "xdisplay-field",
@@ -2243,15 +2431,11 @@
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
           "type": "datasourceFieldList",
-          "order": 5
+          "order": 5,
+          "mandatory": true
         }
       ],
       "styles": [
-        {
-          "selector": "label#{id}",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
         {
           "selector": "label#{id} span",
           "text_pt_BR": "Label",
@@ -2311,30 +2495,34 @@
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
           "selector": "select",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "xkey-field",
           "selector": "select",
           "displayName_pt_BR": "Campo Chave",
           "displayName_en_US": "Key Field",
-          "type": "datasourceFieldList"
+          "type": "datasourceFieldList",
+          "mandatory": true
         },
         {
           "name": "xdisplay-field",
           "selector": "select",
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
-          "type": "datasourceFieldList"
+          "type": "datasourceFieldList",
+          "mandatory": true
         }
       ],
       "groupedChildren": [
@@ -2383,10 +2571,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
-          "order": 1
-        },
-        "ng-initial-value": {
-          "order": 2
+          "order": 1,
+          "mandatory": true
         },
         "placeholder": {
           "order": 3
@@ -2444,6 +2630,8 @@
       "text_pt_BR": "Filtro",
       "text_en_US": "Filter",
       "class": "adjust-icon mdi mdi-magnify",
+      "wrapper": false,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
       "properties": {
         "id": {
@@ -2455,26 +2643,14 @@
       },
       "styles": [
         {
-          "selector": "div#{id} label",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
-          "selector": "div#{id} input",
+          "selector": "label#{id} input",
           "text_pt_BR": "Entrada de Texto",
           "text_en_US": "Text Input"
         },
         {
-          "selector": "div#{id} i",
+          "selector": "label#{id} i",
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
-        }
-      ],
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Campo",
-          "text_en_US": "Field",
-          "selector": "input"
         }
       ],
       "childrenProperties": [
@@ -2488,18 +2664,38 @@
           "order": 1
         },
         {
+          "name": "cronapp-filter",
+          "selector": "input",
+          "order": 2
+        },
+        {
           "name": "cronapp-filter-caseinsensitive",
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "order": 2
+          "order": 6
+        },
+        {
+          "name": "ng-initial-value",
+          "selector": "input",
+          "displayName_pt_BR": "Valor Inicial",
+          "displayName_en_US": "Initial Value",
+          "type": "logic",
+          "order": 5
+        },
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type": "text",
+          "order": 4,
+          "mandatory": true
         },
         {
           "name": "cronapp-filter-autopost",
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "order": 3
+          "order": 7
         },
         {
           "name": "cronapp-filter-operator",
@@ -2528,7 +2724,7 @@
             }
           ],
           "selector": "input",
-          "order": 4
+          "order": 8
         },
         {
           "name": "type",
@@ -2541,19 +2737,19 @@
           "type": "text",
           "displayName_pt_BR": "Tipo de Teclado",
           "displayName_en_US": "Keyboard Type",
-          "order": 6
+          "order": 11
         },
         {
           "name": "mask",
           "selector": "input",
           "type": "mask",
-          "order": 4
+          "order": 9
         },
         {
           "name": "mask-placeholder",
           "selector": "input",
           "type": "text",
-          "order": 5
+          "order": 10
         },
         {
           "name": "ng-keydown",
@@ -2644,6 +2840,7 @@
       "text_pt_BR": "Filtro Complexo",
       "text_en_US": "Complex Filter",
       "class": "adjust-icon mdi mdi-filter",
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/complexsearch.template.html",
       "properties": {
         "id": {
@@ -2687,6 +2884,7 @@
       "text_en_US": "Filter Button",
       "class": "adjust-icon mdi mdi-stop",
       "wrapper": false,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/filterbutton.template.html",
       "properties": {
         "id": {
@@ -2745,7 +2943,8 @@
           "order": 4
         },
         "xattr-type": {
-          "displayName": "Style Type",
+          "displayName_pt_BR": "Tipo de Estilo",
+          "displayName_en_US": "Style Type",
           "order": 6
         },
         "xattr-size": {
@@ -3004,20 +3203,21 @@
           "name": "class",
           "selector": "i:first",
           "type": "icon",
-          "displayName_pt_BR": "Ícone inicial",
+          "displayName_pt_BR": "Ícone Inicial",
           "displayName_en_US": "First Icon"
         },
         {
           "name": "class",
           "selector": "i:last",
           "type": "icon",
-          "displayName_pt_BR": "Ícone final",
+          "displayName_pt_BR": "Ícone Final",
           "displayName_en_US": "Last Icon"
         },
         {
           "name": "ng-model",
           "selector": "input",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "max",
@@ -3110,10 +3310,11 @@
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
           "type":"text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3266,7 +3467,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3424,7 +3626,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3587,7 +3790,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3713,7 +3917,7 @@
     },
     {
       "name": "crn-radio",
-      "text_pt_BR": "Lista de opção",
+      "text_pt_BR": "Lista de Opção",
       "text_en_US": "Radio Group",
       "class": "adjust-icon mdi mdi-radiobox-marked",
       "wrapper": false,
@@ -3728,7 +3932,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         }
       },
       "handleRules": {
@@ -3813,10 +4018,10 @@
     },
     {
       "name": "crn-checkbox",
-      "text_pt_BR": "Caixa de checagem",
+      "text_pt_BR": "Checkbox",
       "text_en_US": "Checkbox",
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
-      "wrapper": true,
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
       "properties": {
         "class": {
@@ -3826,16 +4031,102 @@
           "order": 1
         }
       },
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "checkbox-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "checkbox-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "checkbox-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "checkbox-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "checkbox-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "checkbox-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "checkbox-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "checkbox-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "checkbox-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ],
       "childrenProperties":[
         {
           "name": "content",
           "selector": "span",
-          "type":"content"
+          "type":"content",
+          "order": 1
         },
         {
           "name": "ng-model",
           "selector": "input",
-          "type":"text"
+          "type":"text",
+          "order": 2,
+          "mandatory": true
+        },
+        {
+          "name": "ng-initial-value",
+          "selector": "input",
+          "displayName_pt_BR": "Valor Inicial",
+          "displayName_en_US": "Initial Value",
+          "type": "logic",
+          "order": 4
+        },
+        {
+          "name": "xattr-theme",
+          "selector": "li:first",
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Theme",
+          "type":"options",
+          "order": 3
+        },
+        {
+          "name": "crn-allow-null-values",
+          "selector": "input",
+          "displayName_pt_BR": "Permite Valores Nulos",
+          "displayName_en_US": "Allow Null Values",
+          "type": "logic",
+          "order": 5
+        },
+        {
+          "name": "ng-required",
+          "selector": "input",
+          "type": "logic"
         },
         {
           "name": "ng-click",
@@ -3870,12 +4161,7 @@
       ],
       "styles": [
         {
-          "selector": "div#{id} li",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
-          "selector": "div#{id} span",
+          "selector": "li#{id} span",
           "text_pt_BR": "Legenda",
           "text_en_US": "Caption"
         }
@@ -3900,7 +4186,7 @@
     {
       "name": "crn-video",
       "text": "Video",
-      "class": "adjust-icon mdi mdi-youtube-play",
+      "class": "adjust-icon mdi mdi-youtube",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
       "forceGroup" : true,
       "wrapper": false,
@@ -3936,18 +4222,14 @@
       }
     },
     {
-      "name": "crn-slider",
-      "text_pt_BR": "Carrossel",
-      "text_en_US": "Carousel",
+      "name": "crn-slider-item",
+      "text_pt_BR": "Item de Carrossel",
+      "text_en_US": "Carousel Item",
       "class": "adjust-icon mdi mdi-view-carousel",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/slider.template.html",
-      "forcedGroup": true,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.slider.template.html",
       "wrapper": false,
+      "pallete": false,
       "properties": {
-        "xattr-collapse": {
-          "displayName": "Collapse",
-          "order": 1
-        },
         "id": {
           "order": 2
         },
@@ -3955,44 +4237,78 @@
           "order": 9999
         }
       },
-      "attributesForPreview": [
+      "childrenProperties": [
         {
-          "name": "xattr-collapse",
-          "type": "btngroup",
-          "value": "true",
-          "values": [
-            {
-              "key": "true",
-              "value": "true"
-            },
-            {
-              "key": "false",
-              "value": "false"
-            }
-          ]
+          "name":"src",
+          "selector":"img",
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 1
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "on-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-left",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-right",
+          "selector": "div",
+          "type": "event"
         }
-      ],
-      "classForPreview": {
-        "targetSelector": ".crn-slider",
-        "condition": [
-          {
-            "name": "xattr-collapse",
-            "value": "true",
-            "class": "hide-ion-slider"
-          },
-          {
-            "name": "xattr-collapse",
-            "value": "false",
-            "class": ""
-          }
-        ]
+      ]
+    },
+    {
+      "name": "crn-slider",
+      "text_pt_BR": "Carrossel",
+      "text_en_US": "Carousel",
+      "class": "adjust-icon mdi mdi-view-carousel",
+      "forcedGroup": true,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/slider.template.html",
+      "properties": {
+        "id": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
+        }
       },
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "activeClass": "",
-            "sourceHTML": "<ion-slide class=\"\" style = \" width:100%;height:100%;\"><div class=\"text-center\" style=\"display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;\"><img src=\"http://placehold.it/400x220\" data-component=\"crn-image\" style=\"width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;\" xattr-position=\"\"></div></ion-slide>",
+            "activeClass": "active",
+            "sourceHTML": "<ion-slide id=\"crn-slider-item-${RANDOM}\" class=\"dark-bg\" style= \"width:100%;height:200px; position:relative\" data-component=\"crn-slider-item\"><h2 data-component=\"crn-label\" style=\"text-align: center; color: white; font-weight: bold;  top: 50%; left: 50%; margin: 0; transform: translate(-50%, -50%); position: absolute;\" data-container=\"true\" data-replace=\"true\">SLIDE TITLE</h2></ion-slide>",
             "targetSelector": "ion-slide-box"
           }
         ]
@@ -4068,7 +4384,12 @@
       "properties": {
         "src": {
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 1
+        },
+        "xattr-position": {
+          "removable": false,
+          "order": 2
         },
          "ng-click": {
           "removable": false,
@@ -4211,7 +4532,8 @@
           "order": 9999
         },
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": true,
@@ -4269,7 +4591,7 @@
       "text_pt_BR": "Ícone",
       "text_en_US": "Icon",
       "class": "adjust-icon mdi mdi-star",
-      "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"\" xattr-size=\"\"/>",
+      "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"font-size:300%\" xattr-size=\"font-size:300%\"/>",
       "wrapper": false,
       "properties": {
         "class": {
@@ -4356,7 +4678,8 @@
           "order": 9999
         },
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": true,
@@ -4430,7 +4753,8 @@
           "order": 9999
         },
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": false,
@@ -4491,30 +4815,37 @@
     },
     {
       "name": "crn-item-swipe",
-      "text_pt_BR": "Item da Lista Swipe",
-      "text_en_US": "List Item Swipe",
-      "class": "adjust-icon mdi mdi-minus",
-      "pallete": false,
+      "text_pt_BR": "Item com Swipe",
+      "text_en_US": "Swipe Item",
+      "class": "adjust-icon mdi mdi-ray-end-arrow",
       "wrapper": false,
+      "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
       "properties": {
         "onclick": {
           "type": "event"
         }
       },
+      "childrenProperties": [
+        {
+          "name": "content",
+          "selector": "h2",
+          "type": "content"
+        }
+      ],
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "",
-            "targetSelector": ".item"
+            "sourceHTML": "<ion-option-button class=\"button-positive button\" data-component=\"crn-button\"><i class=\"ion ion-home\"></i><span>Home</span></ion-option-button>",
+            "targetSelector": ".crn-item-options"
           }
         ]
       }
     },
     {
       "name": "crn-list-swipe",
-      "text_pt_BR": "Lista com swipe",
+      "text_pt_BR": "Lista com Swipe",
       "text_en_US": "List Swipe",
       "class": "adjust-icon mdi mdi-ray-end-arrow",
       "forcedGroup": true,
@@ -4526,7 +4857,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
          {
           "name": "ng-click",
@@ -4583,8 +4915,8 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div class=\"col\">New Item</div>",
-            "targetSelector": ".row"
+            "sourceHTML": "<ion-item class=\"item\" id=\"crn-list-item-swipe${RANDOM}\" data-component=\"crn-item-swipe\"><h2 style=\"display: inline;\">Item</h2><div id=\"crn-item-options${RANDOM}\" class=\"component-holder\" data-component=\"crn-item-options\"><div class=\"crn-item-options\" data-item=\"true\"><ion-option-button id=\"crn-button${RANDOM}\" data-component=\"crn-button\" class=\"button-positive button\"><i class=\"ion ion-edit\"></i><span>Edit</span></ion-option-button><ion-option-button id=\"crn-option-button${RANDOM}-2\" data-component=\"crn-button\" class=\"button-assertive button\"><i class=\"ion ion-trash-a\"></i><span>Delete</span></ion-option-button></div></div></ion-item>",
+            "targetSelector": ".to-repeat"
           }
         ]
       },
@@ -4666,7 +4998,8 @@
           "order": 3
         },
         "xattr-type": {
-          "displayName": "Style Type",
+          "displayName_pt_BR": "Tipo de Estilo",
+          "displayName_en_US": "Style Type",
           "order": 5
         },
         "xattr-size": {
@@ -4965,7 +5298,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>",
+            "sourceHTML": "<ion-option-button class=\"button-positive button\" data-component=\"crn-button\"><i class=\"ion ion-home\"></i><span>Home</span></ion-option-button>",
             "targetSelector": ".crn-item-options"
           }
         ]
@@ -5398,6 +5731,12 @@
       "text_pt_BR": "Aba",
       "text_en_US": "Tab",
       "class": "adjust-icon mdi mdi-window-maximize",
+      "designTimeClass": [
+        {
+          "selector": "ion-tabs",
+          "class": "tab-nav tabs"
+        }
+      ],
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab.template.html",
       "forcedGroup": true,
@@ -5484,7 +5823,7 @@
       ],
       "styles": [
         {
-          "selector": "ion-tabs#{id} .tabs",
+          "selector": "ion-tabs#{id}, ion-tabs#{id} .tabs",
           "text_pt_BR": "Geral",
           "text_en_US": "General"
         },
@@ -5576,7 +5915,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -5734,7 +6074,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "cronapp-stars": {
           "order": 2
@@ -5788,12 +6129,16 @@
       "text_pt_BR": "Avaliação",
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
-      "wrapper": true,
+      "wrapper": false,
       "autoWrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/rating.template.html",
       "properties": {
         "id": {
           "order": 1
+        },
+        "xattr-theme": {
+          "displayName": "Theme",
+          "order": 3
         },
         "class": {
           "order": 9999
@@ -5807,6 +6152,21 @@
         }
       ],
       "attributesForPreview": [
+        {
+          "name": "xattr-default-value",
+          "type": "options",
+          "target": "default",
+          "values": [
+            {
+              "key": "",
+              "value": "null"
+            },
+            {
+              "key": "0",
+              "value": "zero"
+            }
+          ]
+        },
         {
           "name": "xattr-theme",
           "type": "options",
@@ -5867,7 +6227,8 @@
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "class",
@@ -5887,9 +6248,17 @@
         },
         {
           "name": "xattr-theme",
-          "selector": "i",
+          "selector": "div",
           "type": "text",
           "order": 3
+        },
+        {
+          "name": "xattr-default-value",
+          "selector": "cronapp-rating",
+          "displayName_pt_BR": "Valor Padrão",
+          "displayName_en_US": "Default Value",
+          "type": "text",
+          "order": 4
         },
         {
           "name": "ng-init",
@@ -5938,7 +6307,8 @@
       "properties": {
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         }
       },
       "childrenProperties": [
@@ -5946,11 +6316,6 @@
           "name": "content",
           "selector": "label",
           "type": "content"
-        },
-        {
-          "name": "ng-model",
-          "selector": "div[dynamic-image]",
-          "type": "text"
         },
         {
           "name": "max-file-size",
@@ -6011,6 +6376,7 @@
       "text_pt_BR": "Envio de Arquivo Dinâmico",
       "text_en_US": "Dynamic File Upload",
       "class": "adjust-icon mdi mdi-cloud-upload",
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicfile.template.html",
       "properties": {
         "id": {
@@ -6021,7 +6387,8 @@
         },
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         }
       },
       "groupedChildren": [
@@ -6081,8 +6448,8 @@
       "text_pt_BR": "Código QR",
       "text_en_US": "QR Code",
       "class": "adjust-icon mdi mdi-qrcode",
-      "wrapper": false,
-      "template": "<div qr=\"true\" ng-model=\"vars.QR${RANDOM}\" ><div> </div> </div>",
+      "wrapper": true,
+      "template": "<qr ng-model=\"vars.QR${RANDOM}\" ><div> </div> </qr>",
       "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/qr-code.png\"/>",
       "designTimeSelector": "div",
       "properties": {
@@ -6092,37 +6459,38 @@
         "class": {
           "order": 9999
         },
-        "ng-model": {
-          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
-        },
-        "qr": {
-          "removable": false,
-          "displayName": "QR Code",
-          "order": 2
-        },
         "on-hold": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-double-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-swipe": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-drag": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         }
-      }
+      },
+      "childrenProperties": [
+        {
+          "name": "ng-model",
+          "selector": "qr",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
+          "type":"text",
+          "order": 1,
+          "mandatory": true
+        }
+      ]
     },
     {
       "name": "crn-chart",
@@ -6164,8 +6532,10 @@
       "text_pt_BR": "Lista Avançada",
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Title</h2><p>Subtitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
       "properties": {
         "id": {
@@ -6175,12 +6545,50 @@
           "order": 9999
         }
       },
+      "attributesForPreview": [
+        {
+          "name": "xattr-text-position",
+          "type": "btngroup",
+          "target": "cron-list",
+          "values": [
+            {
+              "key": "text-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "text-center",
+              "value": "Center",
+              "icon": "mdi mdi-ray-vertex"
+            },
+            {
+              "key": "text-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        }
+      ],
       "childrenProperties": [
         {
           "name": "options",
           "selector": "cron-list",
           "displayName_pt_BR": "Configuração",
-          "displayName_en_US": "Configuration"
+          "displayName_en_US": "Configuration",
+          "mandatory": true
+        },
+        {
+          "name": "ng-model",
+          "selector": "cron-list",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value"
+        },
+        {
+          "name":"xattr-text-position",
+          "selector":"cron-list",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "type":"text"
         },
         {
           "name": "ng-click",
@@ -6235,19 +6643,49 @@
           "text_en_US": "Title"
         },
         {
-          "selector": "div#{id} p",
+          "selector": "div#{id} h3",
           "text_pt_BR": "Subtítulo",
           "text_en_US": "Subtitle"
         },
         {
-          "selector": "div#{id} .item-input",
-          "text_pt_BR": "Pesquisar",
-          "text_en_US": "Search"
+          "selector": "div#{id} .item-content > div > i.icon",
+          "text_pt_BR": "Ícone",
+          "text_en_US": "Icon"
         },
         {
           "selector": "div#{id} .item-content",
           "text_pt_BR": "Lista",
           "text_en_US": "List"
+        },
+        {
+          "selector": "div#{id} .item-input-inset",
+          "text_pt_BR": "Caixa de Pesquisa",
+          "text_en_US": "Search Box"
+        },
+        {
+          "selector": "div#{id} .item-input-wrapper",
+          "text_pt_BR": "Barra de Pesquisar",
+          "text_en_US": "Search Bar"
+        },
+        {
+          "selector": "div#{id} .item-input-wrapper > input",
+          "text_pt_BR": "Input de Pesquisa",
+          "text_en_US": "Search Input"
+        },
+        {
+          "selector": "div#{id} label.checkbox",
+          "text_pt_BR": "Checkbox",
+          "text_en_US": "Checkbox"
+        },
+        {
+          "selector": "div#{id} .cron-list-selected, div#{id} .cron-list-selected > div.item-content",
+          "text_pt_BR": "Item Selecionado",
+          "text_en_US": "Selected Item"
+        },
+        {
+          "selector": "div#{id} button.cron-list-button-clean",
+          "text_pt_BR": "Botão de Limpar",
+          "text_en_US": "Clean Button"
         }
       ]
     },
@@ -6287,6 +6725,36 @@
           "removable": false
         }
       }
+    },
+    {
+      "name": "crn-mobile-menu",
+      "text_pt_BR": "Menu Dinâmico",
+      "text_en_US": "Dynamic Menu",
+      "class": "adjust-icon mdi mdi-menu",
+      "order": 11,
+      "wrapper": false,
+      "pallete": false,
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/cron-mobile-menu.designtime.html",
+      "designTimeSelector": ":self",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "options",
+          "selector": "cron-mobile-menu",
+          "displayName_pt_BR": "Configuração",
+          "displayName_en_US": "Configuration",
+          "type": "text",
+          "order": 1
+        }
+      ]
     }
   ]
 }

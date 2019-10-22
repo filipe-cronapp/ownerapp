@@ -94,10 +94,6 @@
           "displayName": "Theme",
           "order": 1
         },
-        "xattr-size": {
-          "displayName": "Size",
-          "order": 2
-        },
         "xattr-disabled": {
           "displayName": "Disabled",
           "order": 4
@@ -127,29 +123,6 @@
         }
       ],
       "attributesForPreview": [
-        {
-          "name": "xattr-size",
-          "type": "options",
-          "target": "class",
-          "values": [
-            {
-              "key": "",
-              "value": "Standard"
-            },
-            {
-              "key": "btn-lg",
-              "value": "Large"
-            },
-            {
-              "key": "btn-sm",
-              "value": "Small"
-            },
-            {
-              "key": "btn-xs",
-              "value": "Extra Small"
-            }
-          ]
-        },
         {
           "name": "xattr-fullsize",
           "type": "options",
@@ -262,10 +235,6 @@
           "name": "content",
           "selector": "span",
           "type": "content"
-        },
-        {
-          "name": "xattr-size",
-          "selector": "button"
         },
         {
           "name": "xattr-theme",
@@ -542,6 +511,13 @@
           "global": true,
           "order": 3
         },
+        "auto-refresh": {
+          "displayName_pt_BR": "Atualizar Automaticamente (ms)",
+          "displayName_en_US": "Auto Refresh (ms)",
+          "removable": false,
+          "global": true,
+          "order": 8
+        },
         "parameters-null-strategy": {
           "removable": false,
           "type": "list",
@@ -563,6 +539,33 @@
             }
           ],
           "order": 3
+        },
+        "load-data-strategy": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "default",
+              "value_en_US": "Default",
+              "value_pt_BR": "Padrão"
+            },
+            {
+              "key": "all",
+              "value_en_US": "All Parameters Filled",
+              "value_pt_BR": "Todos os Filtros Preenchidos"
+            },
+            {
+              "key": "one",
+              "value_en_US": "At Least One Parameter Filled",
+              "value_pt_BR": "No mínimo um Filtro Preenchido"
+            },
+            {
+              "key": "button",
+              "value_en_US": "On Button Pressed",
+              "value_pt_BR": "Ao Pressionar Botão"
+            }
+          ],
+          "order": 4
         },
         "checkrequired": {
           "removable": false,
@@ -706,6 +709,11 @@
         },
         {
           "name": "ng-init",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-change",
           "selector": "input",
           "type": "event"
         },
@@ -975,6 +983,7 @@
       "name": "crn-datasource-filter",
       "text_pt_BR": "Filtro",
       "text_en_US": "Filter",
+      "pallete": false,
       "class": "adjust-icon mdi mdi-filter",
       "order": 4,
       "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/datasourcefilter.template.html",
@@ -992,8 +1001,8 @@
       ],
       "properties": {
         "crn-datasource": {
-          "displayName_pt_BR": "Configurações",
-          "displayName_en_US": "Configuration",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
           "removable": false,
           "type": "pageDatasource",
           "selector": "input",
@@ -1145,6 +1154,7 @@
       "text_pt_BR": "Filtro Complexo",
       "text_en_US": "Complex Filter",
       "class": "adjust-icon mdi mdi-filter",
+      "pallete": false,
       "properties": {
         "class": {
           "order": 9999
@@ -1200,8 +1210,8 @@
       ],
       "properties": {
         "crn-datasource": {
-          "displayName_pt_BR": "Configurações",
-          "displayName_en_US": "Configuration",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
           "removable": false,
           "type": "pageDatasource",
           "order": 1
@@ -2161,8 +2171,8 @@
         {
           "name": "crn-datasource",
           "selector": "div[crn-datasource]",
-          "displayName_pt_BR": "Configurações",
-          "displayName_en_US": "Configuration",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
           "type": "pageDatasource"
         },
         {
@@ -2777,11 +2787,11 @@
     },
     {
       "name": "crn-title",
-      "text_pt_BR": "Título",
-      "text_en_US": "Title",
+      "text_pt_BR": "Cabeçalho",
+      "text_en_US": "Header",
+      "class": "adjust-icon mdi mdi-page-layout-header",
       "wrapper": false,
       "pallete": false,
-      "class": "adjust-icon mdi mdi-format-header-pound",
       "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/title-default.template.html",
       "properties": {
         "ng-init": {
@@ -3277,6 +3287,11 @@
           "type": "event"
         },
         {
+          "name": "ng-change",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-click",
           "selector": "input",
           "type": "event"
@@ -3409,6 +3424,11 @@
         },
         {
           "name": "ng-init",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-change",
           "selector": "input",
           "type": "event"
         },
@@ -4262,13 +4282,6 @@
           "type": "event"
         },
         {
-          "name": "ng-open",
-          "selector": "cron-select",
-          "displayName_pt_BR": "Ao Abrir",
-          "displayName_en_US": "On Open",
-          "type": "event"
-        },
-        {
           "name": "options",
           "selector": "cron-select",
           "displayName_pt_BR": "Configuração",
@@ -4359,13 +4372,6 @@
           "selector": "cron-dynamic-select",
           "displayName_pt_BR": "Ao Filtrar",
           "displayName_en_US": "On Filtering",
-          "type": "event"
-        },
-        {
-          "name": "ng-open",
-          "selector": "cron-dynamic-select",
-          "displayName_pt_BR": "Ao Abrir",
-          "displayName_en_US": "On Open",
           "type": "event"
         },
         {
@@ -4522,13 +4528,6 @@
           "selector": "cron-multi-select",
           "displayName_pt_BR": "Ao Filtrar",
           "displayName_en_US": "On Filtering",
-          "type": "event"
-        },
-        {
-          "name": "ng-open",
-          "selector": "cron-multi-select",
-          "displayName_pt_BR": "Ao Abrir",
-          "displayName_en_US": "On Open",
           "type": "event"
         },
         {
@@ -4709,13 +4708,6 @@
           "type": "event"
         },
         {
-          "name": "ng-open",
-          "selector": "cron-auto-complete",
-          "displayName_pt_BR": "Ao Abrir",
-          "displayName_en_US": "On Open",
-          "type": "event"
-        },
-        {
           "name": "ng-required",
           "selector": "cron-auto-complete",
           "type": "logic"
@@ -4826,13 +4818,6 @@
           "selector": "cron-auto-complete",
           "displayName_pt_BR": "Ao Filtrar",
           "displayName_en_US": "On Filtering",
-          "type": "event"
-        },
-        {
-          "name": "ng-open",
-          "selector": "cron-auto-complete",
-          "displayName_pt_BR": "Ao Abrir",
-          "displayName_en_US": "On Open",
           "type": "event"
         },
         {
@@ -5365,6 +5350,23 @@
       }
     },
     {
+      "name": "crn-foot-cell",
+      "text_pt_BR": "Célula Rodapé Tabela",
+      "text_en_US": "Table Footer Cell",
+      "class": "adjust-icon mdi mdi-apps",
+      "wrapper": false,
+      "pallete": false,
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/foot-cell.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      }
+    },
+    {
       "name": "crn-social-login",
       "text_pt_BR": "Login Social",
       "text_en_US": "Social Login",
@@ -5406,12 +5408,16 @@
       "text_pt_BR": "Avaliação",
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
-      "wrapper": true,
+      "wrapper": false,
       "autoWrapper": false,
       "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/rating.template.html",
       "properties": {
         "id": {
           "order": 1
+        },
+        "xattr-theme": {
+          "displayName": "Theme",
+          "order": 3
         },
         "class": {
           "order": 9999
@@ -5425,6 +5431,21 @@
         }
       ],
       "attributesForPreview": [
+        {
+          "name": "xattr-default-value",
+          "type": "options",
+          "target": "default",
+          "values": [
+            {
+              "key": "",
+              "value": "null"
+            },
+            {
+              "key": "0",
+              "value": "zero"
+            }
+          ]
+        },
         {
           "name": "xattr-theme",
           "type": "options",
@@ -5485,9 +5506,17 @@
         },
         {
           "name": "xattr-theme",
-          "selector": "i",
+          "selector": "div",
           "type": "text",
           "order": 3
+        },
+        {
+          "name": "xattr-default-value",
+          "selector": "cronapp-rating",
+          "displayName_pt_BR": "Valor Padrão",
+          "displayName_en_US": "Default Value",
+          "type": "text",
+          "order": 4
         },
         {
           "name": "ng-init",

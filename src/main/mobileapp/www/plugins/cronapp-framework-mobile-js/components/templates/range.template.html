@@ -1,7 +1,5 @@
-<div class="list">
-    <div class="item range range-positive">
-        <i class="icon ion-ios-sunny-outline left-icon"></i>
-        <input type="range" name="volume" min="0" max="100" value="33">
-        <i class="icon ion-ios-sunny right-icon"></i>
-    </div>
+<div class="item range range-positive" id="crn-range${RANDOM}">
+    <i class="icon ion-ios-sunny-outline left-icon"></i>
+    <input type="range" name="volume" min="0" max="100" value="33" ng-model="vars.range${RANDOM}">
+    <i class="icon ion-ios-sunny right-icon"></i>
 </div>

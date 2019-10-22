@@ -1,6 +1,6 @@
-<div id="starter" ng-init="cronapi.client('js.blockly.ObterPessoas.obter').run()" ng-destroy="" data-component="crn-start" screen-params=""> 
+<div id="starter" ng-init="cronapi.client('js.blockly.ObterProdutos.obter').run()" ng-destroy="" data-component="crn-start" screen-params=""> 
   <ion-view class="pane"> 
-    <ion-header-bar align-title="center" class="bar-header bar bar.bar-owner bar-owner .button bar-energized" xattr-theme="bar-energized" data-component="crn-ion-header-bar"> 
+    <ion-header-bar align-title="center" class="bar-header bar bar.bar-owner bar-owner .button bar-energized" xattr-theme="bar-energized" data-component="crn-ion-header-bar" ng-show="false"> 
       <div class="buttons buttons-left header-item"> 
         <button class="button button-clear" menu-toggle="left" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button> 
       </div> 
@@ -10,14 +10,19 @@
       </div> 
     </ion-header-bar> 
     <ion-content class="scroll-content has-header" data-component="crn-ion-content"> 
-      <img src="img/iconfinder_Coconut_52365.png" class="component-holder center-block" style="" xattr-position="center-block" data-component="crn-image" id="crn-image-303569"><ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010" ng-repeat="produto in listadeprodutos" ng-model="listadeprodutos">
-       - {{produto.nome}} de {{produto.sabor}}    |    R$:{{produto.preco}} <!-- Qt:{{produto.quantidade}} -->
-      </ion-item> 
-       
-       
-       
-       
-       
+      <div style="height: 40px;" data-component="crn-spacer" class="component-holder" id="crn-spacer-812852">
+         &nbsp; 
+      </div> 
+      <img src="img/iconfinder_Coconut_52365.png" class="component-holder center-block" style="" xattr-position="center-block" data-component="crn-image" id="crn-image-303569"> 
+      <div class="card component-holder" data-component="crn-card" id="crn-card-371352"> 
+        <div class="item item-text-wrap"> 
+          
+          <ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010" ng-repeat="produto in listadeprodutos" ng-model="listadeprodutos">
+             - {{produto.nome}} de {{produto.sabor}} | R$:{{produto.preco}} 
+            <!-- Qt:{{produto.quantidade}} --> 
+          </ion-item> 
+        </div> 
+      </div><button class="button button-block component-holder button-energized" type="submit" xattr-fullsize="button-block" xattr-theme="button-energized" ng-click="cronapi.screen.changeView('#/app/logged/produto', [])" data-component="crn-button" id="crn-button-994860"><i class="ion ion-home"></i> <span>Produto</span></button> 
     </ion-content> 
   </ion-view> 
 </div>

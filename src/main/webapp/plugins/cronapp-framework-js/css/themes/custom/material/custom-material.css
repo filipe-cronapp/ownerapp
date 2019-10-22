@@ -903,3 +903,42 @@ cron-scheduler a.k-link {
 .k-scheduler-calendar .k-content th, .k-calendar-view .k-content th{
     text-align: center;
 }
+
+/* Fixe Views as Dropdown*/
+
+.k-scheduler-views *{
+    background-color: #3b448e !important;
+}
+
+.k-scheduler-views .k-current-view {
+    display: block;
+}
+
+.k-scheduler-views > li {
+    display: none;
+}
+
+.k-state-expanded.k-scheduler-views > li {
+    display: block;
+}
+
+.k-scheduler-views {
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: stretch;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 1000;
+}
+
+.k-scheduler-refresh{
+    right: 10px;
+    position: relative;
+}

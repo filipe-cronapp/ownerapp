@@ -8365,6 +8365,11 @@ ionic.views.Slider = ionic.views.View.inherit({
       slides = element.children;
       length = slides.length;
 
+      //[QAIBT-2102] - Item de slide com ng-repeat inicialmente possui 0 slides, o ionic não prevê este comportamento
+      if(slides.length === 0){
+        return;
+      }
+
       // set continuous to false if only one slide
       if (slides.length < 2) options.continuous = false;
 
@@ -64064,9 +64069,17 @@ IonicModule
           }
         }
 
+        var checkbox = '';
+
+        if($element.find('ul').length > 0){
+          checkbox = $element.find('ul');
+          $element.find('ul').remove();
+        }
+
         innerElement.append($element.contents());
 
         $element.addClass('item item-complex')
+                .append(checkbox)
                 .append(innerElement);
       } else {
         $element.addClass('item');

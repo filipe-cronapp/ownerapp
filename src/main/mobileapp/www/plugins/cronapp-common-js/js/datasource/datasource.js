@@ -1,4 +1,4 @@
-//v2.0.22
+//v2.1.0
 var ISO_PATTERN  = new RegExp("(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d+([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))");
 var TIME_PATTERN  = new RegExp("PT(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)(?:\\.(\\d+)?)?S)?");
 var DEP_PATTERN  = new RegExp("\\{\\{(.*?)\\|raw\\}\\}");
@@ -538,7 +538,7 @@ angular.module('datasourcejs', [])
             error = data;
           } else {
             var errorMsg = (data.msg || data.desc || data.message || data.error || data.responseText);
-            if (this.isOData()) {
+            if (this.isOData() && data.error.message && data.error.message.value) {
               errorMsg = data.error.message.value;
             }
             if (errorMsg) {
@@ -1155,21 +1155,22 @@ angular.module('datasourcejs', [])
      * Always valid if input has pattern
      */
 
-    this.hasPattern = function(){
-      return $('input[ng-model*="' + this.name + '."]').attr("pattern");
+    this.getPatterns = function(){
+      return $('input[ng-model*="' + this.name + '."]').filter(function( index ) {
+        return $( this ).attr("pattern");
+      });
     };
 
     /**
      * Valid if required field is valid
      */
     this.missingRequiredField = function() {
-      if(this.hasPattern()){
+      if(this.getPatterns().length > 0){
         return false;
       }
       if (this.checkRequired) {
         var valid = this.validateFields('[required][ng-model*="' + this.name + '."].ng-invalid-required', this.translate.instant("FieldIsRequired"));
         valid = valid && this.validateFields('[required][ng-model*="' + this.name + '."].ng-empty', this.translate.instant("FieldIsRequired"));
-        valid = valid && this.validateFields('[valid][ng-model*="' + this.name + '."].ng-empty', this.translate.instant("FieldIsRequired"));
         valid = valid && this.validateFields('[ng-model*="' + this.name + '."].ng-invalid', this.translate.instant("FieldIsInvalid"));
 
         return !valid;
@@ -1182,11 +1183,11 @@ angular.module('datasourcejs', [])
      * Valid is other validations like email, date and so on
      */
     this.hasInvalidField = function() {
-      if(this.hasPattern()){
+      if(this.getPatterns().length > 0){
         return false;
       }
       if (this.checkRequired) {
-        return $('input[ng-model*="' + this.name + '."]:invalid').size() > 0;
+        return $('input[ng-model*="' + this.name + '."]:invalid').not('.ng-empty').size() > 0;
       } else {
         return false;
       }
@@ -1424,11 +1425,11 @@ angular.module('datasourcejs', [])
                 currentRow.__status = "updated";
                 currentRow.__original = lastActive;
                 this.hasMemoryData = true;
-                this.notifyPendingChanges(this.hasMemoryData);
                 if (this.dependentLazyPost) {
                   currentRow.__parentId = eval(this.dependentLazyPost).active.__$id;
                 }
               }
+              this.notifyPendingChanges(this.hasMemoryData);
               this.handleAfterCallBack(this.onAfterUpdate);
 
               if (this.events.update && hotData) {
@@ -2255,15 +2256,18 @@ angular.module('datasourcejs', [])
       return this.active;
     };
 
-    /**
-     *  Moves the cursor to the specified item
-     */
-    this.goTo = function(rowId, serverQuery) {
-      var found = false;
+    this.findObjInDs = function(rowId, returnCursor) {
 
-      if (rowId == null || rowId == undefined) {
-        return null;
+      var found = false;
+      var result = null;
+
+      if (rowId === null || rowId === undefined) {
+        return result;
       }
+
+      var cursor = null;
+      var copyObj = null;
+
 
       if (typeof rowId === 'object' && rowId !== null) {
         var dataKeys;
@@ -2283,10 +2287,11 @@ angular.module('datasourcejs', [])
             }
           }
           if (found) {
-            this.cursor = i;
-            this.active = this.copy(this.data[this.cursor], {});
+            cursor = i;
 
-            var keys = this.getKeyValues(this.data[this.cursor]);
+            copyObj = this.copy(this.data[cursor], {});
+
+            var keys = this.getKeyValues(this.data[cursor]);
             var defined = true;
             for (var key in keys) {
               if (keys[key] === undefined) {
@@ -2299,23 +2304,46 @@ angular.module('datasourcejs', [])
               this.fetchChildren();
             }
 
-            return this.active;
           }
         }
       } else {
         if (Array.isArray(this.keys)) {
           for (var i = 0; i < this.data.length; i++) {
             if (this.data[i][this.keys[0]] === rowId) {
-              this.cursor = i;
-              this.active = this.copy(this.data[this.cursor], {});
+              cursor = i;
+              copyObj = this.copy(this.data[cursor], {});
               found = true
-              return this.active;
             }
           }
         }
       }
 
-      return null;
+      if (copyObj !== null) {
+        result = copyObj;
+        if (returnCursor) {
+          result = {
+            cursor: cursor,
+            obj: copyObj
+          };
+        }
+      }
+
+      return result;
+
+    };
+
+    /**
+     *  Moves the cursor to the specified item
+     */
+    this.goTo = function(rowId, serverQuery) {
+
+      var result = this.findObjInDs(rowId, true);
+      if (result !== null) {
+        this.cursor = result.cursor;
+        this.active = result.obj;
+        return this.active;
+      }
+      return result;
     };
 
     /**
@@ -2885,6 +2913,16 @@ angular.module('datasourcejs', [])
       return value === '' || value === undefined || value === null || value === '\'\'' || value === 'null';
     }
 
+    this.getFieldFromSchema = function (name) {
+      if (this.schema) {
+        for (var i = 0; i < this.schema.length; i++) {
+          if (this.schema[i].name === name)
+            return this.schema[i].type;
+        }
+      }
+      return null;
+    };
+
     this.parserCondition = function (data, strategy, resultData) {
       var result = '';
       var operation = data.type;
@@ -2909,6 +2947,9 @@ angular.module('datasourcejs', [])
             } else {
 
               if (!this.isEmpty(value)) {
+                if (resultData) {
+                  resultData.count = resultData.count ? resultData.count + 1 : 1;
+                }
                 if (result != '') {
                   result += ' ' + oper.toLowerCase() + ' ';
                 }
@@ -2925,18 +2966,42 @@ angular.module('datasourcejs', [])
               }
             } else {
               if (!this.isEmpty(value)) {
-                if (result != '') {
-                  result += ' ' + oper.toLowerCase() + ' ';
+
+                var canContinue = true;
+                var isDate = this.getFieldFromSchema(arg.left) === 'DateTime';
+                var objDateMoment = undefined;
+                if (isDate && value.indexOf('datetime') === -1) {
+                  objDateMoment = this.$scope.cronapi.dateTime.getMomentObj(value);
+                  canContinue = objDateMoment.isValid()
                 }
 
-                if (arg.type == '%') {
-                  if (this.isLocalData()) {
-                    result += "contains("+arg.left+", "+value.toLowerCase()+")";
-                  } else {
-                    result += "substringof("+value.toLowerCase()+", tolower("+arg.left+"))";
+                if (canContinue) {
+
+                  if (resultData) {
+                    resultData.count = resultData.count ? resultData.count + 1 : 1;
                   }
-                } else {
-                  result += arg.left + getQueryOperator(arg.type) + value;
+                  if (result != '') {
+                    result += ' ' + oper.toLowerCase() + ' ';
+                  }
+
+                  if (arg.type == '%') {
+                    if (this.isLocalData()) {
+                      result += "contains("+arg.left+", "+value.toLowerCase()+")";
+                    } else {
+                      result += "substringof("+value.toLowerCase()+", tolower("+arg.left+"))";
+                    }
+                  } else {
+                    if (objDateMoment) {
+                      var momentTimezoneOffset = objDateMoment.toDate().getTimezoneOffset();
+                      var adjustOffset = timeZoneOffset - momentTimezoneOffset;
+                      objDateMoment.add(adjustOffset, 'minutes');
+                      result += arg.left + getQueryOperator(arg.type) + "datetimeoffset'"+objDateMoment.toISOString()+"'";
+                    }
+                    else {
+                      result += arg.left + getQueryOperator(arg.type) + value;
+                    }
+                  }
+
                 }
               }
             }
@@ -2946,17 +3011,66 @@ angular.module('datasourcejs', [])
       return result.trim();
     }.bind(this);
 
+    this.refreshData = function(callback) {
+      if (this.lastFetch && !this.hasMemoryData && this.enabled && !this.inserting && !this.editing) {
+        if (window.Pace) {
+          window.Pace.options.ajax.trackWebSockets = false;
+          window.Pace.options.ajax.trackMethods = [];
+        }
+
+        var after = function() {
+          if (window.Pace) {
+            window.Pace.options.ajax.trackWebSockets = true;
+            window.Pace.options.ajax.trackMethods = ["PUT", "POST", "GET"];
+          }
+          if (callback) {
+            callback();
+          }
+        };
+
+        var cb = {
+          success: after,
+          error: after
+        }
+        this.lastFilter = null;
+        this.lastFetch.fetchOptions = this.lastFetch.fetchOptions || {};
+        this.lastFetch.fetchOptions.active = this.copy(this.active);
+        this.lastFetch.fetchOptions.active.__$id = undefined;
+        this.fetch(this.lastFetch.properties, cb, this.lastFetch.isNextOrPrev, this.lastFetch.fetchOptions, true);
+      } else {
+        if (callback) {
+          callback();
+        }
+      }
+    }
+
+    this.startAutoRefresh = function() {
+      if (this.autoRefresh > 0) {
+        setTimeout(function() {
+          this.refreshData(function() {
+            this.startAutoRefresh();
+          }.bind(this));
+        }.bind(this), this.autoRefresh);
+      }
+    }
+
     /**
      *  Fetch all data from the server
      */
 
-    this.fetch = function(properties, callbacksObj, isNextOrPrev, fetchOptions) {
+    this.fetch = function(properties, callbacksObj, isNextOrPrev, fetchOptions, silent) {
 
       if (this.busy || this.postingBatch) {
         setTimeout(function() {
           this.fetch(properties, callbacksObj, isNextOrPrev, fetchOptions);
         }.bind(this), 1000);
         return;
+      }
+
+      this.lastFetch = {
+        properties: properties,
+        isNextOrPrev: isNextOrPrev,
+        fetchOptions: fetchOptions
       }
 
       if (!fetchOptions) {
@@ -3029,8 +3143,12 @@ angular.module('datasourcejs', [])
               Array.prototype.push.apply(this.data, data);
               if (!fetchOptions.ignoreAtive) {
                 if (this.data.length > 0) {
-                  this.active = data[0];
-                  this.cursor = 0;
+                  if (fetchOptions.active) {
+                    this.goTo(fetchOptions.active);
+                  } else {
+                    this.active = data[0];
+                    this.cursor = 0;
+                  }
                 } else {
                   this.active = {};
                   this.cursor = -1;
@@ -3045,8 +3163,12 @@ angular.module('datasourcejs', [])
             Array.prototype.push.apply(this.data, data);
             if (this.data.length > 0) {
               if (!fetchOptions.ignoreAtive) {
-                this.active = data[0];
-                this.cursor = 0;
+                if (fetchOptions.active) {
+                  this.goTo(fetchOptions.active);
+                } else {
+                  this.active = data[0];
+                  this.cursor = 0;
+                }
               }
             }
           }
@@ -3124,6 +3246,11 @@ angular.module('datasourcejs', [])
         if (this.startMode == 'edit') {
           this.startMode = null;
           this.startEditing();
+        }
+
+        if (this.autoRefresh > 0 && !this.autoRefreshStarted) {
+          this.autoRefreshStarted = true;
+          this.startAutoRefresh();
         }
       }.bind(this);
 
@@ -3246,7 +3373,18 @@ angular.module('datasourcejs', [])
               this.conditionOdata = this.parserCondition(obj, this.parametersNullStrategy, resultData);
             }
 
+            var filterCount = this.conditionExpression.match(/{{(?!null).*?}}/g).length;
+
             if (!cleanData && resultData.clean) {
+              cleanData = true;
+            }
+            if (!cleanData && this.loadDataStrategy === "one" && (!resultData.count || resultData.count < 1)) {
+              cleanData = true;
+            }
+            if (!cleanData && this.loadDataStrategy === "all" && filterCount && (!resultData.count || resultData.count < filterCount)) {
+              cleanData = true;
+            }
+            if (!cleanData && this.loadDataStrategy === "button" && fetchOptions.origin !== "button") {
               cleanData = true;
             }
 
@@ -3346,14 +3484,15 @@ angular.module('datasourcejs', [])
       if (paramFilter) {
         if (filter && filter != '') {
           if (this.isOData()) {
-            filter += " and ";
+            filter += " and (";
+            filter += paramFilter + ")";
           } else {
             filter += ";";
+            filter += paramFilter;
           }
-        }
-        filter += paramFilter;
+        } 
       }
-
+      
       var paramOrder = null;
 
       if (this.isOData() && props.params.$orderby) {
@@ -3432,6 +3571,14 @@ angular.module('datasourcejs', [])
       // Make the datasource busy
       this.busy = true;
 
+      var httpError = function(data, status, headers, config) {
+        this.busy = false;
+        if (!silent) {
+          this.handleError(data);
+        }
+        if (callbacks.error) callbacks.error.call(this, data);
+      }.bind(this);
+
       // Get an ajax promise
       this.$promise = this.getService("GET")({
         method: "GET",
@@ -3451,9 +3598,7 @@ angular.module('datasourcejs', [])
           sucessHandler(data, null);
         }
       }.bind(this)).error(function(data, status, headers, config) {
-        this.busy = false;
-        this.handleError(data);
-        if (callbacks.error) callbacks.error.call(this, data);
+        httpError(data, status, headers, config);
       }.bind(this));
 
 
@@ -3698,6 +3843,7 @@ angular.module('datasourcejs', [])
         dts.endpoint = props.endpoint;
         dts.filterURL = props.filterURL;
         dts.autoPost = props.autoPost;
+        dts.autoRefresh = props.autoRefresh;
         dts.deleteMessage = props.deleteMessage;
         dts.enabled = props.enabled;
         dts.offset = (props.offset) ? props.offset : 0; // Default offset is 0
@@ -3711,10 +3857,10 @@ angular.module('datasourcejs', [])
         dts.onBeforeDelete = props.onBeforeDelete;
         dts.onAfterDelete = props.onAfterDelete;
         dts.onGET = props.onGet,
-            dts.onPOST = props.onPost,
-            dts.onPUT = props.onPut,
-            dts.onDELETE = props.onDelete,
-            dts.dependentBy = props.dependentBy;
+        dts.onPOST = props.onPost,
+        dts.onPUT = props.onPut,
+        dts.onDELETE = props.onDelete,
+        dts.dependentBy = props.dependentBy;
         dts.parameters = props.parameters;
         dts.parametersNullStrategy = props.parametersNullStrategy;
         dts.parametersExpression = props.parametersExpression;
@@ -3850,6 +3996,7 @@ angular.module('datasourcejs', [])
           deleteMessage: attrs.deleteMessage || attrs.deleteMessage === "" ? attrs.deleteMessage : $translate.instant('General.RemoveData'),
           headers: attrs.headers,
           autoPost: attrs.autoPost === "true",
+          autoRefresh: (attrs.autoRefresh !== undefined && attrs.autoRefresh !== null) ? attrs.autoRefresh : 0,
           onError: attrs.onError,
           onAfterFill: attrs.onAfterFill,
           onBeforeCreate: attrs.onBeforeCreate,
@@ -3993,6 +4140,10 @@ angular.module('datasourcejs', [])
           if (datasource.condition != value) {
             datasource.condition = value;
 
+            if (datasource.loadDataStrategy === "button") {
+              return;
+            }
+
             $timeout.cancel(timeoutPromise);
             timeoutPromise =$timeout(function() {
               datasource.callDataSourceEvents('changeDependency', 'condition', datasource.condition);
@@ -4093,11 +4244,42 @@ angular.module('datasourcejs', [])
   };
 }])
 
+app.directive('crnRepeat', function(DatasetManager, $compile, $parse, $injector, $rootScope) {
+  return {
+    restrict: 'A',
+    priority: 9999998,
+    terminal: true,
+    link: function(scope, element, attrs, controllers, transclude) {
+
+      if (attrs.crnRepeat) {
+        scope.data = DatasetManager.datasets;
+        if (scope.data[attrs.crnRepeat]) {
+          scope.datasourceRepeat = scope.data[attrs.crnRepeat];
+        } else {
+          scope.datasourceRepeat = {};
+          scope.datasourceRepeat.data = $parse(attrs.crnRepeat)(scope);
+        }
+        element.attr('ng-repeat', 'rowData in datasourceRepeat.data');
+
+      }
+
+      var tagName = element[0].tagName;
+      $compile(element, null, 9999998)(scope);
+      scope.$watchCollection('datasourceRepeat.data', function (newVal, oldVal) {
+        if (tagName.toLowerCase() == "ion-slide") {
+          var $ionicSlideBoxDelegate = $injector.get('$ionicSlideBoxDelegate');
+          $ionicSlideBoxDelegate.update();
+        }
+      });
+    }
+  };
+})
+
 .directive('crnDatasource', ['DatasetManager', '$parse', '$rootScope', function(DatasetManager, $parse, $rootScope) {
   return {
     restrict: 'A',
     scope: true,
-    priority: 9999999,
+    priority: 9999998,
     link: function(scope, element, attrs) {
       scope.data = DatasetManager.datasets;
       if (scope.data[attrs.crnDatasource]) {

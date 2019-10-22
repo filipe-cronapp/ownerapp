@@ -1780,14 +1780,15 @@
                     skipInputEvent = false;
                     return e.preventDefault();
                   }
-                  if (mobile) {
-                    var args = arguments;
-                    setTimeout(function() {
-                      eventHandler.apply(that, args);
-                      caret(that, that.inputmask.caretPos, undefined, true);
-                    }, 0);
-                    return false;
-                  }
+                  // Rodando em android e ios não funciona o model setter devido ao timeout
+                  // if (mobile) {
+                  //   var args = arguments;
+                  //   setTimeout(function() {
+                  //     eventHandler.apply(that, args);
+                  //     caret(that, that.inputmask.caretPos, undefined, true);
+                  //   }, 0);
+                  //   return false;
+                  // }
                   break;
 
                 case "keydown":
@@ -2750,7 +2751,7 @@
           if (mobile) {
             if ("inputmode" in el) {
               el.inputmode = opts.inputmode;
-              el.setAttribute("inputmode", opts.inputmode);
+              //el.setAttribute("inputmode", opts.inputmode);
             }
             if (opts.disablePredictiveText === true) {
               if ("autocorrect" in el) {

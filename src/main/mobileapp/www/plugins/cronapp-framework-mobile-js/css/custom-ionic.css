@@ -1,0 +1,80 @@
+.text-to-left-thumbnail {
+    padding-left: 94px;
+}
+
+.text-to-left-avatar {
+    padding-left: 58px;
+}
+
+.image-to-left-thumbnail{
+    margin-left: 44px;
+}
+
+.image-to-left-avatar{
+    margin-left: 39px;
+}
+
+.text-to-right-thumbnail {
+    padding-right: 94px;
+}
+
+.text-to-right-avatar {
+    padding-right: 58px;
+}
+
+.image-to-right-thumbnail{
+    margin-right: 44px;
+}
+
+.image-to-right-avatar{
+    margin-right: 39px;
+}
+
+.cron-list-multiselect-avatar{
+    float: left;
+    margin-top: 15px;
+    margin-left: 1%;
+}
+
+.cron-list-multiselect-thumbnail{
+    float: left;
+    margin-top: 30px;
+    margin-left: 1%;
+}
+
+.cron-list-multiselect-default{
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.cron-list-selected, .cron-list-selected > div.item-content{
+    background-color: aliceblue;
+}
+
+.cron-list-button-clean{
+    min-height: 28px;
+    line-height: 24px;
+    min-width: 0px;
+    overflow: hidden;
+}
+
+.cron-list-button-clean.ng-enter {
+    transition: 0.2s linear all;
+    line-height: 0px;
+    width: 0px;
+}
+
+.cron-list-button-clean.ng-enter.ng-enter-active {
+    width: 93.39px;
+}
+
+.cron-list-button-clean.ng-leave {
+    transition: 0.2s linear all;
+    width: 93.39px;
+}
+
+.cron-list-button-clean.ng-leave.ng-leave-active {
+    line-height: 0px;
+    width: 0px;
+}

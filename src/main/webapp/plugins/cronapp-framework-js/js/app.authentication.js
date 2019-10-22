@@ -230,7 +230,7 @@ var app = (function() {
                 var changed = $(element).data('changed');
                 $(element).data('changed', false);
                 if (!changed) {
-                  if (value && JSON.stringify(''+value) == dataEvaluated) {
+                  if (value && JSON.stringify(''+value) === dataEvaluated) {
                     $(element)[0].checked = true
                   } else {
                     $(element)[0].checked = false;
@@ -256,12 +256,13 @@ var app = (function() {
         }
       ])
       // General controller
-      .controller('PageController', function($controller, $scope, $stateParams, $location, $http, $rootScope, $translate, Notification, UploadService) {
+      .controller('PageController', function($controller, $scope, $stateParams, $location, $http, $rootScope, $translate, Notification, UploadService, $timeout, $state) {
         // save state params into scope
         $scope.params = $stateParams;
         $scope.$http = $http;
         $scope.Notification = Notification;
         $scope.UploadService = UploadService;
+        $scope.$state = $state;
 
         app.registerEventsCronapi($scope, $translate);
         
@@ -281,15 +282,22 @@ var app = (function() {
             var index = $(currentCarousel + ' .carousel-indicators li').index(this);
             $(currentCarousel + ' #carousel-example-generic').carousel(index);
           });
-        }
+        };
 
         $scope.registerComponentScripts();
 
         try {
           var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
           app.copyContext(contextAfterPageController, this, 'AfterPageController');
-        } catch(e) {};
-        try { if ($scope.blockly.events.afterPageRender) $scope.blockly.events.afterPageRender(); } catch(e) {};
+        } catch(e) {}
+
+        $timeout(function () {
+          // Verify if the 'afterPageRender' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+          if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.afterPageRender && $scope.blockly.events.afterPageRender instanceof Function) {
+            $scope.blockly.events.afterPageRender();
+          }
+        });
+
       })
 
       .run(function($rootScope, $state) {
@@ -446,7 +454,7 @@ app.factory('customTranslateLoader', function ($http, $q) {
 
 window.safeApply = function(fn) {
   var phase = this.$root.$$phase;
-  if (phase == '$apply' || phase == '$digest') {
+  if (phase === '$apply' || phase === '$digest') {
     if (fn && (typeof(fn) === 'function')) {
       fn();
     }

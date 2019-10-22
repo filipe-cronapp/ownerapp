@@ -1,228 +1,80 @@
 {
   "cells": [
     {
-      "type": "basic.Rect",
+      "angle": 0,
+      "apiPath": "src/main/webapp/raml/app/api.raml",
+      "attrs": {},
+      "chkApi": false,
+      "dataSource": "jdbc/main",
+      "generationType": "drop-and-create-tables",
+      "id": "paperCell",
+      "namespace": "app",
       "position": {
         "x": 0,
         "y": 0
       },
-      "size": {
-        "width": 0,
-        "height": 0
-      },
-      "angle": 0,
-      "id": "paperCell",
-      "runtimeClass": "cronos.widgets.joint.uml.Paper",
-      "z": 1,
-      "dataSource": "jdbc/main",
-      "namespace": "app",
-      "apiPath": "src/main/webapp/raml/app/api.raml",
+      "queries": [],
       "restPath": "/api/rest",
-      "visionLikePackage": false,
-      "chkApi": false,
       "restSecurity": {
+        "delete": "authenticated",
         "get": "authenticated",
         "post": "authenticated",
-        "put": "authenticated",
-        "delete": "authenticated"
+        "put": "authenticated"
       },
-      "generationType": "drop-and-create-tables",
-      "attrs": {},
-      "queries": []
+      "runtimeClass": "cronos.widgets.joint.uml.Paper",
+      "size": {
+        "height": 0,
+        "width": 0
+      },
+      "type": "basic.Rect",
+      "visionLikePackage": false,
+      "z": 1
     },
     {
-      "type": "uml.Class",
-      "name": "Role",
+      "angle": 0,
       "attributes": [
         "id:java.lang.String",
-        "user:User"
+        "Nome:java.lang.String"
       ],
-      "methods": [],
-      "position": {
-        "x": 596,
-        "y": 200
-      },
-      "size": {
-        "width": 150.578125,
-        "height": 107.89323043823242
-      },
-      "angle": 0,
-      "isRest": true,
-      "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "id": "1df87f56-c5ba-47f5-8e68-82931f49b989",
-      "z": 4,
-      "queries": [],
-      "fields": [
-        {
-          "name": "id",
-          "type": "java.lang.String",
-          "dbName": "id",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
-          "label": "Id",
-          "mask": "",
-          "isPrimaryKey": true,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "UUID",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "user",
-          "type": "User",
-          "dbName": "fk_user",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Usu?rio",
-          "mask": "",
-          "isPrimaryKey": true,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "None",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        }
-      ],
-      "role": "Class",
-      "restPath": "",
-      "restSecurity": {
-        "get": "Administrators",
-        "post": "Administrators",
-        "put": "Administrators",
-        "delete": "Administrators"
-      },
       "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
-        },
         ".uml-class-attrs-rect": {
           "height": 70,
           "transform": "translate(0,50)"
         },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\nNome\n"
+        },
+        ".uml-class-attrs-value": {
+          "font-size": 11,
+          "ref-x": 63.34375,
+          "text": "java.lang.String\njava.lang.String\n"
+        },
         ".uml-class-methods-rect": {
           "height": 30,
           "transform": "translate(0,120)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "Role",
-          "font-weight": "bold"
-        },
-        ".uml-class-attrs-text": {
-          "font-size": 11,
-          "text": "id\nuser\n"
-        },
-        ".uml-class-attrs-value": {
-          "ref-x": 56.75,
-          "font-size": 11,
-          "text": "java.lang.String\nUser\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
           "font-size": 11,
           "text": ""
         },
-        ".": {
-          "display": "normal"
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "font-weight": "bold",
+          "text": "Categoria"
+        },
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
         }
-      }
-    },
-    {
-      "type": "uml.Class",
-      "name": "User",
-      "attributes": [
-        "email:java.lang.String",
-        "name:java.lang.String",
-        "id:java.lang.String",
-        "login:java.lang.String",
-        "password:java.lang.String"
-      ],
-      "methods": [],
-      "position": {
-        "x": 86,
-        "y": 62
       },
-      "size": {
-        "width": 174.90625,
-        "height": 140.4170379638672
-      },
-      "angle": 0,
-      "isRest": true,
-      "tableName": "",
-      "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "id": "d2e50f97-0b9e-4037-94ba-af64568af247",
-      "z": 10,
-      "queries": [],
       "fields": [
-        {
-          "name": "email",
-          "type": "java.lang.String",
-          "dbName": "email",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Email",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": true,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "name",
-          "type": "java.lang.String",
-          "dbName": "name",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Nome",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
         {
           "name": "id",
           "type": "java.lang.String",
@@ -247,14 +99,14 @@
           "isSearchable": false
         },
         {
-          "name": "login",
+          "name": "Nome",
           "type": "java.lang.String",
-          "dbName": "login",
+          "dbName": "Nome",
           "dbLength": "",
           "dbPrecision": "",
           "dbScale": "",
           "dbDefaultValue": "",
-          "label": "Login",
+          "label": "Nome",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": true,
@@ -268,129 +120,34 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
-        },
-        {
-          "name": "password",
-          "type": "java.lang.String",
-          "dbName": "password",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Senha",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": true,
-          "referencedColumnName": "",
-          "isSearchable": false
         }
       ],
-      "role": "Class",
+      "generateView": "Auto",
+      "id": "05c7877f-c453-412b-9048-c22ead3c3800",
+      "isRest": "true",
+      "methods": [],
+      "multitenantContext": "",
+      "multitenantContextIgnoreEntities": "",
+      "multitenantContextJsonIgnore": "false",
+      "name": "Categoria",
+      "position": {
+        "x": 590,
+        "y": 516
+      },
+      "queries": [],
+      "realName": "",
       "restPath": "",
-      "restSecurity": {
-        "get": "Administrators",
-        "post": "Administrators",
-        "put": "Administrators",
-        "delete": "Administrators"
+      "role": "Auto",
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "size": {
+        "height": 107.89323043823242,
+        "width": 157.171875
       },
-      "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
-        },
-        ".uml-class-attrs-rect": {
-          "height": 130,
-          "transform": "translate(0,50)"
-        },
-        ".uml-class-methods-rect": {
-          "height": 30,
-          "transform": "translate(0,180)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "User",
-          "font-weight": "bold"
-        },
-        ".uml-class-attrs-text": {
-          "font-size": 11,
-          "text": "email\nname\nid\nlogin\npassword\n"
-        },
-        ".uml-class-attrs-value": {
-          "ref-x": 81.078125,
-          "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
-        },
-        ".uml-class-methods-text": {
-          "fill": "#0066FF",
-          "font-size": 11,
-          "text": ""
-        },
-        ".": {
-          "display": "normal"
-        }
-      }
-    },
-    {
-      "type": "uml.Composition",
-      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
-      "target": {
-        "id": "1df87f56-c5ba-47f5-8e68-82931f49b989"
-      },
-      "source": {
-        "id": "d2e50f97-0b9e-4037-94ba-af64568af247"
-      },
-      "relationFields": [
-        "user:target"
-      ],
-      "id": "c147a7db-5dfc-4dba-b7c2-78749c21414c",
-      "labels": [
-        {
-          "position": 0.9,
-          "attrs": {
-            "text": {
-              "text": "*",
-              "font-family": "Arial",
-              "font-size": "12px",
-              "fill": "#cecece"
-            },
-            "rect": {
-              "fill": "transparent"
-            }
-          }
-        }
-      ],
-      "z": 11,
-      "attrs": {
-        ".marker-target": {
-          "d": "",
-          "fill": ""
-        },
-        ".marker-source": {
-          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
-          "fill": "#cecece"
-        },
-        ".": {
-          "display": "normal"
-        }
-      },
-      "queries": []
-    },
-    {
       "type": "uml.Class",
-      "name": "Device",
+      "z": 15
+    },
+    {
+      "angle": 0,
       "attributes": [
         "id:java.lang.String",
         "token:java.lang.String",
@@ -400,26 +157,44 @@
         "appName:java.lang.String",
         "appVersion:java.lang.String"
       ],
-      "methods": [
-        "+ list(): List\u003cDevice\u003e"
-      ],
-      "position": {
-        "x": 86,
-        "y": 251
+      "attrs": {
+        ".uml-class-attrs-rect": {
+          "height": 170,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\ntoken\nplatform\nmodel\nplatformVersion\nappName\nappVersion\n"
+        },
+        ".uml-class-attrs-value": {
+          "font-size": 11,
+          "ref-x": 111.421875,
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
+        },
+        ".uml-class-methods-rect": {
+          "height": 50,
+          "transform": "translate(0,220)"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": "+ list(): List\u003cDevice\u003e"
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "font-weight": "bold",
+          "text": "Device"
+        },
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        }
       },
-      "size": {
-        "width": 205.234375,
-        "height": 174.1134262084961
-      },
-      "angle": 0,
-      "multitenantContextJsonIgnore": "false",
-      "multitenantContextIgnoreEntities": "",
-      "role": "Auto",
-      "queries": [],
-      "isRest": "true",
-      "multitenantContext": "",
-      "restPath": "",
-      "id": "d92238a3-a37d-4cc6-a543-d0687dc207cd",
       "fields": [
         {
           "name": "id",
@@ -583,166 +358,32 @@
           "isSearchable": false
         }
       ],
-      "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "z": 13,
-      "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
-        },
-        ".uml-class-attrs-rect": {
-          "height": 170,
-          "transform": "translate(0,50)"
-        },
-        ".uml-class-methods-rect": {
-          "height": 50,
-          "transform": "translate(0,220)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "Device",
-          "font-weight": "bold"
-        },
-        ".uml-class-attrs-text": {
-          "font-size": 11,
-          "text": "id\ntoken\nplatform\nmodel\nplatformVersion\nappName\nappVersion\n"
-        },
-        ".uml-class-attrs-value": {
-          "ref-x": 111.421875,
-          "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
-        },
-        ".uml-class-methods-text": {
-          "fill": "#0066FF",
-          "font-size": 11,
-          "text": "+ list(): List\u003cDevice\u003e"
-        }
-      }
-    },
-    {
-      "type": "uml.Class",
-      "name": "Categoria",
-      "attributes": [
-        "id:java.lang.String",
-        "Nome:java.lang.String"
-      ],
-      "methods": [],
-      "position": {
-        "x": 590,
-        "y": 516
-      },
-      "size": {
-        "width": 157.171875,
-        "height": 107.89323043823242
-      },
-      "angle": 0,
-      "multitenantContextJsonIgnore": "false",
-      "multitenantContextIgnoreEntities": "",
-      "role": "Auto",
-      "queries": [],
-      "realName": "",
-      "generateView": "Auto",
+      "id": "d92238a3-a37d-4cc6-a543-d0687dc207cd",
       "isRest": "true",
-      "multitenantContext": "",
-      "restPath": "",
-      "id": "05c7877f-c453-412b-9048-c22ead3c3800",
-      "fields": [
-        {
-          "name": "id",
-          "type": "java.lang.String",
-          "dbName": "id",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
-          "label": "Id",
-          "mask": "",
-          "isPrimaryKey": true,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "UUID",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "Nome",
-          "type": "java.lang.String",
-          "dbName": "Nome",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "Nome",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": true,
-          "isNullable": false,
-          "pkType": "",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        }
+      "methods": [
+        "+ list(): List\u003cDevice\u003e"
       ],
+      "multitenantContext": "",
+      "multitenantContextIgnoreEntities": "",
+      "multitenantContextJsonIgnore": "false",
+      "name": "Device",
+      "position": {
+        "x": 86,
+        "y": 251
+      },
+      "queries": [],
+      "restPath": "",
+      "role": "Auto",
       "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "z": 15,
-      "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
-        },
-        ".uml-class-attrs-rect": {
-          "height": 70,
-          "transform": "translate(0,50)"
-        },
-        ".uml-class-methods-rect": {
-          "height": 30,
-          "transform": "translate(0,120)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "Categoria",
-          "font-weight": "bold"
-        },
-        ".uml-class-attrs-text": {
-          "font-size": 11,
-          "text": "id\nNome\n"
-        },
-        ".uml-class-attrs-value": {
-          "ref-x": 63.34375,
-          "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\n"
-        },
-        ".uml-class-methods-text": {
-          "fill": "#0066FF",
-          "font-size": 11,
-          "text": ""
-        }
-      }
+      "size": {
+        "height": 174.1134262084961,
+        "width": 205.234375
+      },
+      "type": "uml.Class",
+      "z": 13
     },
     {
-      "type": "uml.Class",
-      "name": "Produto",
+      "angle": 0,
       "attributes": [
         "id:java.lang.String",
         "Sabor:java.lang.String",
@@ -750,26 +391,44 @@
         "valor:float",
         "quantidade:java.lang.Integer"
       ],
-      "methods": [],
-      "position": {
-        "x": 204,
-        "y": 510
+      "attrs": {
+        ".uml-class-attrs-rect": {
+          "height": 130,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\nSabor\ncategoria\nvalor\nquantidade\n"
+        },
+        ".uml-class-attrs-value": {
+          "font-size": 11,
+          "ref-x": 89.453125,
+          "text": "java.lang.String\njava.lang.String\nCategoria\nfloat\njava.lang.Integer\n"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,180)"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "font-weight": "bold",
+          "text": "Produto"
+        },
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        }
       },
-      "size": {
-        "width": 190.125,
-        "height": 140.4170379638672
-      },
-      "angle": 0,
-      "multitenantContextJsonIgnore": "false",
-      "multitenantContextIgnoreEntities": "",
-      "role": "Auto",
-      "queries": [],
-      "realName": "",
-      "generateView": "Auto",
-      "isRest": "true",
-      "multitenantContext": "",
-      "restPath": "",
-      "id": "164141c7-c4da-464c-b8ff-1e8640803fc3",
       "fields": [
         {
           "name": "id",
@@ -887,61 +546,402 @@
           "isSearchable": false
         }
       ],
+      "generateView": "Auto",
+      "id": "164141c7-c4da-464c-b8ff-1e8640803fc3",
+      "isRest": "true",
+      "methods": [],
+      "multitenantContext": "",
+      "multitenantContextIgnoreEntities": "",
+      "multitenantContextJsonIgnore": "false",
+      "name": "Produto",
+      "position": {
+        "x": 204,
+        "y": 510
+      },
+      "queries": [],
+      "realName": "",
+      "restPath": "",
+      "role": "Auto",
       "runtimeClass": "cronos.widgets.joint.uml.Class",
-      "z": 16,
+      "size": {
+        "height": 140.4170379638672,
+        "width": 190.125
+      },
+      "type": "uml.Class",
+      "z": 16
+    },
+    {
+      "angle": 0,
+      "attributes": [
+        "id:java.lang.String",
+        "user:User"
+      ],
       "attrs": {
-        "rect": {
-          "stroke": "yellow",
-          "stroke-width": 2
-        },
-        ".uml-class-name-rect": {
-          "height": 50,
-          "transform": "translate(0,0)"
+        ".": {
+          "display": "normal"
         },
         ".uml-class-attrs-rect": {
-          "height": 130,
+          "height": 70,
           "transform": "translate(0,50)"
-        },
-        ".uml-class-methods-rect": {
-          "height": 30,
-          "transform": "translate(0,180)"
-        },
-        ".uml-class-name-text": {
-          "fill": "#000",
-          "font-size": 12,
-          "text": "Produto",
-          "font-weight": "bold"
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\nSabor\ncategoria\nvalor\nquantidade\n"
+          "text": "id\nuser\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 89.453125,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\nCategoria\nfloat\njava.lang.Integer\n"
+          "ref-x": 56.75,
+          "text": "java.lang.String\nUser\n"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,120)"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
           "font-size": 11,
           "text": ""
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "font-weight": "bold",
+          "text": "Role"
+        },
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
         }
-      }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "java.lang.String",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "UUID",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "dbName": "fk_user",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Usu?rio",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "None",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "id": "1df87f56-c5ba-47f5-8e68-82931f49b989",
+      "isRest": true,
+      "methods": [],
+      "name": "Role",
+      "position": {
+        "x": 596,
+        "y": 200
+      },
+      "queries": [],
+      "restPath": "",
+      "restSecurity": {
+        "delete": "Administrators",
+        "get": "Administrators",
+        "post": "Administrators",
+        "put": "Administrators"
+      },
+      "role": "Class",
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "size": {
+        "height": 107.89323043823242,
+        "width": 150.578125
+      },
+      "type": "uml.Class",
+      "z": 4
     },
     {
-      "type": "uml.Composition",
-      "relationFields": [
-        "categoria:target"
+      "angle": 0,
+      "attributes": [
+        "email:java.lang.String",
+        "name:java.lang.String",
+        "id:java.lang.String",
+        "login:java.lang.String",
+        "password:java.lang.String"
       ],
-      "associationType": "Association",
-      "id": "e3b3eaa7-afd7-4beb-a8d1-5595e99e69fd",
+      "attrs": {
+        ".": {
+          "display": "normal"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 130,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "email\nname\nid\nlogin\npassword\n"
+        },
+        ".uml-class-attrs-value": {
+          "font-size": 11,
+          "ref-x": 81.078125,
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,180)"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "font-weight": "bold",
+          "text": "User"
+        },
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        }
+      },
+      "fields": [
+        {
+          "name": "email",
+          "type": "java.lang.String",
+          "dbName": "email",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Email",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "name",
+          "type": "java.lang.String",
+          "dbName": "name",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Nome",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "id",
+          "type": "java.lang.String",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "UUID",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "login",
+          "type": "java.lang.String",
+          "dbName": "login",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Login",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": true,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "password",
+          "type": "java.lang.String",
+          "dbName": "password",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Senha",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": true,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "id": "d2e50f97-0b9e-4037-94ba-af64568af247",
+      "isRest": true,
+      "methods": [],
+      "name": "User",
+      "position": {
+        "x": 86,
+        "y": 62
+      },
+      "queries": [],
+      "restPath": "",
+      "restSecurity": {
+        "delete": "Administrators",
+        "get": "Administrators",
+        "post": "Administrators",
+        "put": "Administrators"
+      },
+      "role": "Class",
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "size": {
+        "height": 140.4170379638672,
+        "width": 174.90625
+      },
+      "tableName": "",
+      "type": "uml.Class",
+      "z": 10
+    },
+    {
+      "attrs": {
+        ".": {
+          "display": "normal"
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        },
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        }
+      },
+      "id": "c147a7db-5dfc-4dba-b7c2-78749c21414c",
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            },
+            "rect": {
+              "fill": "transparent"
+            }
+          }
+        }
+      ],
+      "queries": [],
+      "relationFields": [
+        "user:target"
+      ],
       "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
-      "target": {
-        "id": "164141c7-c4da-464c-b8ff-1e8640803fc3"
-      },
       "source": {
-        "id": "05c7877f-c453-412b-9048-c22ead3c3800"
+        "id": "d2e50f97-0b9e-4037-94ba-af64568af247"
       },
+      "target": {
+        "id": "1df87f56-c5ba-47f5-8e68-82931f49b989"
+      },
+      "type": "uml.Composition",
+      "vertices": [],
+      "z": 11
+    },
+    {
+      "associationType": "Association",
+      "attrs": {
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        },
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        }
+      },
+      "id": "e3b3eaa7-afd7-4beb-a8d1-5595e99e69fd",
       "labels": [
         {
           "position": 0.9,
@@ -958,18 +958,20 @@
           }
         }
       ],
-      "z": 17,
-      "attrs": {
-        ".marker-target": {
-          "d": "",
-          "fill": ""
-        },
-        ".marker-source": {
-          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
-          "fill": "#cecece"
-        }
+      "queries": [],
+      "relationFields": [
+        "categoria:target"
+      ],
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "source": {
+        "id": "05c7877f-c453-412b-9048-c22ead3c3800"
       },
-      "queries": []
+      "target": {
+        "id": "164141c7-c4da-464c-b8ff-1e8640803fc3"
+      },
+      "type": "uml.Composition",
+      "vertices": [],
+      "z": 17
     }
   ],
   "selectedGroup": "1d7f906f-a526-482d-aaf4-08d227ae8c18",

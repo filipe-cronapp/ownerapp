@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/mobileapp/www/views/logged/home.view.html" resourceType="JS" ruleDescription="obterPessoas" ruleName="obterPessoas" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="-285.9999999999998" scrolly="-45.99999999999994" target="Anb:u5+^,0vLkL9QIqn5"/>
+<?xml version="1.0" encoding="UTF-8"?><blockly bpmnAble="false" formTarget="src/main/mobileapp/www/views/logged/home.view.html" resourceType="JS" ruleDescription="obterPessoas" ruleName="obterPessoas" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
+  <metadata scale="1" scrollx="-285.9999999999998" scrolly="-45.999999999999886" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="293" y="53">
     <field name="NAME">obter</field>
     <comment h="80" pinned="false" w="160">obterPessoas</comment>
@@ -28,6 +28,15 @@
             </value>
           </block>
         </statement>
+        <next>
+          <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="5TTvf?[-pXJ*6|5!9Yek" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+            <value name="TEXT">
+              <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="[d4pcMTMs7RR!:@q6+si" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">obtendo produtos da API</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
       </block>
     </statement>
   </block>

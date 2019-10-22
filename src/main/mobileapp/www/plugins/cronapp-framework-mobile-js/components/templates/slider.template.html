@@ -1,19 +1,13 @@
-<div class="crn-slider" xattr-collapse="true">
-  <ion-slide-box class="" auto-play="true" slide-interval="1000" does-continue="true" xattr-collapse="true" >
-    <ion-slide class="" data-replace="true" style = " width:100%;height:100%;">
-      <div class="text-center" style="display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;">
-        <img src="http://placehold.it/400x220" data-component="crn-image" style="width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;" xattr-position="">
-      </div>
+<div class="crn-slider display-ion-slider" id="crn-slider-${RANDOM}">
+  <ion-slide-box class="" auto-play="true" slide-interval="2000" does-continue="true">
+    <ion-slide xattr-theme="calm" id="crn-slider-item-${RANDOM}-1" data-component="crn-slider-item" class="calm-bg active" style="width: 100%; height: 200px; position: relative;" data-container="true" data-replace="true">
+      <h2 data-component="crn-label" style="color: white; font-weight: bold; top: 50%; left: 50%; margin: 0; transform: translate(-50%, -50%); position: absolute;" data-container="true" data-replace="true">SLIDE 1</h2>
     </ion-slide>
-    <ion-slide class="" style = " width:100%;height:100%;">
-      <div class="text-center" style="display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;">
-        <img src="http://placehold.it/400x220" data-component="crn-image" style="width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;" xattr-position="">
-      </div>
+    <ion-slide xattr-theme="royal" id="crn-slider-item-${RANDOM}-2" data-component="crn-slider-item" class="royal-bg" style="width: 100%; height: 200px; position: relative;" data-container="true" data-replace="true">
+      <h2 data-component="crn-label" style="text-align: center; color: white; font-weight: bold; top: 50%; left: 50%; margin: 0; transform: translate(-50%, -50%); position: absolute;" data-container="true" data-replace="true">SLIDE 2</h2>
     </ion-slide>
-    <ion-slide class="" style = " width:100%;height:100%;">
-      <div class="text-center" style="display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;">
-        <img src="http://placehold.it/400x220" data-component="crn-image" style="width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;" xattr-position="">
-      </div>
+    <ion-slide xattr-theme="balanced" id="crn-slider-item-${RANDOM}-3" data-component="crn-slider-item" class="balanced-bg" style="width: 100%; height: 200px; position: relative;" data-container="true" data-replace="true">
+      <h2 data-component="crn-label" style="text-align: center; color: white; font-weight: bold; top: 50%; left: 50%; margin: 0; transform: translate(-50%, -50%); position: absolute;" data-container="true" data-replace="true">SLIDE 3</h2>
     </ion-slide>
   </ion-slide-box>
 </div>

@@ -1,29 +1,30 @@
 (function($app) {
   angular.module('custom.controllers', []);
 
-  // refresh token
-  var  refreshToken = function($http,success,error) {
-    $http({
-      method : 'GET',
-      url :  'auth/refresh'
-    }).success(function(data, status, headers, config) {
-      // Store data response on local storage
-      localStorage.setItem("_u", JSON.stringify(data));
-      // Recussive
-      setTimeout(function() {
-        $scope.refreshToken($http, success,error);
-        // refres time
-      }, (1800 * 1000));
-      success();
-    }).error(function() {
-      error();
-    });
-  };
+    // refresh token
+    var refreshToken = function ($http, success, error) {
+        $http({
+            method: 'GET',
+            url: 'auth/refresh'
+        }).success(function (data, status, headers, config) {
+            // Store data response on local storage
+            localStorage.setItem("_u", JSON.stringify(data));
+            // Recussive
+            setTimeout(function () {
+                refreshToken($http, success, error);
+                // refresh time
+            }, (1800 * 1000));
+            success();
+        }).error(function () {
+            error();
+        });
+    };
 
-  app.controller('LoginController', function($controller, $scope, $http, $location, $rootScope, $window, $state, $translate, Notification, ReportService, UploadService, $location, $stateParams) {
+  app.controller('LoginController', function($controller, $scope, $http, $rootScope, $window, $state, $translate, Notification, ReportService, UploadService, $location, $stateParams, $timeout) {
 
     $scope.$http = $http;
     $scope.params = $stateParams;
+    $scope.$state = $state;
     app.registerEventsCronapi($scope, $translate);
 
     $rootScope.http = $http;
@@ -32,7 +33,7 @@
 
     $rootScope.getReport = function(reportName, params, config) {
       ReportService.openReport(reportName, params, config);
-    }
+    };
 
     var queryStringParams = $location.search();
     for (var key in queryStringParams) {
@@ -49,18 +50,18 @@
           localStorage.removeItem('_u');
         })
       }
-    }
+    };
     $scope.autoLogin();
     $scope.message = {};
     $scope.renderRecaptcha = function(){
       window.grecaptcha.render('loginRecaptcha');
       window.grecaptcha.reset();
-    }
-    $scope.login = function(user, password, token) {
+    };
+    $scope.login = function(username, password, token) {
       $scope.message.error = undefined;
       if($('form').children('*[class=g-recaptcha]').length){
         $scope.captcha_token = window.grecaptcha.getResponse();
-        if(!$scope.captcha_token != ""){
+        if(!$scope.captcha_token !== ""){
           window.grecaptcha.execute(function(token){}).then(function(token){
             angular.element($('form[ng-submit="login()"]')[0]).scope().login();
           },function(){
@@ -70,7 +71,7 @@
         }
       }
       var user = {
-        username : user?user:$scope.username.value,
+        username : username?username:$scope.username.value,
         password : password?password:$scope.password.value,
         recaptchaToken : $scope.captcha_token ? $scope.captcha_token : undefined
       };
@@ -89,7 +90,7 @@
         data : $.param(user),
         headers : headerValues
       }).success(handleSuccess).error(handleError);
-    }
+    };
 
     function handleSuccess(data, status, headers, config) {
       // Store data response on session storage
@@ -107,13 +108,18 @@
 
       // Redirect to home page
       $state.go("home");
+
+      // Verify if the 'onLogin' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+      if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.onLogin && $scope.blockly.events.onLogin instanceof Function) {
+        $scope.blockly.events.onLogin();
+      }
     }
 
     function handleError(data, status, headers, config) {
       var error;
-      if (status == 401) {
+      if (status === 401) {
         error = $translate.instant('Login.view.invalidPassword');
-      } else if (status == 403) {
+      } else if (status === 403) {
         error = $translate.instant('Admin.view.Access Denied');
       } else {
         error = data;
@@ -124,14 +130,22 @@
     try {
       var contextAfterLoginController = $controller('AfterLoginController', { $scope: $scope });
       app.copyContext(contextAfterLoginController, this, 'AfterLoginController');
-    } catch(e) {};
-    try { if ($scope.blockly.events.afterLoginRender) $scope.blockly.events.afterLoginRender(); } catch(e) {};
+    } catch(e) {}
+
+    $timeout(function () {
+      // Verify if the 'afterLoginRender' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+      if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.afterLoginRender && $scope.blockly.events.afterLoginRender instanceof Function) {
+        $scope.blockly.events.afterLoginRender();
+      }
+    });
+
   });
 
-  app.controller('HomeController', function($controller, $scope, $http, $rootScope, $state, $translate, Notification, ReportService, UploadService, $location, $stateParams) {
+  app.controller('HomeController', function($controller, $scope, $http, $rootScope, $state, $translate, Notification, ReportService, UploadService, $location, $stateParams, $timeout) {
 
     $scope.$http = $http;
     $scope.params = $stateParams;
+    $scope.$state = $state;
     app.registerEventsCronapi($scope, $translate);
 
     $rootScope.http = $http;
@@ -140,7 +154,7 @@
 
     $rootScope.getReport = function(reportName, params, config) {
       ReportService.openReport(reportName, params, config);
-    }
+    };
 
     var queryStringParams = $location.search();
     for (var key in queryStringParams) {
@@ -153,11 +167,11 @@
 
     $scope.selecionado = {
       valor : 1
-    }
+    };
 
 
 
-    $rootScope.session = (localStorage.getItem('_u') != undefined) ? JSON.parse(localStorage.getItem('_u')) : null;
+    $rootScope.session = (localStorage.getItem('_u') !== undefined) ? JSON.parse(localStorage.getItem('_u')) : null;
 
     if($rootScope.session) {
       // When access home page we have to check
@@ -331,8 +345,15 @@
     try {
       var contextAfterHomeController = $controller('AfterHomeController', { $scope: $scope });
       app.copyContext(contextAfterHomeController, this, 'AfterHomeController');
-    } catch(e) {};
-    try { if ($scope.blockly.events.afterHomeRender) $scope.blockly.events.afterHomeRender(); } catch(e) {};
+    } catch(e) {}
+
+    $timeout(function () {
+      // Verify if the 'afterHomeRender' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+      if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.afterHomeRender && $scope.blockly.events.afterHomeRender instanceof Function) {
+        $scope.blockly.events.afterHomeRender();
+      }
+    });
+
   });
 
   app.controller('PublicController', function($controller, $scope) {
@@ -363,7 +384,7 @@
 
 window.safeApply = function(fn) {
   var phase = this.$root.$$phase;
-  if(phase == '$apply' || phase == '$digest') {
+  if(phase === '$apply' || phase === '$digest') {
     if(fn && (typeof (fn) === 'function')) {
       fn();
     }

@@ -160,3 +160,7 @@ img.user-avatar {
     width: 1.572em !important;
     max-width: 1.572em !important;
 }
+
+.modal{
+  z-index: 10020;
+}
