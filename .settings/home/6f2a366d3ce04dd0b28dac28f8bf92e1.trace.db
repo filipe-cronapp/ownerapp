@@ -1,0 +1,432 @@
+2019-08-04 01:37:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-04 01:37:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-04 01:37:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-04 01:37:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-05 14:36:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-05 14:36:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-05 14:36:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-05 14:36:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-05 19:30:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-05 19:30:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-05 19:30:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-05 19:30:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-05 20:55:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-05 20:55:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-05 20:55:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-05 20:55:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-06 16:06:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-06 16:06:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-06 16:06:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-06 16:06:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-08 14:02:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-08 14:02:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-08 14:02:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-08 14:02:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-08 17:05:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-08 17:05:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-08 17:05:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-08 17:05:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-08 17:13:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-08 17:13:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-08 17:13:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-08 17:13:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-08 18:36:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-08 18:36:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-08 18:36:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-08 18:36:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-09 13:22:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-09 13:22:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-09 13:22:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-09 13:22:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-09 17:24:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-09 17:24:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-09 17:24:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-09 17:24:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-13 18:03:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-13 18:03:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-13 18:03:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-13 18:03:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-13 20:06:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-13 20:06:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-13 20:06:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-13 20:06:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-13 23:39:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-13 23:39:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-13 23:39:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-13 23:39:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-14 13:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-14 13:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-14 13:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-14 13:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-08-14 16:24:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-08-14 16:24:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-08-14 16:24:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-08-14 16:24:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-16 17:23:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-16 17:23:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-16 17:23:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-16 17:23:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-17 04:06:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-17 04:06:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-17 04:06:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-17 04:06:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-17 19:42:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-17 19:42:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-17 19:42:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-17 19:42:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 17:43:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 17:43:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 17:43:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 17:43:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 19:09:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 19:09:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 19:09:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 19:09:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 19:32:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 19:32:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 19:32:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 19:32:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 19:39:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 19:39:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 19:39:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 19:39:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 21:43:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 21:43:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 21:43:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 21:43:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 22:58:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 22:58:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 22:58:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 22:58:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-18 23:04:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-18 23:04:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-18 23:04:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-18 23:04:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-19 03:24:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-19 03:24:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-19 03:24:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-19 03:24:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-19 14:22:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-19 14:22:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-19 14:22:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-19 14:22:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-19 15:01:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-19 15:01:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-19 15:01:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-19 15:01:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-20 12:42:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-20 12:42:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-20 12:42:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-20 12:42:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-21 12:55:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-21 12:55:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-21 12:55:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-21 12:55:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-21 16:55:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-21 16:55:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-21 16:55:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-21 16:55:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-21 18:07:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-21 18:07:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-21 18:07:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-21 18:07:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-21 19:29:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-21 19:29:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-21 19:29:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-21 19:29:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-22 00:47:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-22 00:47:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-22 00:47:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-22 00:47:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
+2019-10-22 00:54:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" DROP CONSTRAINT UNQ_""CATEGORIA""[*]_0"; SQL statement:
+ALTER TABLE "CATEGORIA" DROP CONSTRAINT UNQ_"CATEGORIA"_0 [42000-197]
+2019-10-22 00:54:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" DROP CONSTRAINT UNQ_""USER""[*]_0"; SQL statement:
+ALTER TABLE "USER" DROP CONSTRAINT UNQ_"USER"_0 [42000-197]
+2019-10-22 00:54:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""CATEGORIA"" ADD CONSTRAINT UNQ_""CATEGORIA""[*]_0 UNIQUE (Nome)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "CATEGORIA" ADD CONSTRAINT UNQ_"CATEGORIA"_0 UNIQUE (Nome) [42001-197]
+2019-10-22 00:54:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ""USER"" ADD CONSTRAINT UNQ_""USER""[*]_0 UNIQUE (login)"; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+ALTER TABLE "USER" ADD CONSTRAINT UNQ_"USER"_0 UNIQUE (login) [42001-197]
