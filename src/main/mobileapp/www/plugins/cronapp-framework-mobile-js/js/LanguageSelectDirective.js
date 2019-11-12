@@ -12,6 +12,7 @@ angular.module('MyApp')
         'ng-model="currentLocaleDisplayName" ' +
         'ng-options="localesDisplayName for localesDisplayName in localesDisplayNames" ' +
         'ng-change="changeLanguage(currentLocaleDisplayName)">' +
+        'aria-label="Language Selector"' +
         '</select>' +
         '</label>' +
         '</div>' +

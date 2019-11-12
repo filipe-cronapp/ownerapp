@@ -1,0 +1,37 @@
+<div id="starter" ng-init="" ng-destroy="" data-component="crn-start" screen-params=""> 
+  <ion-view class="pane"> 
+    <ion-header-bar align-title="center" class="bar-header bar bar.bar-owner bar-owner .button bar-energized" xattr-theme="bar-energized" data-component="crn-ion-header-bar" ng-show="false"> 
+      <div class="buttons buttons-left header-item"> 
+        <button class="button button-clear" menu-toggle="left" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button> 
+      </div> 
+      <h1 class="title">{{'Home.view.Home' | translate }}</h1> 
+      <div class="buttons buttons-right header-item"> 
+        <button class="button button-clear" menu-toggle="right" data-component="crn-button" xattr-type="button-clear"> <i class="icon ion-navicon"></i> </button> 
+      </div> 
+    </ion-header-bar> 
+    <ion-content class="scroll-content has-header" data-component="crn-ion-content"> 
+      <div style="height: 40px;" data-component="crn-spacer" class="component-holder" id="crn-spacer-812852">
+         &nbsp; 
+      </div> 
+      <img src="img/iconfinder_Coconut_52365.png" class="component-holder center-block" style="" xattr-position="center-block" data-component="crn-image" id="crn-image-303569"> 
+      <h2 xattr-position="text-center" class="text-center component-holder" data-component="crn-label" id="crn-label-333159">Home 2 Client Blockly</h2> 
+      <datasource name="srcAPI" entity="app.query315967" keys="" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill="" data-component="crn-datasource" class="component-holder" schema="[]" condition=""></datasource>
+      <div class="card component-holder" data-component="crn-card" id="crn-card-94348" ng-model="cardClient" crn-repeat="rowData in srcAPI"> 
+        <div class="item item-text-wrap"> 
+          <h2 xattr-position="text-left" class="component-holder text-left" data-component="crn-label" id="crn-label-524490" ng-model="textIDprod">{{rowData.nome}}</h2> 
+          <h2 xattr-position="text-center" class="text-center component-holder" data-component="crn-label" id="crn-label-57611" ng-model="textNameProd">{{rowData.id}}</h2> 
+          <h2 xattr-position="text-center" class="text-center component-holder" data-component="crn-label" id="crn-label-98511" ng-model="textPriceProd">{{rowData.preco}}</h2> 
+        </div> 
+      </div> 
+      <!--div class="card component-holder" data-component="crn-card" id="crn-card-371352" ng-repeat="produto in listadeprodutos" ng-model="listadeprodutos"> 
+        <div class="item item-text-wrap" ng-click="cronapi.server('blockly.ClickProdId.prod_id').run()"> 
+          <ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010">
+             {{produto.id}} {{produto.nome}} de {{produto.sabor}} | R$:{{produto.preco}} 
+            <-- Qt:{{produto.quantidade}} > 
+          </ion-item> 
+        </div> 
+      </div--> 
+      <button class="button button-block component-holder button-energized" type="submit" xattr-fullsize="button-block" xattr-theme="button-energized" ng-click="cronapi.screen.changeView('#/app/logged/produto', [])" data-component="crn-button" id="crn-button-994860"><i class="ion ion-home"></i> <span>Produto</span></button> 
+    </ion-content> 
+  </ion-view> 
+</div>

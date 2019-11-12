@@ -2,12 +2,14 @@
   <label>Image Upload</label>
   <img style="max-height: 128px; max-width: 128px;"
        ng-if="datasource.active.image"
+       alt="Image Upload"
        data-ng-src="{{'data:image/png;base64,' + datasource.active.image}}"
        ngf-change="datasource.setImage($file, datasource.active, 'image')"
        accept="image/*">
   <img data-ng-src="{{datasource.noImageUpload}}"
        style="max-height: 128px; max-width: 128px;"
        ng-if="!datasource.active.image"
+       alt="Image Upload"
        ngf-select class="btn btn-default btn-block"
        ngf-change="datasource.setImage($file, datasource.active, 'image')" accept="image/*">
   <div class="remove btn btn-default btn-xs btn-danger" ng-if="datasource.active.image" ng-click="datasource.active.image=null">

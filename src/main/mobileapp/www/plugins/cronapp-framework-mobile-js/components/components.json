@@ -1345,7 +1345,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<a class=\"item item-avatar-left text-left\" xattr-position=\"item-avatar-left\" xattr-text-position=\"text-left\" data-component=\"crn-list-item-avatar\" id=\"crn-list-item-avatar-${RANDOM}\"><img src=\"img/nophoto.png\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3</a>",
+            "sourceHTML": "<a class=\"item item-avatar-left text-left\" xattr-position=\"item-avatar-left\" xattr-text-position=\"text-left\" data-component=\"crn-list-item-avatar\" id=\"crn-list-item-avatar-${RANDOM}\"><img alt=\"Avatar\" src=\"img/nophoto.png\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3</a>",
             "targetSelector": "div"
           }
         ]
@@ -1827,7 +1827,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<a data-component=\"crn-list-item-thumbnail\" class=\"item item-thumbnail-left text-left\" xattr-position=\"item-thumbnail-left\" href=\"\" xattr-text-position=\"text-left\"><img src=\"https://picsum.photos/id/875/100/100\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3></a>",
+            "sourceHTML": "<a data-component=\"crn-list-item-thumbnail\" class=\"item item-thumbnail-left text-left\" xattr-position=\"item-thumbnail-left\" href=\"\" xattr-text-position=\"text-left\"><img alt=\"Thumbnail\" src=\"https://picsum.photos/id/875/100/100\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3></a>",
             "targetSelector": "div"
           }
         ]
@@ -3940,7 +3940,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"><input type=\"radio\" name=\"group\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
+            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"><input aria-label\"Aria Label Text\" type=\"radio\" name=\"group\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
             "targetSelector": ":self"
           }
         ]
@@ -4380,7 +4380,7 @@
       "text_en_US": "Image",
       "class": " adjust-icon mdi mdi-image",
       "wrapper": false,
-      "template": "<img src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
+      "template": "<img \"Avatar\" src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
       "properties": {
         "src": {
           "type": "projectResource",
@@ -4458,9 +4458,22 @@
       },
       "childrenProperties":[
         {
-          "name":"content",
-          "selector":"div",
-          "type":"content"
+          "name": "src",
+          "selector": "div > img",
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        {
+          "name": "content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "selector": "div > h2",
+          "type": "content"
+        },
+        {
+          "name": "content",
+          "selector": "div > p",
+          "type": "content"
         },
         {
           "name":"ng-click",
@@ -6450,7 +6463,7 @@
       "class": "adjust-icon mdi mdi-qrcode",
       "wrapper": true,
       "template": "<qr ng-model=\"vars.QR${RANDOM}\" ><div> </div> </qr>",
-      "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/qr-code.png\"/>",
+      "designTimeHTML":"<img alt=\"qr-code\" style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/qr-code.png\"/>",
       "designTimeSelector": "div",
       "properties": {
         "id": {
@@ -6499,7 +6512,7 @@
       "class": "adjust-icon mdi mdi-chart-bar",
       "wrapper": false,
       "template": "<div class=\"col-xs-12\"> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
-      "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
+      "designTimeHTML":"<img alt=\"qr-code\" style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
       "designTimeSelector": "canvas",
       "properties": {
         "id": {
@@ -6535,8 +6548,18 @@
       "onDrop": "openEditor",
       "onDoubleClick": "openEditor",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img alt=\"Thumbnail\" src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
+      "templateInitializers": [
+        {
+          "template": "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n\t<ion-item ng-class=\"{'cron-list-selected' :isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n\t\t<ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n\t\t<img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n\t\t ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n\t\t<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n\t\t\t<h2 ng-if=\"options.fields.field0\">{{rowData[options.fields.field0]}}</h2>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field1\">{{rowData[options.fields.field1]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field2\">{{rowData[options.fields.field2]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field3\">{{rowData[options.fields.field3]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field4\">{{rowData[options.fields.field4]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field5\">{{rowData[options.fields.field5]}}</h3>\n\t\t\t<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n\t\t</div>\n\t</ion-item>\n</ion-list>\n<ion-infinite-scroll></ion-infinite-scroll>\n",
+          "attribute": "advancedTemplate"
+        }, 
+        {
+          "template": "<div class=\"item item-input-inset\">\n\t<label class=\"item-input-wrapper\"><i class=\"icon ion-search placeholder-icon\"></i>\n\t\t<input type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\" cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{'template.crud.search' | translate}}\">\n\t</label>\n\t<button ng-if=\"showButton()\" ng-click=\"limparSelecao()\" class=\"button-small cron-list-button-clean button button-inline button-positive component-holder\">\n\t<span cron-list-button-text>Limpar Seleção</span>\n\t</button>\n</div>",
+          "attribute": "searchTemplate"
+        }
+      ],
       "properties": {
         "id": {
           "order": 1
@@ -6695,7 +6718,7 @@
       "text_en_US": "Infinite Scroll",
       "class": "adjust-icon mdi mdi-format-line-spacing",
       "template": "<cron-infinite-scroll crn-datasource=\"\"></cron-infinite-scroll>",
-      "designTimeHTML": "<img style=\"height: 7%;width:10%;min-height:7%; min-width:7%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
+      "designTimeHTML": "<img alt=\"chart\" style=\"height: 7%;width:10%;min-height:7%; min-width:7%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
       "designTimeSelector": "cron-infinite-scroll",
       "properties": {
         "id": {

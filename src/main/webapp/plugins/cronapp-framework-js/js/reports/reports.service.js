@@ -225,7 +225,8 @@
           }
         }, 200);
       }
-
+      $(`#${viewerId}`).find('img').attr('alt','');
+      $(`#${viewerId}`).find('input').attr('aria-label', viewerId);
 
     };
 

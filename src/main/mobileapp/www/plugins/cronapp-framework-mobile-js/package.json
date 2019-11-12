@@ -1,6 +1,6 @@
 {
   "name": "cronapp-framework-mobile-js",
-  "version": "2.3.0",
+  "version": "2.2.9",
   "description": "Javascript library for CronApp's projects",
   "main": "cronapp.framework.mobile.js",
   "scripts": {

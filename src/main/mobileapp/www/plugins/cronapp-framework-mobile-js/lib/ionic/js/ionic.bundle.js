@@ -63088,7 +63088,15 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
       var innerElement;
       var scrollCtrl;
 
-      element.addClass('scroll-content ionic-scroll');
+      if($(element).find(".login-mobile").length > 0 && (ionic.Platform.isIOS() || window.cordova.platformId === "ios")){
+        element.addClass("cron-margin-top-ios");
+      }
+      if(!ionic.Platform.isIOS() && window.cordova.platformId !== "ios"){
+        element.addClass('scroll-content ionic-scroll');
+        if($(element).find(".login-mobile").length > 0){
+          attr.scroll = 'false';
+        }
+      }
 
       if (attr.scroll != 'false') {
         //We cannot use normal transclude here because it breaks element.data()
@@ -64058,32 +64066,28 @@ IonicModule
         //Lame way of testing, but we have to know at compile what to do with the element
         /ion-(delete|option|reorder)-button/i.test($element.html());
 
-      if (isComplexItem) {
-        var innerElement = jqLite(isAnchor ? '<a></a>' : '<div></div>');
-        innerElement.addClass('item-content');
+      var checkbox = '';
 
-        if (isDefined($attrs.href) || isDefined($attrs.ngHref)) {
-          innerElement.attr('ng-href', '{{$href()}}');
-          if (isDefined($attrs.target)) {
-            innerElement.attr('target', '{{$target()}}');
-          }
-        }
-
-        var checkbox = '';
-
-        if($element.find('ul').length > 0){
+      if($element.find('ul').length > 0){
           checkbox = $element.find('ul');
           $element.find('ul').remove();
-        }
-
-        innerElement.append($element.contents());
-
-        $element.addClass('item item-complex')
-                .append(checkbox)
-                .append(innerElement);
-      } else {
-        $element.addClass('item');
       }
+
+      var innerElement = jqLite(isAnchor ? '<a></a>' : '<div></div>');
+      innerElement.addClass('item-content');
+
+      if (isDefined($attrs.href) || isDefined($attrs.ngHref)) {
+        innerElement.attr('ng-href', '{{$href()}}');
+        if (isDefined($attrs.target)) {
+          innerElement.attr('target', '{{$target()}}');
+        }
+      }
+
+      innerElement.append($element.contents());
+
+      $element.addClass('item item-complex')
+              .append(checkbox)
+              .append(innerElement);
 
       return function link($scope, $element, $attrs) {
         $scope.$href = function() {

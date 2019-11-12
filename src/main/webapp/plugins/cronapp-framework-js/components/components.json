@@ -3887,6 +3887,59 @@
       ]
     },
     {
+      "name": "crn-cron-tree-view",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
+      "text_pt_BR": "Árvore",
+      "text_en_US": "TreeView",
+      "order": 2,
+      "class": "adjust-icon mdi mdi-file-tree",
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/webapp/plugins/cronapp-framework-js/components/templates/cron-tree-view.designtime.html",
+      "designTimeSelector": "cron-tree-view",
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/components/templates/cron-tree-view.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "options",
+          "displayName_pt_BR": "Configurações",
+          "displayName_en_US": "Configuration",
+          "removable": false,
+          "global": "true",
+          "selector": "cron-tree-view",
+          "type": "text",
+          "order": 1,
+          "mandatory": true
+
+        },
+        {
+          "name": "ng-model",
+          "selector": "cron-tree-view",
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "type": "text",
+          "order": 2,
+          "mandatory": true
+        },
+        {
+          "name": "ng-click",
+          "selector": "cron-tree-view",
+          "removable": true,
+          "type": "event"
+        }
+      ],
+      "styles": [
+
+      ]
+    },
+    {
       "name": "crn-cron-grid",
       "onDrop": "openEditor",
       "onDoubleClick": "openEditor",
@@ -5577,6 +5630,46 @@
           "removable": false,
           "global": "true",
           "selector": "cron-chat",
+          "type": "text",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "name": "crn-cron-captcha",
+      "text_pt_BR": "Captcha",
+      "text_en_US": "Captcha",
+      "class": "adjust-icon mdi mdi-lock",
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/cron-captcha.designtime.html",
+      "designTimeSelector": "div",
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/cron-captcha.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 1
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "data-sitekey",
+          "displayName_pt_BR": "Chave do Site",
+          "displayName_en_US": "Site Key",
+          "removable": false,
+          "global": "true",
+          "selector": "div > div",
+          "type": "text",
+          "order": 1
+        },
+        {
+          "name": "data-size",
+          "displayName_pt_BR": "Tamanho",
+          "displayName_en_US": "Size",
+          "removable": false,
+          "global": "true",
+          "selector": "div > div",
           "type": "text",
           "order": 1
         }

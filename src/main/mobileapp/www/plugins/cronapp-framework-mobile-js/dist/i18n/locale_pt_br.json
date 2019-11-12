@@ -113,5 +113,6 @@
   "Upload.oneFile": "Selecione ou arraste um arquivo",
   "Upload.multipleFile": "Selecione ou arraste um ou mais arquivos",
   "Upload.errorValidation": "Seleção inválida: Tamanho máximo %s e Tipos permitidos: %s",
-  "Cancel": "Cancelar"
+  "Cancel": "Cancelar",
+  "OpenCamera": "Abrir a câmera"
 }

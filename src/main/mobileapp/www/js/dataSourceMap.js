@@ -5,5 +5,7 @@ window.dataSourceMap["app.User"] = { customId: "app.entity.User", serviceUrl: "a
 window.dataSourceMap["app.auth"] = { customId: "auth", serviceUrl: "api/cronapi/query/auth/", serviceUrlODATA: "/api/cronapi/odata/v2/app/auth" };
 window.dataSourceMap["app.roles"] = { customId: "roles", serviceUrl: "api/cronapi/query/roles/", serviceUrlODATA: "/api/cronapi/odata/v2/app/roles" };
 window.dataSourceMap["app.Device"] = { customId: "app.entity.Device", serviceUrl: "api/cronapi/crud/app.entity.Device", serviceUrlODATA: "/api/cronapi/odata/v2/app/Device" };
+window.dataSourceMap["app.query315967"] = { customId: "srcAPI", serviceUrl: "api/cronapi/odata/v2/app/srcAPI/", serviceUrlODATA: "/api/cronapi/odata/v2/app/srcAPI" };
 window.dataSourceMap["app.Produto"] = { customId: "app.entity.Produto", serviceUrl: "api/cronapi/crud/app.entity.Produto", serviceUrlODATA: "/api/cronapi/odata/v2/app/Produto" };
 window.dataSourceMap["app.Role"] = { customId: "app.entity.Role", serviceUrl: "api/cronapi/crud/app.entity.Role", serviceUrlODATA: "/api/cronapi/odata/v2/app/Role" };
+window.dataSourceMap["app.srcAPI"] = { customId: "srcAPI", serviceUrl: "api/cronapi/odata/v2/app/srcAPI/", serviceUrlODATA: "/api/cronapi/odata/v2/app/srcAPI" };

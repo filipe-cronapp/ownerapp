@@ -7,13 +7,13 @@ window.blockly.js.blockly.AuthAPI = window.blockly.js.blockly.AuthAPI || {};
  * authAPI
  */
 window.blockly.js.blockly.AuthAPI.Executar = function() {
- var item, auth_user, url_api;
-  url_api = String('https://my-api-strapi.herokuapp.com/users');
-  auth_user = null;
-  this.cronapi.util.getURLFromOthers('POST', 'application/x-www-form-urlencoded', url_api, null, [String('username') + String(this.cronapi.screen.getValueOfField("User.active.login")), String('Password') + String(this.cronapi.screen.getValueOfField("User.active.password"))], function(sender_item) {
+ var item, url_api, auth_user;
+  this.cronapi.screen.showLoading();
+  auth_user = String('https://my-api-strapi.herokuapp.com/auth/local');
+  this.cronapi.util.getURLFromOthers('POST', 'application/x-www-form-urlencoded', auth_user, this.cronapi.object.createObjectFromString(['{ \"identifier\": \"',this.cronapi.screen.getValueOfField("User.active.login"),'\" , \"password\": \"',this.cronapi.screen.getValueOfField("User.active.password"),'\" } '].join('')), null, function(sender_item) {
       item = sender_item;
-    console.log(item);
   }.bind(this), function(sender_item) {
       item = sender_item;
   }.bind(this));
+  console.log(auth_user);
 }

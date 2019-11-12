@@ -12,12 +12,22 @@ var cronappModules = [
     'ngFileUpload',
     'angularMoment',
     'upload.services',
+    'ngAria'
 ];
 
 if (window.customModules) {
     cronappModules = cronappModules.concat(window.customModules);
 }
 
+window.paceOptions = {
+  document: true,
+  eventLag: true,
+  restartOnPushState: true,
+  restartOnRequestAfter: true,
+  ajax: {
+    trackMethods: [ "PUT", "POST" , "GET"]
+  }
+};
 
 var app = (function() {
 
@@ -87,7 +97,7 @@ var app = (function() {
                                     let $state = $injector.get('$state');
                                     let $http = $injector.get('$http');
                                     let Notification = $injector.get('Notification');
-                                    $rootScope.refreshToken(Notification, $http, ()=>{}, ()=>{
+                                    window.refreshToken(Notification, $http, ()=>{}, ()=>{
                                         localStorage.removeItem("_u")
                                         $state.go("login");
                                     });
@@ -256,6 +266,9 @@ var app = (function() {
 
             tmhDynamicLocaleProvider.localeLocationPattern('plugins/angular-i18n/angular-locale_{{locale}}.js');
         })
+        .config(function($sceProvider) {
+          $sceProvider.enabled(false);
+        })
 
         .directive('crnValue', ['$parse', function($parse) {
             return {
@@ -309,7 +322,14 @@ var app = (function() {
             }
         ])
 
-        .run(function($rootScope, $state) {
+        .run(function($rootScope, $state, $stateParams, $timeout) {
+          // It's very handy to add references to $state and $stateParams to the $rootScope
+          // so that you can access them from any scope within your applications.For example,
+          // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+          // to active whenever 'contacts.list' or one of its decendents is active.
+          $rootScope.$state = $state;
+          $rootScope.$stateParams = $stateParams;
+
             $rootScope.$on('$stateChangeError', function() {
                 if (arguments.length >= 6) {
                     var requestObj = arguments[5];
@@ -323,9 +343,17 @@ var app = (function() {
                     $state.go('404');
                 }
             });
-            $rootScope.$on('$stateChangeSuccess', function() {
-                setTimeout(function() {
+            $rootScope.$on('$stateChangeSuccess', function(event, currentRoute, previousRoute) {
 
+              $timeout(() => {
+                let ionViewTitle = $('ion-view ion-header-bar .title').last().text();
+                let splitedHash = window.location.hash ? window.location.hash.split('\/') : null;
+                let pageName = splitedHash?splitedHash[splitedHash.length-1]:null;
+                let prettyPageName = window.camelCaseToSentenceCase(window.toCamelCase(pageName));
+                $rootScope.ionViewTitle = ionViewTitle || prettyPageName || currentRoute.name;
+              });
+
+                setTimeout(function() {
                     $($('.icon.ion-plus-round').parent()).off('click');
                     $($('.icon.ion-plus-round').parent()).on('click',function() {
                         $('[required]').removeClass('input-validation-error');
@@ -501,4 +529,47 @@ window.safeApply = function(fn) {
     } else {
         this.$apply(fn);
     }
+};
+
+window.toCamelCase = function(str) {
+  // Lower cases the string
+  return str.toLowerCase()
+  // Replaces any - or _ or . characters with a space
+    .replace( /[-_\.]+/g, ' ')
+    // Removes any non alphanumeric characters
+    .replace( /[^\w\s]/g, '')
+    // Uppercases the first character in each group immediately following a space
+    // (delimited by spaces)
+    .replace( / (.)/g, function($1) { return $1.toUpperCase(); })
+    // Removes spaces
+    .replace( / /g, '' );
+};
+
+window.camelCaseToSentenceCase = function(str){
+  let result = str.replace( /([A-Z])/g, " $1" );
+  return result.charAt(0).toUpperCase() + result.slice(1); // capitalize the first letter - as an example.
+};
+
+// refresh token
+window.refreshToken = function(Notification, $http, success, err) {
+  if(window.hostApp) {
+    $http({
+      method: 'GET',
+      url: window.hostApp + 'auth/refresh'
+    }).success(function (data, status, headers, config) {
+      // Store data response on local storage
+      console.log('revive :', new Date(data.expires));
+      localStorage.setItem("_u", JSON.stringify(data));
+      // Recussive
+      setTimeout(function () {
+        window.refreshToken(Notification, $http, success, err);
+        // refresh time
+      }, (1800 * 1000));
+      success();
+    }).error(function () {
+      err();
+    });
+  }else{
+    Notification.error("HostApp is required to refresh token!");
+  }
 };

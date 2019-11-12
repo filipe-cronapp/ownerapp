@@ -14,15 +14,18 @@
          &nbsp; 
       </div> 
       <img src="img/iconfinder_Coconut_52365.png" class="component-holder center-block" style="" xattr-position="center-block" data-component="crn-image" id="crn-image-303569"> 
-      <div class="card component-holder" data-component="crn-card" id="crn-card-371352"> 
-        <div class="item item-text-wrap"> 
-          
-          <ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010" ng-repeat="produto in listadeprodutos" ng-model="listadeprodutos">
-             - {{produto.nome}} de {{produto.sabor}} | R$:{{produto.preco}} 
+      <h2 xattr-position="text-center" class="text-center component-holder" data-component="crn-label" id="crn-label-333159">{{produto.nome}}</h2> 
+      <div class="card component-holder" data-component="crn-card" id="crn-card-371352" ng-repeat="produto in listadeprodutos" ng-model="listadeprodutos"> 
+        <div class="item item-text-wrap" ng-click="cronapi.client('js.blockly.DelProd.delete').run()"> 
+          <h2 xattr-position="text-center" class="component-holder text-center" data-component="crn-label" id="crn-label-6961" ng-model="textIDprod15701">{{produto.id}}</h2><h2 xattr-position="text-center" class="component-holder text-center" data-component="crn-label" id="crn-label-751126">{{produto.nome}}</h2><h2 xattr-position="text-center" class="component-holder text-center" data-component="crn-label" id="crn-label-22471">R$ {{produto.preco}}</h2>
+          <ion-item class="item dark text-left component-holder" xattr-theme="dark" xattr-text-position="text-left" data-replace="true" data-component="crn-list-item" id="crn-list-item-398010" ng-show="false">
+             {{produto.id}} {{produto.nome}} de {{produto.sabor}} | R$:{{produto.preco}} 
             <!-- Qt:{{produto.quantidade}} --> 
           </ion-item> 
         </div> 
-      </div><button class="button button-block component-holder button-energized" type="submit" xattr-fullsize="button-block" xattr-theme="button-energized" ng-click="cronapi.screen.changeView('#/app/logged/produto', [])" data-component="crn-button" id="crn-button-994860"><i class="ion ion-home"></i> <span>Produto</span></button> 
+      </div> 
+      <button class="button button-block component-holder button-energized" type="submit" xattr-fullsize="button-block" xattr-theme="button-energized" ng-click="cronapi.screen.changeView('#/app/logged/produto', [])" data-component="crn-button" id="crn-button-994860"><i class="ion ion-home"></i> <span>Produto</span></button> 
+      <button class="button button-block button-positive component-holder" type="submit" xattr-fullsize="button-block" xattr-theme="button-positive" ng-click="cronapi.screen.changeView('#/app/logged/home2', [])" data-component="crn-button" id="crn-button-561700"><i class="ion ion-home"></i> <span>Button </span></button> 
     </ion-content> 
   </ion-view> 
 </div>

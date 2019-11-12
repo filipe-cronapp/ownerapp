@@ -164,3 +164,7 @@ img.user-avatar {
 .modal{
   z-index: 10020;
 }
+
+a {
+  cursor: pointer;  
+}

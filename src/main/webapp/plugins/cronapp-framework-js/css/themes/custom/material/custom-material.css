@@ -14,12 +14,29 @@ button.btn-default:hover{
 	color:rgb(255, 230, 0) !important;
 }
 
+.k-grid-header .k-header:focus, .k-grid-header .k-header a.k-link:focus {
+    color: rgb(255, 229, 0) !important;
+    opacity: 1;
+}
+
 .k-grid-header .k-header, .k-grid-header .k-header a.k-link {
     color: white !important;
 }
 
 .k-grid-header .k-header:hover, .k-grid-header .k-header:hover a{
     color:rgb(255, 230, 0) !important;
+}
+
+.k-pager-wrap .k-link:focus, .k-pager-wrap .k-pager-nav:focus{
+    background-color:rgba(0,0,0,.07)
+}
+
+.k-link.k-pager-nav {
+    color: #000 !important;
+}
+
+.k-grid-header .k-grid-filter:focus {
+    color: rgb(255, 229, 0) !important;
 }
 
 .k-grid th {
@@ -73,7 +90,7 @@ a.k-link {
     justify-content: center;
     position: absolute;
     top: 5px;
-    color: #7078a9;
+    color: #b2b3b9;
     right: 5px;
     bottom: calc(8px + .28571429em);
     z-index: 1;
@@ -203,7 +220,7 @@ input:-webkit-autofill:focus {
 
 .btn-danger {
     color: #fff !important;
-    background-color: #d9534f !important;
+    background-color: #ce3a36 !important;
 }
 
 .form-control {
@@ -286,7 +303,7 @@ Material Grid
 
 
 .k-grid tbody .k-button:hover {
-    background-color:#008dcd;
+    background-color: #0470a0;
     color:#ffffff;
 }
 
@@ -384,7 +401,7 @@ k-grid-header .k-header>.k-link {
     -ms-flex: 1;
     flex: 1;
     font-weight: normal;
-    color: #686868;
+    color: #000;
 }
 
 .k-button.k-primary, .k-slider .k-draghandle, .k-switch-on .k-switch-handle {
@@ -580,7 +597,7 @@ Material Grid - F I N A L
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-    color: #ffffff;
+    color: #a9a9a9;
     background-color: transparent;
 }
 
@@ -941,4 +958,20 @@ cron-scheduler a.k-link {
 .k-scheduler-refresh{
     right: 10px;
     position: relative;
+}
+
+.k-dropdown-wrap .k-select {
+    opacity: 1;
+}
+
+.k-dropdown-wrap {
+    border-color: #000;
+}
+
+.k-pager-sizes.k-label {
+    color: #000;
+}
+
+.k-pager-info.k-label {
+    color: #000;
 }

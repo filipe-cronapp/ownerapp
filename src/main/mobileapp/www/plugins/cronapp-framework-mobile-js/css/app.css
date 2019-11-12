@@ -887,7 +887,7 @@ body {
 
 .user-button:hover {
     transition: 400ms;
-    border: 1px solid #008ad0;
+    border: 1px solid #1d4f9e;
 }
 
 .login-bg {
@@ -901,7 +901,7 @@ body {
 }
 
 .menu-view {
-    background-color: #0087d4;
+    background-color: #1d4f9e;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
@@ -926,9 +926,9 @@ body {
 }
 
 .menu-view .bar.bar-positive, .login-bg .bar.bar-positive {
-    border-color: #008ad0;
-    background-color: #008ad0;
-    background-image: linear-gradient(0deg, #008ad0, #008ad0 50%, transparent 50%);
+    border-color: #1d4f9e;
+    background-color: #1d4f9e;
+    background-image: linear-gradient(0deg, #1d4f9e, #1d4f9e 50%, transparent 50%);
     color: #fff;
 }
 
@@ -1086,7 +1086,7 @@ div.nav > a.item-avatar-left > div.item-content {
 
 
 .login-mobile .button.button-positive {
-    border-color: #008ad0;
+    border-color: #1d4f9e;
     background-color: transparent;
     color: #fff;
     border-radius: 2px;
@@ -1100,7 +1100,6 @@ div.nav > a.item-avatar-left > div.item-content {
     padding: 0;
     border: 1px solid #ffffff!important;
     text-transform: uppercase;
-    font-size: 10px;
     letter-spacing: 6px;
 }
 
@@ -1151,7 +1150,7 @@ div.nav > a.item-avatar-left > div.item-content {
 .menu-view .button.button-positive, .login-bg .button.button-positive {
     border-color: #ffffff;
     background-color: #ffffff;
-    color: #008ad0;
+    color: #1d4f9e;
     border-radius: 7px;
     transition: 400ms;
 }
@@ -1165,7 +1164,7 @@ div.nav > a.item-avatar-left > div.item-content {
 }
 
 .button.button-positive:hover {
-    border-color: #008ad0;
+    border-color: #1d4f9e;
     background-color: #122153;
     color: #ffffff;
     border-radius: 2px;
@@ -1303,4 +1302,12 @@ div.nav > a.item-avatar-left > div.item-content {
 .checkbox-dark input[indeterminate="true"]:disabled:not(:checked):before{
     background: #ddd;
     border-color: #ddd;
+}
+
+/*
+ * Thi class was intended to be used only for Screen Readers
+ * Please, search for .sr-only on Bootstrap docs
+ */
+.sr-only{
+    display: none !important;
 }

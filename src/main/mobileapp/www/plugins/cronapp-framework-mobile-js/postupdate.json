@@ -82,6 +82,12 @@
     },
     {
       "file": "index.html",
+      "script": "plugins/angular-aria/angular-aria.min.js",
+      "type": "script",
+      "onTop": true
+    },
+    {
+      "file": "index.html",
       "script": "plugins/cronapp-framework-mobile-js/lib/ionic/js/ionic.bundle.js",
       "type": "script",
 	  "onTop": true
@@ -127,6 +133,11 @@
     {
       "file": "index.html",
       "script": "plugins/cronapp-framework-mobile-js/dist/js/upload.service.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "plugins/pace/pace.min.js",
       "type": "script"
     },
     {

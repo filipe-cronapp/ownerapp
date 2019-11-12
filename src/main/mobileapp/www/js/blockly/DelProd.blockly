@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><blockly audit="false" bpmnAble="false" formTarget="src/main/mobileapp/www/views/logged/home.view.html" resourceType="JS" ruleDescription="DelProd" ruleName="DelProd" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
+  <metadata scale="1" scrollx="484.4000000000002" scrolly="-70.70000000000007" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-350" y="130">
+    <field name="NAME">delete</field>
+    <comment h="80" pinned="false" w="160">DelProd</comment>
+    <statement name="STACK">
+      <block colour="#487f7f" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="J3]TpjidtMJhJ~Jr]?YT" multilayer="false" namespace="cronapi.util.getURLFromOthers" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20conte%C3%BAdo%20da%20URL%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20realiza%20uma%20requisi%C3%A7%C3%A3o%20%C3%A0%20uma%20URL%20e%20obt%C3%A9m%20o%20conte%C3%BAdo%20de%20resposta%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20M%C3%A9todo%20da%20requisi%C3%A7%C3%A3o%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20M%C3%A9todo%20da%20requisi%C3%A7%C3%A3o%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20URL%20address%20:%20Texto%3C/span%3E%3Cdiv%3E%20A%20complete%20URL%20addres.%20Example:%20https://www.cronapp.io%3C/div%3E%3Cspan%3E%20-%20Param%C3%AAtros%20:%20Objeto%3C/span%3E%3Cdiv%3E%20Param%C3%AAtros%20a%20serem%20passados,%20para%20URL_ENCODED%20passar%20um%20mapa,%20para%20JSON,%20passar%20JSON%3C/div%3E%3Cspan%3E%20-%20Cabe%C3%A7alho%20de%20requisi%C3%A7%C3%A3o%20:%20Objeto%3C/span%3E%3Cdiv%3E%20Mapa%20com%20cabe%C3%A7alho%20de%20requisi%C3%A7%C3%A3o%20a%20ser%20adicionado%20na%20requisi%C3%A7%C3%A3o.%20Exemplo:%20Token.%3C/div%3E%3Cspan%3E%20-%20Sucesso%20:%20Envio%20de%20comandos%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Erro%20:%20Envio%20de%20comandos%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.util.getURLFromOthers%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.util.getURLFromOthers%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+        <mutation name="{{cronapi.util.getURLFromOthers}}" return-raw-type="undefined">
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.STRING" name="Método da requisição"/>
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.STRING" name="Método da requisição"/>
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.STRING" name="URL address"/>
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.OBJECT" name="Paramêtros"/>
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.OBJECT" name="Cabeçalho de requisição"/>
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.STATEMENTSENDER" name="Sucesso"/>
+          <arg cronapi-raw-type="undefined" cronapi-type="ObjectType.STATEMENTSENDER" name="Erro"/>
+        </mutation>
+        <field name="VAR_SENDERARG5">item</field>
+        <field name="VAR_SENDERARG6">item</field>
+        <value name="ARG0">
+          <block colour="#487f7f" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=";;I]~53XlESvmUms!@Cp" origintype="util_dropdown" output="true" type="util_dropdown">
+            <mutation>
+              <arg name="GET" value="GET"/>
+              <arg name="POST" value="POST"/>
+              <arg name="PUT" value="PUT"/>
+              <arg name="DELETE" value="DELETE"/>
+              <arg name="PATCH" value="PATCH"/>
+              <arg name="HEAD" value="HEAD"/>
+              <arg name="OPTIONS" value="OPTIONS"/>
+              <arg name="TRACE" value="TRACE"/>
+            </mutation>
+            <field name="SELECT">GET</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block colour="#487f7f" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="E]oe4o-vXgf|lF5D|1_#" origintype="util_dropdown" output="true" type="util_dropdown">
+            <mutation>
+              <arg name="application/x-www-form-urlencoded" value="application/x-www-form-urlencoded"/>
+              <arg name="application/json" value="application/json"/>
+            </mutation>
+            <field name="SELECT">application/x-www-form-urlencoded</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="mo2#,_.b*jx?bb:sciD%" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+            <field name="TEXT">https://my-api-strapi.herokuapp.com/produtos</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+</blockly>

@@ -4,7 +4,7 @@
 	   RadioGroup : {{datasource.active}}
 	</div> 
 	<label class="item item-radio ng-not-empty ng-valid" ng-repeat="rowData in datasource.data"> 
-	<input type="radio" ng-model="datasource.active" ng-value="rowData.key" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" style="">
+	<input aria-label="Aria Label Text" type="radio" ng-model="datasource.active" ng-value="rowData.key" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" style="">
 	  <div class="radio-content">
 		<div class="item-content disable-pointer-events">
 		  <span class="ng-binding">{{rowData.value}}</span>

@@ -1,30 +1,6 @@
 (function($app) {
     angular.module('custom.controllers', []);
 
-    // refresh token
-    let refreshToken = function(Notification, $http, success, err) {
-        if(window.hostApp) {
-            $http({
-                method: 'GET',
-                url: window.hostApp + 'auth/refresh'
-            }).success(function (data, status, headers, config) {
-                // Store data response on local storage
-                console.log('revive :', new Date(data.expires));
-                localStorage.setItem("_u", JSON.stringify(data));
-                // Recussive
-                setTimeout(function () {
-                    refreshToken(Notification, $http, success, err);
-                    // refres time
-                }, (1800 * 1000));
-                success();
-            }).error(function () {
-                err();
-            });
-        }else{
-            Notification.error("HostApp is required to refresh token!");
-        }
-    };
-
     app.controller('LoginController', [
         '$scope',
         '$http',
@@ -41,7 +17,7 @@
         function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal) {
 
             // Make refreshToken method available on $rootScope
-            $rootScope.refreshToken = refreshToken;
+            $rootScope.refreshToken = window.refreshToken;
 
             app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
             $rootScope.http = $http;
@@ -62,7 +38,7 @@
 
             $scope.autoLogin = function(){
                 if(localStorage.getItem('_u')){
-                    refreshToken(Notification, $http, function(){
+                    window.refreshToken(Notification, $http, function(){
                         $state.go('app.home');
                     }, function(){
                         localStorage.removeItem('_u');
@@ -78,7 +54,6 @@
                 $scope.message.error = undefined;
 
                 if(window.hostApp) {
-                    this.cronapi.screen.showLoading();
                     $http({
                         method : 'POST',
                         url : window.hostApp + 'auth',
@@ -112,10 +87,6 @@
                 // Redirect to home page
                 $state.go("app.home");
 
-                $timeout(function() {
-                    $ionicLoading.hide();
-                },500);
-
               // Verify if the 'onLogin' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
               if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.onLogin && $scope.blockly.events.onLogin instanceof Function) {
                 $scope.blockly.events.onLogin();
@@ -127,8 +98,6 @@
                 if (!error) {
                     error = $translate.instant('General.ErrorNotSpecified');
                 }
-                console.log(error);
-                $ionicLoading.hide();
                 Notification.error(error);
             }
 
@@ -200,7 +169,7 @@
                 // we must send back to login page
                 // TODO - REVISAR login oauth2
             }else {
-                if ($rootScope.session.token) refreshToken(Notification, $http, function(){},  $rootScope.logout);
+                if ($rootScope.session.token) window.refreshToken(Notification, $http, function(){},  $rootScope.logout);
             }
 
           try {

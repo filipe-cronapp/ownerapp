@@ -172,9 +172,6 @@ angular.module('datasourcejs', [])
             rawData: (object) ? cloneObject : null
           }).success(function(data, status, headers, config) {
             _self.busy = false;
-            if(_self.$scope.$ionicLoading) {
-              _self.$scope.$ionicLoading.hide();
-            }
             if (_callback) {
               if (_self.isOData()) {
                 if (data.d != null && data.d.result != null) {
@@ -201,9 +198,6 @@ angular.module('datasourcejs', [])
             }
           }).error(function(data, status, headers, config) {
             _self.busy = false;
-            if(_self.$scope.$ionicLoading) {
-              _self.$scope.$ionicLoading.hide();
-            }
             var msg;
             if (_self.isOData()) {
               msg = data.error.message.value;
@@ -217,21 +211,6 @@ angular.module('datasourcejs', [])
           });
 
           this.$promise.then = function(callback) {
-            if(_self.$scope.$ionicLoading) {
-              var data = (object) ? cloneObject : null;
-              for (var key in data) {
-                if (_self.$scope.cronapi.internal.isBase64(data[key])) {
-                  _self.$scope.$ionicLoading.show({
-                    content: 'Loading',
-                    animation: 'fade-in',
-                    showBackdrop: true,
-                    maxWidth: 200,
-                    showDelay: 0
-                  });
-                  break;
-                }
-              }
-            }
             _callback = callback;
             return this;
           }
